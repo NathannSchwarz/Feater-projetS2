@@ -101,7 +101,7 @@ function closeMenu() {
             </ul>
 
             <RouterLink to="/">
-                <VectorMenuIcon class="absolute top-0 scale-[100%]"/>
+                <VectorMenuIcon class="absolute top-2 scale-[100%]"/>
             </RouterLink>
         </nav>
     </div>
