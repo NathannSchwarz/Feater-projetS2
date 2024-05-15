@@ -10,7 +10,7 @@ import { RouterLink } from 'vue-router'
 import { ref } from 'vue'
 
 // Créer une référence réactive pour suivre l'état du menu
-const activeMenu = ref(true)
+const activeMenu = ref(false)
 
 function closeMenu() {
   activeMenu.value = false
