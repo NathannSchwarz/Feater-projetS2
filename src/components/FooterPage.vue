@@ -7,7 +7,7 @@ import TwitterIcon from '@/components/icons/IconTwitter.vue'
 import { RouterLink } from 'vue-router'
 </script>
 <template>
-  <footer class="relative w-full bottom-0 grille space-y-6 bg-black py-16 px-6 text-white lg:space-y-0">
+  <footer class="relative w-full bottom-0 grille space-y-6 mb-20 bg-black py-16 px-6 text-white lg:space-y-0">
     <div class="flex justify-between w-full">
       <LogowhiteIcon />
 
