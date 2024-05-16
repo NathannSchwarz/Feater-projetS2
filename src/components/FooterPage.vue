@@ -12,7 +12,9 @@ import { RouterLink } from 'vue-router'
       <LogowhiteIcon />
 
       <nav class="space-y-6 text-right lg:col-span-3 lg:col-start-7">
+
         <h4 class="font-bold uppercase">Organisation</h4>
+
         <ul class="text-sm font-light space-y-2">
           <li><RouterLink to="/events">Conditions générales</RouterLink></li>
           <li><RouterLink to="/contact">Politiques de confidentialité</RouterLink></li>
@@ -26,16 +28,16 @@ import { RouterLink } from 'vue-router'
           <h4 class=" font-bold uppercase">Nous suivre</h4>
           <ul class="flex justify-end gap-4 ">
             <li>
-              <a href="https://facebook.com" aria-label="facebook"><FacebookIcon /></a>
+              <a href="https://facebook.com" target="_blank" aria-label="facebook"><FacebookIcon /></a>
             </li>
             <li>
-              <a href="https://instagram.com" aria-label="instagram"><InstagramIcon /></a>
+              <a href="https://instagram.com" target="_blank" aria-label="instagram"><InstagramIcon /></a>
             </li>
             <li>
-              <a href="https://twitter.com" aria-label="twitter"><TwitterIcon /></a>
+              <a href="https://twitter.com" target="_blank" aria-label="twitter"><TwitterIcon /></a>
             </li>
             <li>
-              <a href="https://youtube.com" aria-label="youtube"><YoutubeIcon /></a>
+              <a href="https://youtube.com" target="_blank" aria-label="youtube"><YoutubeIcon /></a>
             </li>
           </ul>
         </div>
