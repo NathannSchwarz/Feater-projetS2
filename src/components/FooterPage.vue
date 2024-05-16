@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import LogowhiteIcon from '@/components/icons/Iconlogowhite.vue'
+import YoutubeIcon from '@/components/icons/IconYoutube.vue'
+import FacebookIcon from '@/components/icons/IconFacebook.vue'
+import InstagramIcon from '@/components/icons/IconInstagram.vue'
+import TwitterIcon from '@/components/icons/IconTwitter.vue'
 import { RouterLink } from 'vue-router'
 </script>
 <template>
@@ -7,9 +11,9 @@ import { RouterLink } from 'vue-router'
     <div class="flex justify-between w-full">
       <LogowhiteIcon />
 
-      <nav class="space-y-8 text-right lg:col-span-3 lg:col-start-7">
+      <nav class="space-y-6 text-right lg:col-span-3 lg:col-start-7">
         <h4 class="font-bold uppercase">Organisation</h4>
-        <ul class="space-y-2">
+        <ul class="text-sm font-light space-y-2">
           <li><RouterLink to="/events">Conditions générales</RouterLink></li>
           <li><RouterLink to="/contact">Politiques de confidentialité</RouterLink></li>
           <li><RouterLink to="/contact">Données Personelles</RouterLink></li>
@@ -18,9 +22,9 @@ import { RouterLink } from 'vue-router'
           <li><RouterLink to="/contact">Langue</RouterLink></li>
         </ul>
 
-        <div class="space-y-3 lg:col-span-3 lg:col-start-10">
-          <h4 class="font-bold uppercase">Nous suivre</h4>
-          <ul class="flex gap-4">
+        <div class="space-y-6 lg:col-span-3 lg:col-start-10">
+          <h4 class=" font-bold uppercase">Nous suivre</h4>
+          <ul class="flex justify-end gap-4 ">
             <li>
               <a href="https://facebook.com" aria-label="facebook"><FacebookIcon /></a>
             </li>
