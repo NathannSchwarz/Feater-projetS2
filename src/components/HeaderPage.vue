@@ -19,48 +19,43 @@ function closeMenu() {
 
 <template>
 
-  <header class="px-6 py-16 bg-white fixed z-10 w-screen flex items-stretch justify-between lg:py-0">
-    
-        <div  >
+  <header class="relative top-0 left-0 w-full flex items-center justify-between text-white z-30 ">
+    <!-- Div pour le logo et les boutons -->
+    <div :class="{'bg-red-600 z-10': activeMenu, }" class=" flex justify-between items-center w-full shadow-xl  py-10 p-6">
+      <div>
 
-            <RouterLink to="/" class="relative z-10" >
+        <RouterLink to="/" class="relative z-10">
+          <template v-if="activeMenu">
+            <LogowhiteIcon />
+          </template>
+          <template v-else>
+            <LogoIcon />
+          </template>
+        </RouterLink>
+      </div>
 
-                <template v-if="activeMenu" >
-                    <LogowhiteIcon /> 
-                </template>
+      <div class="flex items-center gap-5">
 
-                <template v-else>
-                    <LogoIcon />        
-                </template>
+        <button class="z-10">
+          <template v-if="activeMenu">
+            <SearchwhiteIcon />
+          </template>
+          <template v-else>
+            <SearchIcon />
+          </template>
+        </button>
 
-            </RouterLink>
-        </div>
+        <button
+          class="relative z-10 flex h-5 w-6 flex-col justify-between *:h-[4px] *:w-full *:bg-black *:transition-all *:duration-300 *:ease lg:hidden"
+          @click="activeMenu = !activeMenu">
+          <div :class="{'translate-y-[8px] rotate-45 !bg-white': activeMenu}" class="rounded"></div>
+          <div :class="{'opacity-0 !bg-white': activeMenu}" class="rounded"></div>
+          <div :class="{'-translate-y-[8px] -rotate-45 !bg-white': activeMenu}" class="rounded"></div>
+        </button>
+      </div>
+    </div>
 
-        <div class="flex gap-6 lg:flex-row-reverse">
-
-            <div class="flex items-center gap-4 ">
-
-                <button class="z-10">
-
-                    <template v-if="activeMenu">
-                        <SearchwhiteIcon /> 
-                    </template>
-
-                    <template v-else>  
-                        <SearchIcon />        
-                    </template>
-                </button>
-
-                <button
-                    class="relative z-10 flex h-5 w-6 flex-col justify-between *:h-[4px]  *:w-full *:bg-black *:transition-all *:duration-300 *:ease lg:hidden"
-                    @click="activeMenu = !activeMenu">
-                    
-                    <div :class="{ 'translate-y-[8px] rotate-45 !bg-white' : activeMenu}" class="rounded "></div>
-                    <div :class="{ 'opacity-0 !bg-white ': activeMenu  }" class="rounded "></div>
-                    <div :class="{ '-translate-y-[8px] -rotate-45 !bg-white ' : activeMenu  }" class="rounded "></div>
-                </button>
-
-            </div>
+    <div class="flex gap-6 lg:flex-row-reverse ">
 
             <nav
                 class=" invisible fixed inset-0  text-white bg-red-600 text-xl opacity-0 transition-all duration-300 ease-in-out lg:visible lg:relative lg:flex lg:items-center lg:bg-transparent lg:text-sm lg:font-bold lg:uppercase lg:tracking-wide lg:text-black lg:opacity-100"
@@ -105,5 +100,8 @@ function closeMenu() {
             </RouterLink>
         </nav>
     </div>
+    
   </header>
+
+  
 </template>
