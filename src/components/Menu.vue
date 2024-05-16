@@ -11,7 +11,7 @@ import { RouterLink } from 'vue-router'
 
 <template>
 
-    <nav >
+    <nav>
         <ul class="sticky flex justify-around bg-white p-5 bottom-0 z-20 w-full">
 
                 <div class="flex flex-col items-center justify-between">
