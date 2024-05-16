@@ -41,5 +41,7 @@ import { RouterLink } from 'vue-router'
         </div>
       </nav>
     </div>
+
+    <p class="text-xs font-thin text-center pt-12">© 2023 - 2024 Feater Inc.</p>
   </footer>
 </template>

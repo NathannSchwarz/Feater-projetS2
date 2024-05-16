@@ -19,7 +19,7 @@ function closeMenu() {
 
 <template>
 
-  <header class="relative top-0 left-0 w-full flex items-center justify-between text-white z-30 ">
+  <header class="sticky top-0 left-0 w-full flex items-center justify-between text-white z-30 ">
     <!-- Div pour le logo et les boutons -->
     <div :class="{'bg-red-600 z-10': activeMenu, }" class=" flex justify-between items-center w-full shadow-xl  py-10 p-6">
       <div>
@@ -65,30 +65,30 @@ function closeMenu() {
 
             <ul class="mt-[25vh] mx-10 lg:m-0 lg:flex relative z-20">
             <li class="menu-item">
-                <RouterLink class="menu-link" to="/conservatoire" @click="closeMenu"
+                <RouterLink class="menu-link" to="/#" @click="closeMenu"
                 >Accueil</RouterLink
                 >
             </li>
             <li class="menu-item">
-                <RouterLink class="menu-link" to="/conservatoire" @click="closeMenu"
+                <RouterLink class="menu-link" to="/#" @click="closeMenu"
                 >Activité</RouterLink
                 >
             </li>
             <li class="menu-item">
-                <RouterLink class="menu-link" to="/enseignements" @click="closeMenu"
+                <RouterLink class="menu-link" to="/#" @click="closeMenu"
                 >Coaching</RouterLink
                 >
             </li>
             <li class="menu-item">
-                <RouterLink class="menu-link" to="/events" @click="closeMenu">Message</RouterLink>
+                <RouterLink class="menu-link" to="/#" @click="closeMenu">Message</RouterLink>
             </li>
             <li class="menu-item">
-                <RouterLink class="menu-link" to="/contact" @click="closeMenu">Carte</RouterLink>
+                <RouterLink class="menu-link" to="/#" @click="closeMenu">Carte</RouterLink>
             </li>
             <li class="menu-item">
                 <RouterLink
                 class="menu-link lg:bg-black lg:text-white lg:px-8"
-                to="/inscription"
+                to="/#"
                 @click="closeMenu"
                 >Abonnement</RouterLink
                 >
