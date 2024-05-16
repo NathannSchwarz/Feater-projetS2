@@ -19,12 +19,12 @@ function closeMenu() {
 
 <template>
 
-  <header class="sticky top-0 left-0 w-full flex items-center justify-between text-white z-30 ">
+  <header class="sticky bg-white top-0 left-0 w-full  z-30 flex items-center justify-between text-white">
     <!-- Div pour le logo et les boutons -->
-    <div :class="{'bg-red-600 z-10': activeMenu, }" class=" flex justify-between items-center w-full shadow-xl  py-10 p-6">
+    <div :class="{'bg-red-600 z-10': activeMenu, }" class=" flex justify-between items-center w-full shadow-xl py-10 p-6">
       <div>
 
-        <RouterLink to="/" class="relative z-10">
+        <RouterLink to="/">
           <template v-if="activeMenu">
             <LogowhiteIcon />
           </template>
@@ -58,7 +58,7 @@ function closeMenu() {
     <div class="flex gap-6 lg:flex-row-reverse ">
 
             <nav
-                class=" invisible fixed inset-0  text-white bg-red-600 text-xl opacity-0 transition-all duration-300 ease-in-out lg:visible lg:relative lg:flex lg:items-center lg:bg-transparent lg:text-sm lg:font-bold lg:uppercase lg:tracking-wide lg:text-black lg:opacity-100"
+                class="invisible fixed inset-0  text-white bg-red-600 text-xl opacity-0 transition-all duration-300 ease-in-out lg:visible lg:relative lg:flex lg:items-center lg:bg-transparent lg:text-sm lg:font-bold lg:uppercase lg:tracking-wide lg:text-black lg:opacity-100"
                 :class="{ '!visible opacity-100': activeMenu }"
                 v-scroll-lock="activeMenu"
             >
