@@ -9,7 +9,7 @@ import CardsAccueil from '@/components/CardsAccueil.vue'
 
     <div class="m-5">
 
-        <div class="bg-red-600 p-4 rounded-xl">
+        <div class="bg-red-600 p-2.5 rounded-xl">
             <h1 class="text-white pb-1">Content de te revoir Fabian !</h1>
             <p class="text-xs font-normal text-white">Tu as déjà fait la rencontre de 1 personnes, continue comme ça, tu es sur la bonne voie !</p>
 
