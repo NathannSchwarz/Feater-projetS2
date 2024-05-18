@@ -7,6 +7,6 @@
 
 <template>
 
-    <h1>Compte</h1>
+    <h1>Activité</h1>
 
 </template>
