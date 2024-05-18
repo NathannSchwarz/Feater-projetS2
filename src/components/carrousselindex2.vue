@@ -7,7 +7,7 @@ import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
 
 <template>
   
-  <nav class="pb-20  ">
+  <nav class="pb-12  ">
         
         <h3 class="pb-2">Activités près de chez vous</h3>
 

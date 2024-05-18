@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router'
 
 <template>
 
-    <nav class="pb-20 ">
+    <nav class="pb-12 ">
         
         <h3 class="pb-2">Coaching</h3>
 

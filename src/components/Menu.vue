@@ -16,7 +16,7 @@ import { RouterLink } from 'vue-router'
 
                 <div class="flex flex-col items-center justify-between">
                     <li >
-                        <RouterLink to="/" >
+                        <RouterLink to="/activité" >
                             
                         <ActivitéIcon />
             
@@ -27,7 +27,7 @@ import { RouterLink } from 'vue-router'
                 </div>
                 <div class="flex flex-col items-center justify-between">
                     <li class="pb-1">
-                        <RouterLink to="/">
+                        <RouterLink to="/carte">
                             
                         <CarteIcon />
             
@@ -38,7 +38,7 @@ import { RouterLink } from 'vue-router'
 
                 <div class="flex flex-col items-center justify-between">
                     <li class="pb-1">
-                        <RouterLink to="/">
+                        <RouterLink to="/message">
                             
                         <MessageIcon />
             
@@ -49,7 +49,7 @@ import { RouterLink } from 'vue-router'
 
                 <div class="flex flex-col items-center justify-between">
                     <li class="pb-1">
-                        <RouterLink to="/">
+                        <RouterLink to="/compte">
                             
                         <CompteIcon />
             
