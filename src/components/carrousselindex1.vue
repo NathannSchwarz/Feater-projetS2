@@ -15,11 +15,11 @@ import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
    
 
 
-    <div class="flex flex-col items-center text-center border rounded-3xl bg-sky-500  mb-4">
+    <div class="w-48 h-48 flex flex-col items-center text-center border rounded-3xl bg-sky-500  mb-4">
 
       <div class="bg-white w-full opacity-70 p-2">
           <p class=" text-sm font-bold  "> Changez de terrain</p>
-          <p class="  text-xs">Sortez de votre zone de confort !</p>
+          <p class=" text-xs">Sortez de votre zone de confort !</p>
       
       </div>
       
