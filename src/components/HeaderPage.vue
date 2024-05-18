@@ -64,28 +64,28 @@ function closeMenu() {
             >
 
             <ul class="mt-[25vh] mx-10 lg:m-0 lg:flex relative z-20">
-            <li class="menu-item">
+            <li class="menu-item pb-6">
                 <RouterLink class="menu-link" to="/#" @click="closeMenu"
                 >Accueil</RouterLink
                 >
             </li>
-            <li class="menu-item">
+            <li class="menu-item pb-6">
                 <RouterLink class="menu-link" to="/#" @click="closeMenu"
                 >Activité</RouterLink
                 >
             </li>
-            <li class="menu-item">
+            <li class="menu-item pb-6">
                 <RouterLink class="menu-link" to="/#" @click="closeMenu"
                 >Coaching</RouterLink
                 >
             </li>
-            <li class="menu-item">
+            <li class="menu-item pb-6">
                 <RouterLink class="menu-link" to="/#" @click="closeMenu">Message</RouterLink>
             </li>
-            <li class="menu-item">
+            <li class="menu-item pb-6">
                 <RouterLink class="menu-link" to="/#" @click="closeMenu">Carte</RouterLink>
             </li>
-            <li class="menu-item">
+            <li class="menu-item pb-6">
                 <RouterLink
                 class="menu-link lg:bg-black lg:text-white lg:px-8"
                 to="/#"
