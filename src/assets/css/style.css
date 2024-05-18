@@ -26,4 +26,12 @@
   main a {
     @apply text-indigo-500;
   }
+
+  .buttoncarrou {
+  background: red;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+}
 }
