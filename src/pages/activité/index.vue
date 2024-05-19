@@ -7,7 +7,7 @@ import CardsActivité from '@/components/CardsActivité.vue'
 
 <template>
 
-    <div class="grille">
+    <nav class="grille">
 
     <h1 class="font-bold text-3xl pb-5">Activité</h1>
 
@@ -59,7 +59,7 @@ import CardsActivité from '@/components/CardsActivité.vue'
         </div>
 
         <div class="flex justify-end -mt-10 mb-12">
-                <button class="bg-red-500 p-1.5 rounded-3xl text-xs font-bold text-white">Voir plus de Sports</button>
+                <button class="bg-black bg-opacity-30 p-1.5 rounded-3xl text-xs font-bold text-white">Voir plus de Sports</button>
             </div>   
 
         
@@ -70,10 +70,10 @@ import CardsActivité from '@/components/CardsActivité.vue'
             </div>
             
             <div class="flex justify-end -mt-10 mb-12 ">
-                <button class="bg-red-500 p-1.5 rounded-3xl text-xs font-bold text-white">Voir plus de Groupes</button>
+                <button class="bg-black bg-opacity-30 p-1.5 rounded-3xl text-xs font-bold text-white">Voir plus de Groupes</button>
             </div>                  
         
         
         
-    </div>
+        </nav>
 </template>

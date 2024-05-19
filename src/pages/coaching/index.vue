@@ -8,7 +8,7 @@ import ShieldIcon from '@/components/icons/IconCoachShield.vue'
 
 <template>
 
-<div class="grille">
+<nav class="grille">
 
     <h1 class="font-bold text-3xl pb-5">Coaching</h1>
 
@@ -38,7 +38,7 @@ import ShieldIcon from '@/components/icons/IconCoachShield.vue'
 
     
 
-</div>
+</nav>
     
 
 </template>
