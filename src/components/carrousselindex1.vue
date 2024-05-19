@@ -23,7 +23,7 @@ import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
       
       </div>
       
-      <img class="h-32" src="/public/img/challenge1.webp"/>
+      <img class="h-32" src="/img/challenge1.webp"/>
 
     </div>
 

@@ -13,7 +13,7 @@ import ShieldIcon from '@/components/icons/IconCoachShield.vue'
     <h1 class="font-bold text-3xl pb-5">Coaching</h1>
 
     <nav>
-        <button class="flex items-center justify-between gap-4 p-3 bg-red-500 rounded-3xl mb-12 w-full">
+        <button class="flex items-center justify-between gap-4 p-3 bg-red-600 rounded-3xl mb-12 w-full">
             <ShieldIcon class="w-20"/>
             <h2 class="font-bold text-xl text-white text-left">Trouvez le coach qu'il vous faut !</h2>
             <flecheIcon class="rotate-180 h-6 w-10"/>
@@ -28,7 +28,7 @@ import ShieldIcon from '@/components/icons/IconCoachShield.vue'
         
         <Carroussel2/>
 
-        <button class="flex items-center justify-around p-5 w-full mb-10 bg-red-500 rounded-3xl ">
+        <button class="flex items-center justify-around p-5 w-full mb-10 bg-red-600 rounded-3xl ">
         
             <h2 class="font-bold text-xl text-white">Devenir Coach !</h2>
             <ShieldIcon class=" h-14 w-14"/>
