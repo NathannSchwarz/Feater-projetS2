@@ -13,7 +13,7 @@ import ShieldIcon from '@/components/icons/IconCoachShield.vue'
     <h1 class="font-bold text-3xl pb-5">Coaching</h1>
 
     <nav>
-        <button class="flex items-center justify-between gap-4 p-3 bg-red-500 rounded-3xl mb-12">
+        <button class="flex items-center justify-between gap-4 p-3 bg-red-500 rounded-3xl mb-12 w-full">
             <ShieldIcon class="w-20"/>
             <h2 class="font-bold text-xl text-white text-left">Trouvez le coach qu'il vous faut !</h2>
             <flecheIcon class="rotate-180 h-6 w-10"/>
