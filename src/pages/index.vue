@@ -9,7 +9,7 @@ import Carroussel2 from '@/components/carrousselindex2.vue'
 
 <template>
 
-    <div class="m-5">
+    <div class="grille">
 
         <div class="bg-red-600 p-2.5 pt-4 pb-4 rounded-2xl">
             <h1 class="text-white pb-1">Content de te revoir Fabian !</h1>

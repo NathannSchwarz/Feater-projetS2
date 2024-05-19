@@ -19,7 +19,7 @@ function closeMenu() {
 
 <template>
 
-  <header class="sticky bg-white top-0 left-0 w-full  z-30 flex items-center justify-between text-white">
+  <header class="sticky bg-white top-0 left-0 w-full  z-30 flex items-center justify-between text-white pb-8">
     <!-- Div pour le logo et les boutons -->
     <div :class="{'bg-red-600 z-10': activeMenu, }" class=" flex justify-between items-center w-full shadow-xl py-2 p-6">
       <div>
@@ -64,28 +64,28 @@ function closeMenu() {
             >
 
             <ul class="mt-[25vh] mx-10 lg:m-0 lg:flex relative z-20">
-            <li class="menu-item pb-6">
+            <li class="menu-item ">
                 <RouterLink class="menu-link" to="/" @click="closeMenu"
                 >Accueil</RouterLink
                 >
             </li>
-            <li class="menu-item pb-6">
+            <li class="menu-item ">
                 <RouterLink class="menu-link" to="/activité" @click="closeMenu"
                 >Activité</RouterLink
                 >
             </li>
-            <li class="menu-item pb-6">
+            <li class="menu-item ">
                 <RouterLink class="menu-link" to="/coaching" @click="closeMenu"
                 >Coaching</RouterLink
                 >
             </li>
-            <li class="menu-item pb-6">
+            <li class="menu-item ">
                 <RouterLink class="menu-link" to="/message" @click="closeMenu">Message</RouterLink>
             </li>
-            <li class="menu-item pb-6">
+            <li class="menu-item ">
                 <RouterLink class="menu-link" to="/carte" @click="closeMenu">Carte</RouterLink>
             </li>
-            <li class="menu-item pb-6">
+            <li class="menu-item ">
                 <RouterLink
                 class="menu-link lg:bg-black lg:text-white lg:px-8"
                 to="/#"
