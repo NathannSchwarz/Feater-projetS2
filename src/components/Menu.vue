@@ -16,48 +16,48 @@ import { RouterLink } from 'vue-router'
     <nav>
         <ul class="fixed grid grid-cols-4 justify-strecth  pt-2 bg-red-600 pb-2 p-4 bottom-0 z-20 w-full">
 
-                <div  class="flex flex-col items-center justify-around p-1.5 text-white "  :class="{ 'bg-white rounded-xl text-red-600': $route.path === '/activité' }" >
-                    <li >
+                <div  class="flex flex-col items-center justify-around p-1.5 text-white "  :class="{ 'bg-white rounded-xl': $route.path === '/activité' }" >
+                    <li class="">
                         <RouterLink to="/activité" >
                             
-                        <ActivitéIcon />
+                        <ActivitéIcon :class="{ ' text-red-600': $route.path === '/activité' }"/>
             
                         </RouterLink>
                     </li>
-                    <p class="text-xs font-base">Activité</p>
+                    <p class="text-xs font-base " :class="{ ' text-red-600': $route.path === '/activité' }">Activité</p>
 
                 </div>
                 <div class="flex flex-col items-center justify-around p-1.5 text-white " :class="{ 'bg-white rounded-xl  text-red-600': $route.path === '/carte' }" >
                     <li>
                         <RouterLink to="/carte">
                             
-                        <CarteIcon />
+                        <CarteIcon :class="{ ' text-red-600': $route.path === '/carte' }"/>
             
                         </RouterLink>
                     </li>
-                    <p class="text-xs font-base">Carte</p>
+                    <p class="text-xs font-base" :class="{ ' text-red-600': $route.path === '/carte' }">Carte</p>
                 </div>
 
                 <div class="flex flex-col items-center justify-around  p-1.5 text-white " :class="{ 'bg-white rounded-xl text-red-600': $route.path === '/message' }">
                     <li>
                         <RouterLink to="/message">
                             
-                        <MessageIcon />
+                        <MessageIcon :class="{ ' text-red-600': $route.path === '/message' }"/>
             
                         </RouterLink>
                     </li>
-                    <p class="text-xs font-base">Message</p>  
+                    <p class="text-xs font-base" :class="{ ' text-red-600': $route.path === '/message' }">Message</p>  
                 </div>
 
                 <div class="flex flex-col items-center justify-around p-1.5  text-white" :class="{'bg-white rounded-xl text-red-600  ': $route.path === '/compte' }">
                     <li>
                         <RouterLink to="/compte">
                             
-                        <CompteIcon />
+                        <CompteIcon :class="{ ' text-red-600': $route.path === '/compte' }"/>
             
                         </RouterLink>
                     </li>   
-                    <p class="text-xs font-base">Compte</p> 
+                    <p class="text-xs font-base" :class="{ ' text-red-600': $route.path === '/compte' }">Compte</p> 
                 </div>
                 
         </ul>
