@@ -24,7 +24,7 @@ import CardsActivité from '@/components/CardsActivité.vue'
 
         <button class="w-full">
 
-            <div class="flex justify-around bg-red-500 p-5 rounded-3xl text-white gap-4 mb-12">
+            <div class="flex justify-around bg-red-500 p-5 rounded-3xl text-white gap-4 mb-10">
                 <img class="rounded-3xl w-32" src="/img/course.webp" alt="Course à pied" />
                 <div class="flex flex-col justify-between">
                     <div class="text-left">
@@ -43,11 +43,11 @@ import CardsActivité from '@/components/CardsActivité.vue'
 
          
 
-        <div class="flex justify-around gap-3 pb-12">
-            <button class="bg-red-600 text-white font-bold text-base p-2  rounded-3xl">
+        <div class="flex justify-around gap-3 pb-10">
+            <button class="bg-red-600 text-white font-bold text-base p-2 px-3  rounded-3xl">
                 Créer un groupe 
             </button>
-            <button class="bg-red-600 text-white font-bold text-base p-2 rounded-3xl">
+            <button class="bg-red-600 text-white font-bold text-base p-2 px-3 rounded-3xl">
                 Créer un Activité
             </button>
         </div>
