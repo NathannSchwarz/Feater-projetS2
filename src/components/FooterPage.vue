@@ -9,8 +9,7 @@ import { RouterLink } from 'vue-router'
 <template>
   <footer class="relative w-full bottom-0 grille space-y-6 mb-16 bg-black py-16 px-6 text-white lg:space-y-0">
     <div class="flex justify-between w-full">
-      <LogowhiteIcon />
-
+      <RouterLink to="/"> <LogowhiteIcon /> </RouterLink>  
         <nav class="space-y-6 text-right lg:col-span-3 lg:col-start-7">
 
             <h4 class="font-bold uppercase">Organisation</h4>
