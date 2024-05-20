@@ -22,7 +22,8 @@ function closeMenu() {
   <header class="sticky bg-white top-0 left-0 w-full  z-30 flex items-center justify-between text-white mb-8">
     <!-- Div pour le logo et les boutons -->
     <div :class="{'bg-red-600 z-10': activeMenu, }" class=" flex justify-between items-center w-full shadow-xl py-2 p-6">
-      <div>
+
+      <div >
 
         <RouterLink to="/">
           <template v-if="activeMenu">

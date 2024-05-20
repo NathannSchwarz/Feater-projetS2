@@ -7,7 +7,7 @@ import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
 
 <template>
   
-  <button class="flex justify-around items-center w-full">
+  <button class="flex justify-around items-center w-full pb-10">
 
     <button class=" bg-black bg-opacity-50 rounded-full p-3 ">
         <flecheIcon/>

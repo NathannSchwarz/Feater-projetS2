@@ -25,7 +25,7 @@ import CardsActivité from '@/components/CardsActivité.vue'
         <button class="w-full">
 
             <div class="flex justify-around bg-red-500 p-5 rounded-3xl text-white gap-4 mb-12">
-                <img class="rounded-3xl" src="/img/course.webp" alt="Course à pied" />
+                <img class="rounded-3xl w-32" src="/img/course.webp" alt="Course à pied" />
                 <div class="flex flex-col justify-between">
                     <div class="text-left">
                         <h3 class="pb-2 font-bold">Course à pied</h3>
@@ -52,14 +52,14 @@ import CardsActivité from '@/components/CardsActivité.vue'
             </button>
         </div>
 
-         <h3 class="pb-2 font-bold">Parcourir par sport</h3>
+         <h3 class="pb-2 font-bold">Parcourir par Sport</h3>
 
         <div class="grid grid-cols-2 pb-12 ">
             <CardsActivité v-for="coach in 4" />
         </div>
 
         <div class="flex justify-end -mt-10 mb-12">
-                <button class="bg-black bg-opacity-30 p-1.5 rounded-3xl text-xs font-bold text-white">Voir plus de Sports</button>
+                <button class="bg-red-500  p-1.5 rounded-3xl text-xs font-bold text-white">Voir plus de Sports</button>
             </div>   
 
         
@@ -70,7 +70,7 @@ import CardsActivité from '@/components/CardsActivité.vue'
             </div>
             
             <div class="flex justify-end -mt-10 mb-12 ">
-                <button class="bg-black bg-opacity-30 p-1.5 rounded-3xl text-xs font-bold text-white">Voir plus de Groupes</button>
+                <button class="bg-red-500 p-1.5 rounded-3xl text-xs font-bold text-white">Voir plus de Groupes</button>
             </div>                  
         
         

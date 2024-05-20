@@ -17,7 +17,7 @@ import Carroussel2 from '@/components/carrousselindex2.vue'
 
         </div>
   
-        <h2 class=" text-center mb-8 mt-8 ">Nouveaux Challenges du jour !</h2>
+        <h2 class=" text-center mb-6 mt-12 ">Nouveaux Challenges du jour !</h2>
 
         <Carroussel/>
 

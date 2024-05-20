@@ -7,14 +7,16 @@ import CompteIcon from '@/components/icons/Iconcompte.vue'
 
 import { RouterLink } from 'vue-router'
 
+
+
 </script>
 
 <template>
 
     <nav>
-        <ul class="fixed flex justify-around bg-white pt-3 pb-2 bottom-0 z-20 w-full">
+        <ul class="fixed grid grid-cols-4 justify-strecth  pt-2 bg-red-600 pb-2 p-4 bottom-0 z-20 w-full">
 
-                <div class="flex flex-col items-center justify-between">
+                <div  class="flex flex-col items-center justify-around p-1.5 text-white "  :class="{ 'bg-white rounded-xl text-red-600 fill-white': $route.path === '/activité' }" >
                     <li >
                         <RouterLink to="/activité" >
                             
@@ -22,40 +24,40 @@ import { RouterLink } from 'vue-router'
             
                         </RouterLink>
                     </li>
-                    <p class="text-sm">Activité</p>
+                    <p class="text-xs font-base">Activité</p>
 
                 </div>
-                <div class="flex flex-col items-center justify-between">
-                    <li class="pb-1">
+                <div class="flex flex-col items-center justify-around p-1.5 text-white " :class="{ 'bg-white rounded-xl  text-red-600 fill-white': $route.path === '/carte' }" >
+                    <li>
                         <RouterLink to="/carte">
                             
                         <CarteIcon />
             
                         </RouterLink>
                     </li>
-                    <p class="text-sm">Carte</p>
+                    <p class="text-xs font-base">Carte</p>
                 </div>
 
-                <div class="flex flex-col items-center justify-between">
-                    <li class="pb-1">
+                <div class="flex flex-col items-center justify-around  p-1.5 text-white " :class="{ 'bg-white rounded-xl text-red-600 fill-white': $route.path === '/message' }">
+                    <li>
                         <RouterLink to="/message">
                             
                         <MessageIcon />
             
                         </RouterLink>
                     </li>
-                    <p class="text-sm">Message</p>  
+                    <p class="text-xs font-base">Message</p>  
                 </div>
 
-                <div class="flex flex-col items-center justify-between">
-                    <li class="pb-1">
+                <div class="flex flex-col items-center justify-around p-1.5  text-white" :class="{'bg-white rounded-xl text-red-600 fill-white ': $route.path === '/compte' }">
+                    <li>
                         <RouterLink to="/compte">
                             
                         <CompteIcon />
             
                         </RouterLink>
                     </li>   
-                    <p class="text-sm">Compte</p> 
+                    <p class="text-xs font-base">Compte</p> 
                 </div>
                 
         </ul>
