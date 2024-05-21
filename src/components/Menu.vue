@@ -49,7 +49,7 @@ import { RouterLink } from 'vue-router'
                     <p class="text-xs font-base" :class="{ ' text-red-600': $route.path === '/message' }">Message</p>  
                 </div>
 
-                <div class="flex flex-col items-center justify-around p-1.5  text-white" :class="{'bg-white rounded-xl text-red-600  ': $route.path === '/compte' }">
+                <div class="flex flex-col items-center justify-around  p-1.5 text-white" :class="{'bg-white rounded-xl text-red-600  ': $route.path === '/compte' }">
                     <li>
                         <RouterLink to="/compte">
                             

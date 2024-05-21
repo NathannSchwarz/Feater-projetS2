@@ -22,7 +22,7 @@ import ShieldIcon from '@/components/icons/IconCoachShield.vue'
         <Carroussel2/>
          <h3 class="pb-2 font-bold">En fonction de vos habitudes</h3>
          
-         <div class="grid grid-cols-2 pb-12  ">
+         <div class="grid grid-cols-2 pb-12 ">
             <CardsCoach v-for="coach in 4" />
          </div>
         

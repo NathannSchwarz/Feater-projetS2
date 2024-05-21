@@ -10,7 +10,7 @@ import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
   <button class="flex justify-around items-center w-full pb-10">
 
     <button class=" bg-black bg-opacity-50 rounded-full p-3 ">
-        <flecheIcon/>
+        <flecheIcon class="text-white"/>
     </button>
    
 
@@ -28,7 +28,7 @@ import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
       </div>
 
     <button class="rotate-180 bg-black bg-opacity-50 rounded-full p-3">
-      <flecheIcon />
+      <flecheIcon class="text-white"/>
     </button>
     
   </button>
