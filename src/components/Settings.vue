@@ -7,9 +7,9 @@ import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
 
     <nav>
         <RouterLink to="#">
-            <div class="flex justify-between items-center border-t p-3 -mx-6 border-black ">
-                <h3 class="mx-10 font-bold ">Données personnelles</h3>
-                <flecheIcon class="rotate-180 mx-10"/>
+            <div class="flex justify-between items-center border-t border-black ">
+                <h3 class=" font-bold ">Données personnelles</h3>
+                <flecheIcon class="rotate-180 "/>
             </div>
         </RouterLink>
     </nav>

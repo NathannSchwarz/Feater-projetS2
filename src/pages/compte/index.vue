@@ -16,7 +16,7 @@ import ShieldIcon from '@/components/icons/IconCoachShield.vue'
         </div>
         
 
-        <div class="border-b border-black -mx-6 mb-10">
+        <div class="border-b border-black">
             <Settings v-for="coach in 4" />
         </div>
         
