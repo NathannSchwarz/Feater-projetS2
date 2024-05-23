@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import SearchwhiteIcon from '@/components/icons/Iconsearchwhite.vue'
 import CardsActivité from '@/components/CardsActivité.vue'
-
+import { RouterLink } from 'vue-router'
 </script>
 
 
@@ -44,35 +44,41 @@ import CardsActivité from '@/components/CardsActivité.vue'
          
 
         <div class="flex justify-around gap-3 pb-10">
+             <RouterLink to="#">
             <button class="bg-red-600 text-white font-bold text-base p-2 px-3  rounded-3xl">
                 Créer un groupe 
             </button>
+            </RouterLink>
+            <RouterLink to="#">
             <button class="bg-red-600 text-white font-bold text-base p-2 px-3 rounded-3xl">
                 Créer un Activité
             </button>
+            </RouterLink>
         </div>
 
-         <h3 class="pb-2 font-bold">Parcourir par Sport</h3>
+         <h3 class="pb-4 font-bold">Parcourir par Sport</h3>
 
-        <div class="grid grid-cols-2 pb-12 ">
+        <div class="grid grid-cols-2 ">
             <CardsActivité v-for="coach in 4" />
         </div>
 
-        <div class="flex justify-end -mt-10 mb-12">
+        <RouterLink to="#">
+            <div class="flex justify-end mb-12">
                 <button class="bg-red-500  p-1.5 rounded-3xl text-xs font-bold text-white">Voir plus de Sports</button>
             </div>   
-
+        </RouterLink>
         
-            <h3 class="pb-2 font-bold">Parcourir par Groupe</h3>
+        <h3 class="pb-4 font-bold">Parcourir par Groupe</h3>
 
-            <div class="grid grid-cols-2 pb-12  ">
-                <CardsActivité v-for="coach in 4" />
-            </div>
+        <div class="grid grid-cols-2 pb-12  ">
+            <CardsActivité v-for="coach in 4" />
+        </div>
             
+        <RouterLink to="#">
             <div class="flex justify-end -mt-10 mb-12 ">
                 <button class="bg-red-500 p-1.5 rounded-3xl text-xs font-bold text-white">Voir plus de Groupes</button>
             </div>                  
-        
+        </RouterLink>
         
         
         </nav>

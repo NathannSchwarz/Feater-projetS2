@@ -10,7 +10,7 @@ import ShieldIcon from '@/components/icons/IconCoachShield.vue'
 
         <h1 class="font-bold text-3xl pb-5 px-6">Compte</h1>
         <div class="flex flex-col items-center ">
-            <img class="rounded-full w-32 mb-1" src="/img/course.webp" alt="Course à pied" />
+            <img class="rounded-full w-32 mb-1 shadow-2xl shadow-red-400" src="/img/course.webp" alt="Course à pied" />
             <h2 class="text-3xl font-extrabold">Fabian Dufour</h2>
             <p class="text-sm mb-4">Membre ID : HDHAD7421</p>
             <p class="bg-red-600 p-2 rounded-3xl text-sm font-bold text-white w-40 text-center mb-8">Membre Premium</p>
