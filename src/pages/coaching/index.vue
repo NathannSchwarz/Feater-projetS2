@@ -16,7 +16,7 @@ import ShieldIcon from '@/components/icons/IconCoachShield.vue'
         <button class="flex items-center justify-between gap-4 p-3 bg-red-600 rounded-3xl mb-12 w-full">
             <ShieldIcon class="w-20"/>
             <h2 class="font-bold text-xl text-white text-left">Trouvez le coach qu'il vous faut !</h2>
-            <flecheIcon class="rotate-180 h-6 w-10"/>
+            <flecheIcon class="rotate-180 h-6 w-10 text-white"/>
         </button>
 
         <Carroussel2/>
