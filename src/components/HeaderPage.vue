@@ -23,17 +23,20 @@ function closeMenu() {
     <!-- Div pour le logo et les boutons -->
     <div :class="{'bg-red-600 z-10': activeMenu, }" class=" flex justify-between items-center w-full shadow-xl py-2 p-6">
 
-      <div >
+      
 
         <RouterLink to="/">
           <template v-if="activeMenu">
             <LogowhiteIcon />
           </template>
-          <template v-else>
+          <template v-else-if="!activeMenu">
             <LogoIcon />
           </template>
+          <template v-else>
+            <SearchIcon />
+          </template>
         </RouterLink>
-      </div>
+      
 
       <div class="flex items-center gap-5">
 

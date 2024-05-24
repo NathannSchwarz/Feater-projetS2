@@ -10,13 +10,13 @@ import Cardsmessage from '@/components/Cardsmessage.vue'
 
         <h1 class="font-bold text-3xl pb-5">Messages</h1>
 
+        <div class="pb-80">
+            <Cardsmessage  v-for="coach in 4"/>
+        </div>
         
-        <Cardsmessage  v-for="coach in 4"/>
         
 
-        
-
-        
+    
     </nav>
     
 
