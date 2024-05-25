@@ -29,11 +29,8 @@ function closeMenu() {
           <template v-if="activeMenu">
             <LogowhiteIcon />
           </template>
-          <template v-else-if="!activeMenu">
-            <LogoIcon />
-          </template>
           <template v-else>
-            <SearchIcon />
+            <LogoIcon />
           </template>
         </RouterLink>
       
