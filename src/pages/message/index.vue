@@ -2,6 +2,18 @@
 
 import Cardsmessage from '@/components/Cardsmessage.vue'
 
+import { onMounted, onBeforeUnmount } from 'vue';
+
+
+const updateTitle = (newTitle: string) => {
+  document.title = newTitle;
+};
+
+
+onMounted(() => {
+  updateTitle('Discutez avec vos partenaires préférés !');
+});
+
 </script>
 
 

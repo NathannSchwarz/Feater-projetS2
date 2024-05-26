@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+
 </script>
 
 <template>
 
     <nav class="pb-12 ">
         
-        <h3 class="pb-2">Coaching</h3>
+        
 
         <button class="relative ">
             <img class="rounded-2xl " src="/img/coach.webp" alt="coaching">

@@ -2,6 +2,18 @@
 
 import Settings from '@/components/Settings.vue'
 import ShieldIcon from '@/components/icons/IconCoachShield.vue'
+
+import { onMounted, onBeforeUnmount } from 'vue';
+
+
+const updateTitle = (newTitle: string) => {
+  document.title = newTitle;
+};
+
+
+onMounted(() => {
+  updateTitle('Votre compte / Vos Paramètres');
+});
 </script>
 
 
@@ -23,7 +35,7 @@ import ShieldIcon from '@/components/icons/IconCoachShield.vue'
         
         
             <div class="flex items-center justify-center">
-                <button class="flex items-center justify-around p-5 w-5/6 mb-10 bg-red-600 rounded-3xl">
+                <button class="flex items-center justify-around p-3 w-5/6 mb-10 bg-red-600 rounded-3xl">
                     <h2 class="font-bold text-xl text-white">Devenir Coach !</h2>
                     <ShieldIcon class="h-14 w-14" />
                 </button>

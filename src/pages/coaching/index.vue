@@ -3,6 +3,19 @@ import CardsCoach from '@/components/CardsCoach.vue'
 import Carroussel2 from '@/components/carrousselindex2.vue'
 import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
 import ShieldIcon from '@/components/icons/IconCoachShield.vue'
+
+import { onMounted, onBeforeUnmount } from 'vue';
+
+
+const updateTitle = (newTitle: string) => {
+  document.title = newTitle;
+};
+
+
+onMounted(() => {
+  updateTitle('Découvrez nos Coachs !');
+});
+
 </script>
 
 
@@ -28,7 +41,7 @@ import ShieldIcon from '@/components/icons/IconCoachShield.vue'
         
         <Carroussel2/>
 
-        <button class="flex items-center justify-around p-5 w-full mb-10 bg-red-600 rounded-3xl ">
+        <button class="flex items-center justify-around p-3 w-full mb-10 bg-red-600 rounded-3xl ">
         
             <h2 class="font-bold text-xl text-white">Devenir Coach !</h2>
             <ShieldIcon class=" h-14 w-14"/>

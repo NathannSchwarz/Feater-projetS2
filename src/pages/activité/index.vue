@@ -2,10 +2,27 @@
 import SearchwhiteIcon from '@/components/icons/Iconsearchwhite.vue'
 import CardsActivité from '@/components/CardsActivité.vue'
 import { RouterLink } from 'vue-router'
+
+import { onMounted, onBeforeUnmount } from 'vue';
+
+
+const updateTitle = (newTitle: string) => {
+  document.title = newTitle;
+};
+
+
+onMounted(() => {
+  updateTitle('Découvrez nos Activités !');
+});
+
+
+
 </script>
 
 
 <template>
+
+    <title>Découvrez nos Activités</title>
 
     <nav class="grille">
 

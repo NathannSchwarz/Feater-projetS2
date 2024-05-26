@@ -2,6 +2,15 @@
 
 import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
 
+const props = defineProps<{
+  id: number
+  title: string
+  date: string
+  description: string
+  imgCardPath: string
+  imgAlt?: string
+}>()
+
 </script>
 
 

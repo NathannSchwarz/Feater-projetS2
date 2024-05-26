@@ -9,7 +9,7 @@ const updateTitle = (newTitle: string) => {
 
 
 onMounted(() => {
-  updateTitle('Utilisez la carte pour trouvez des activités proche de chez vous !');
+  updateTitle('Retrouvez vos dernières notifications');
 });
 
 </script>
@@ -17,8 +17,8 @@ onMounted(() => {
 
 <template>
 
-    <nav class="grille">
-        <h1 class="font-bold text-3xl pb-5">Carte</h1>
+    <nav class="grille ">
+        <h1 class="font-bold text-3xl pb-5">Notification</h1>
     </nav>
 
     
