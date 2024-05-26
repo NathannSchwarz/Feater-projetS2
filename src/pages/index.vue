@@ -20,12 +20,12 @@ const activitésFiltrées2 = activités.filter(activité => activité.id >= 4 &&
 
         </div>
   
-        <h2 class=" text-center mb-6 mt-12 ">Nouveaux Challenges du jour !</h2>
+        <h2 class=" text-center mb-6 mt-10 ">Nouveaux Challenges du jour !</h2>
 
         <Carroussel />
 
         <h3 class="pb-2 font-bold text-xl">Trouvez un coéquipier</h3>
-        <nav class="pb-12">
+        <nav class="pb-10">
             <RouterLink to="/activité">
                 <button class="relative">
                     <img class="rounded-2xl " src="/img/courreur.webp" alt="activités">
@@ -39,11 +39,11 @@ const activitésFiltrées2 = activités.filter(activité => activité.id >= 4 &&
         
         <h3 class="pb-2 font-bold text-xl">Activités faites pour vous</h3>
 
-        <Carroussel3 :activités="activitésFiltrées" class="mb-12" />
+        <Carroussel3 :activités="activitésFiltrées" class="mb-10" />
 
         <h3 class="pb-2 font-bold text-xl">Coaching</h3>
 
-        <nav class="pb-12 ">
+        <nav class="pb-10 ">
             <RouterLink to="/coaching">
                 <button class="relative ">
                     <img class="rounded-2xl " src="/img/coach.webp" alt="coaching">
@@ -61,7 +61,7 @@ const activitésFiltrées2 = activités.filter(activité => activité.id >= 4 &&
 
         <h3 class="pb-2 font-bold text-xl">Carte</h3>
 
-        <nav class="pb-12 ">
+        <nav class="pb-10 ">
             <RouterLink to="/carte">
                 <button class="relative ">
                     <img class="rounded-2xl " src="/img/cartemontbéliard.webp" alt="carte">

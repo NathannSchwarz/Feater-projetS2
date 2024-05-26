@@ -21,15 +21,13 @@ onMounted(() => {
 
 
 <template>
+    
 
     <title>Découvrez nos Activités</title>
 
     <nav class="grille">
 
-    <h1 class="font-bold text-3xl pb-5">Activité</h1>
-
-   
-
+        <h1 class="font-bold text-3xl pb-5">Activité</h1>
         
         <button class="flex items-center justify-around p-3 pt-4 pb-4 bg-red-600 rounded-xl mb-12 w-full">
             <SearchwhiteIcon class="w-10"/>
@@ -41,7 +39,7 @@ onMounted(() => {
 
         <button class="w-full">
 
-            <div class="flex justify-around bg-red-500 p-5 rounded-3xl text-white gap-4 mb-10">
+            <div class="flex justify-around bg-red-700 p-5 rounded-3xl text-white gap-4 mb-10">
                 <img class="rounded-3xl w-32" src="/img/course.webp" alt="Course à pied" />
                 <div class="flex flex-col justify-between">
                     <div class="text-left">
@@ -52,8 +50,6 @@ onMounted(() => {
                     
                     <h3 class="flex justify-end ">12 mars 2024</h3>
                 </div>
-            
-            
             </div>
 
         </button>
@@ -75,7 +71,7 @@ onMounted(() => {
 
          <h3 class="pb-4 font-bold">Parcourir par Sport</h3>
 
-        <div class="grid grid-cols-2 ">
+        <div class="grid grid-cols-2">
             <CardsActivité v-for="coach in 4" />
         </div>
 
@@ -87,7 +83,7 @@ onMounted(() => {
         
         <h3 class="pb-4 font-bold">Parcourir par Groupe</h3>
 
-        <div class="grid grid-cols-2 pb-12  ">
+        <div class="grid grid-cols-2 pb-12 ">
             <CardsActivité v-for="coach in 4" />
         </div>
             
@@ -98,5 +94,6 @@ onMounted(() => {
         </RouterLink>
         
         
-        </nav>
+    </nav>
+
 </template>

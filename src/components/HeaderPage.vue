@@ -7,6 +7,7 @@ import SettingsIcon from '@/components/icons/Iconsettings.vue'
 import NotifIcon from '@/components/icons/Iconnotif.vue'
 import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
 
+
 import { RouterLink } from 'vue-router'
 import { ref } from 'vue'
 
@@ -15,6 +16,8 @@ const activeMenu = ref(false)
 function closeMenu() {
   activeMenu.value = false
 }
+
+
 
 
 

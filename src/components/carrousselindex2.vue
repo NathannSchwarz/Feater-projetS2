@@ -17,7 +17,7 @@ const props = defineProps<{
 
 <template>
   
-  <nav class="pb-12">
+  <nav class="pb-10">
         
        
 

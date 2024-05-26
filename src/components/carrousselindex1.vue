@@ -16,7 +16,7 @@ const props = defineProps<{
 
 <template>
   
-  <button class="flex justify-around items-center w-full pb-10">
+  <button class="flex justify-around items-center w-full pb-8">
 
     <button class=" bg-black bg-opacity-50 rounded-full p-3 ">
         <flecheIcon class="text-white"/>
