@@ -2,6 +2,8 @@
 
 import Settings from '@/components/Settings.vue'
 import ShieldIcon from '@/components/icons/IconCoachShield.vue'
+import { settings } from '@/data'
+const settingsFiltrées = settings.filter(setting => setting.id >= 1 && setting.id <= 4);
 
 import { onMounted, onBeforeUnmount } from 'vue';
 
@@ -30,7 +32,7 @@ onMounted(() => {
         
 
         <div class="border-b border-black mb-10">
-            <Settings v-for="coach in 4" />
+            <Settings :activités="settingsFiltrées" />
         </div>
         
         

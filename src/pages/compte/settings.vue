@@ -1,10 +1,11 @@
 <script setup lang="ts">
 
 import Settings from '@/components/Settings.vue'
-import ShieldIcon from '@/components/icons/IconCoachShield.vue'
+import { settings } from '@/data'
+import { onMounted } from 'vue';
 
-import { onMounted, onBeforeUnmount } from 'vue';
 
+const settingsFiltrées2 = settings.filter(settings => settings.id >= 5 && settings.id <= 8);
 
 const updateTitle = (newTitle: string) => {
   document.title = newTitle;
@@ -30,7 +31,7 @@ onMounted(() => {
         
 
     <div class="border-b border-black mb-10">
-        <Settings v-for="coach in 4" />
+        <Settings :activités="settingsFiltrées2" />
     </div>
         
         

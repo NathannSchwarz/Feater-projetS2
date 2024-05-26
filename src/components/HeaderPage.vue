@@ -27,7 +27,7 @@ function closeMenu() {
     <div :class="{'bg-red-600 z-10': activeMenu, }" class=" flex justify-between items-center w-full shadow-xl py-2 p-6">
 
       
-      <template v-if="$route.path === '/Notification' || $route.path ==='/compte/settings'">
+      <template v-if="$route.path === '/Notification' || $route.path ==='/compte/settings' || $route.path ==='/compte/langue' || $route.path ==='/compte/donnéespersonnelles' || $route.path ==='/compte/abonnement' || $route.path ==='/compte/personnesrencontrées' || $route.path ==='/compte/paiement' || $route.path ==='/compte/conditionsgenerales' || $route.path ==='/compte/politiquesconfidentialité' ">
         <RouterLink to="/compte">
           <flecheIcon class=" w-10 h-6 my-3.5" :class="{ 'text-white': activeMenu, 'text-black': !activeMenu }"/>
         </RouterLink>
@@ -49,7 +49,7 @@ function closeMenu() {
 
         <button class="z-10">
    
-          <template v-if="$route.path === '/compte' || $route.path ==='/compte/settings'">
+          <template v-if="$route.path === '/compte' || $route.path ==='/compte/settings' || $route.path ==='/compte/langue' || $route.path ==='/compte/donnéespersonnelles' || $route.path ==='/compte/abonnement' || $route.path ==='/compte/personnesrencontrées' || $route.path ==='/compte/paiement' || $route.path ==='/compte/conditionsgenerales' || $route.path ==='/compte/politiquesconfidentialité' ">
             <RouterLink to="/compte/settings">
               <SettingsIcon/>
             </RouterLink>
@@ -68,7 +68,7 @@ function closeMenu() {
         
           
         </button>
-        <template v-if="$route.path === '/compte' || $route.path ==='/compte/settings' ">
+        <template v-if="$route.path === '/compte' || $route.path ==='/compte/settings' || $route.path ==='/compte/langue' || $route.path ==='/compte/donnéespersonnelles' || $route.path ==='/compte/abonnement' || $route.path ==='/compte/personnesrencontrées' || $route.path ==='/compte/paiement' || $route.path ==='/compte/conditionsgenerales' || $route.path ==='/compte/politiquesconfidentialité' ">
           <RouterLink to="/Notification">
               <NotifIcon/>
           </RouterLink>

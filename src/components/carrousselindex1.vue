@@ -24,7 +24,7 @@ const props = defineProps<{
    
 
 
-      <div class="w-48 h-48 flex flex-col items-center text-center border rounded-3xl bg-sky-500  mb-4">
+      <div class="w-44 h-44 flex flex-col items-center text-center border rounded-3xl bg-sky-500  mb-4">
 
         <div class="bg-white w-full opacity-70 p-2">
             <p class=" text-sm font-bold  "> Changez de terrain</p>
@@ -32,7 +32,7 @@ const props = defineProps<{
         
         </div>
         
-        <img class="h-32" src="/img/challenge1.webp"/>
+        <img class="h-28" src="/img/challenge1.webp"/>
 
       </div>
 
