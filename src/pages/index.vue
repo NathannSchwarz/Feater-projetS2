@@ -16,7 +16,7 @@ const activitésFiltrées2 = activités.filter(activité => activité.id >= 4 &&
       <p class="text-xs font-normal text-white">Tu as déjà fait la rencontre de <span class="font-bold">1 personnes</span> , continue comme ça, tu es sur la bonne voie !</p>
     </div>
 
-    <h2 class="text-center pb-6 mt-10">Nouveaux Challenges du jour !</h2>
+    <h2 class="text-center  mt-10">Nouveaux Challenges du jour !</h2>
     <Carroussel />
 
    

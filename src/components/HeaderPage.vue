@@ -121,7 +121,7 @@ function closeMenu() {
             <li class="menu-item ">
                 <RouterLink
                 class="menu-link lg:bg-black lg:text-white lg:px-8"
-                to="/#"
+                to="/compte/abonnement"
                 @click="closeMenu"
                 >Abonnement</RouterLink
                 >
