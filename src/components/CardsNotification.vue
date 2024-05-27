@@ -10,7 +10,7 @@
 
         <RouterLink to="#" >
 
-            <button class="w-full bg-red-700 p-3 px-4 rounded-2xl mb-5 text-white">
+            <button class="w-full bg-red-700 p-3 px-4 rounded-3xl mb-5 text-white">
                 
                 <div class="flex items-center">
                     <img class="rounded-full w-12" src="/img/course.webp" alt="Course à pied" />

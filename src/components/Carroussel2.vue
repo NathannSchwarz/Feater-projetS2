@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted, defineProps } from 'vue';
 import flecheIcon from '@/components/icons/Iconflèchemenu.vue';
 
 const props = defineProps<{
@@ -19,17 +19,21 @@ const currentIndex = ref(0);
 const next = () => {
   if (currentIndex.value < props.activités.length - 1) {
     currentIndex.value += 1;
+  } else {
+    currentIndex.value = 0; // Retour au début du carrousel si on est à la fin
   }
 };
 
 const prev = () => {
   if (currentIndex.value > 0) {
     currentIndex.value -= 1;
+  } else {
+    currentIndex.value = props.activités.length - 1; // Aller à la fin du carrousel si on est au début
   }
 };
 
-const isNextDisabled = computed(() => currentIndex.value >= props.activités.length - 1);
-const isPrevDisabled = computed(() => currentIndex.value <= 0);
+const isNextDisabled = computed(() => false); // Toujours activé pour permettre de boucler
+const isPrevDisabled = computed(() => false); // Toujours activé pour permettre de boucler
 
 const startX = ref(0);
 const endX = ref(0);

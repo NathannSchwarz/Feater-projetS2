@@ -1,12 +1,10 @@
-
-
 export const activités = [
   {
     id: 1,
     title: 'Séance de musculation',
     description: 'Débutants - Basic Fit - Montbéliard Centre ',
     date: '20 juin 2024',
-    imgCardPath: '../public/img/salledesport.webp',
+    imgCardPath: '/img/salledesport.webp',
     imgAlt: 'Séance de musculation',
     link: '/compte'
   },
@@ -15,7 +13,7 @@ export const activités = [
     title: 'Tennis',
     description: 'Débutants - Basic Fit - Montbéliard Centre ',
     date: '20 juillet 2024',
-    imgCardPath: '../public/img/coequipier.webp',
+    imgCardPath: '/img/coequipier.webp',
     imgAlt: 'Tennis',
     link: '/'
   },
@@ -24,7 +22,7 @@ export const activités = [
     title: 'Badminton',
     description: 'Débutants - Basic Fit - Montbéliard Centre ',
     date: '30 juin 2024',
-    imgCardPath: '../public/img/salledesport.webp',
+    imgCardPath: '/img/salledesport.webp',
     imgAlt: 'Badminton',
     link: '/'
   },
@@ -33,7 +31,7 @@ export const activités = [
     title: 'Football',
     description: 'Débutants - Basic Fit - Montbéliard Centre ',
     date: '12 juin 2024',
-    imgCardPath: '../public/img/salledesport.webp',
+    imgCardPath: '/img/salledesport.webp',
     imgAlt: 'Football',
     link: '/'
   },
@@ -42,7 +40,7 @@ export const activités = [
     title: 'Course à pied',
     description: 'Débutants - Basic Fit - Montbéliard Centre ',
     date: '30 mai 2024',
-    imgCardPath: '../public/img/salledesport.webp',
+    imgCardPath: '/img/salledesport.webp',
     imgAlt: 'Course à pied',
     link: '/'
   },
@@ -51,12 +49,11 @@ export const activités = [
     title: 'Vélo',
     description: 'Débutants - Basic Fit - Montbéliard Centre ',
     date: '25 juin 2024',
-    imgCardPath: '../public/img/salledesport.webp',
+    imgCardPath: '/img/salledesport.webp',
     imgAlt: 'Vélo',
     link: '/'
   }
 ]
-
 
 export const settings = [
   {

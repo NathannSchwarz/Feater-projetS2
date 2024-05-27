@@ -31,11 +31,11 @@ function closeMenu() {
 
       
       <template v-if="$route.path === '/Notification' || $route.path ==='/compte/settings' || $route.path ==='/compte/langue' || $route.path ==='/compte/donnéespersonnelles' || $route.path ==='/compte/abonnement' || $route.path ==='/compte/personnesrencontrées' || $route.path ==='/compte/paiement' || $route.path ==='/compte/conditionsgenerales' || $route.path ==='/compte/politiquesconfidentialité' ">
-        <RouterLink to="/compte">
+        <RouterLink to="/compte" @click="closeMenu">
           <flecheIcon class=" w-10 h-6 my-3.5" :class="{ 'text-white': activeMenu, 'text-black': !activeMenu }"/>
         </RouterLink>
       </template>
-      <template v-else-if="!activeMenu">
+      <template v-else-if="!activeMenu" >
         <RouterLink to="/">
           <LogoIcon />
         </RouterLink>
