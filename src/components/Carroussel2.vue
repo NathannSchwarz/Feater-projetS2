@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted, defineProps } from 'vue';
 import flecheIcon from '@/components/icons/Iconflèchemenu.vue';
 
 const props = defineProps<{
@@ -13,8 +13,6 @@ const props = defineProps<{
     link: string;
   }[];
 }>();
-
-
 
 const currentIndex = ref(0);
 
@@ -73,30 +71,23 @@ onUnmounted(() => {
 
 <template>
   <div id="carousel" class="relative w-full overflow-hidden ">
-    <div class="flex transition-transform duration-500 ease-in-out" :style="{ transform: `translateX(${-currentIndex * 100}%)` }">
-      <div v-for="activité in props.activités" :key="activité.id" class="w-full flex-shrink-0">
+    <div class="flex transition-transform duration-500 ease-in-out" :style="{ transform: `translateX(-${currentIndex * (252 / props.activités.length)}%)` }" style="scroll-snap-type: x mandatory;">
+      <div v-for="(activité, index) in props.activités" :key="activité.id" class="w-4/5 flex-shrink-0 ms-6" style="scroll-snap-align: center;">
         <RouterLink :to="activité.link">
-            <div class="relative flex justify-center w-3/4 h-36 m-auto">
-            <img class="rounded-2xl w-full h-full object-cover" :src="activité.imgCardPath" :alt="activité.imgAlt || activité.title">
-            <div class="absolute bottom-0 w-full text-white bg-red-500 p-2 rounded-b-2xl">
-                <h4 class="text-sm font-bold pb-1">{{ activité.title }}</h4>
-                <div class="flex justify-between gap-2">
-                <p class="text-xs font-extralight">{{ activité.description }}</p>
-                <p class="text-xs font-bold">{{ activité.date }}</p>
-                </div>
+          <div class="relative flex justify-center w-80 h-44">
+            <img class="rounded-xl w-full h-full object-cover" :src="activité.imgCardPath" :alt="activité.imgAlt || activité.title">
+            <div class="absolute bottom-0 w-full h-1/2 text-white bg-red-500 px-3 py-1 rounded-b-xl">
+              <h4 class="text-lg font-bold pb-1">{{ activité.title }}</h4>
+              <div class="flex justify-between gap-2">
+                <p class="text-sm">{{ activité.description }}</p>
+                <p class="text-sm font-bold">{{ activité.date }}</p>
+              </div>
             </div>
-            </div>
+          </div>
         </RouterLink>
       </div>
     </div>
-    <!-- Boutons de navigation -->
-    <button @click="prev" :disabled="isPrevDisabled" class="absolute w-8 h-8  top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full" :class="{ 'opacity-50 cursor-not-allowed': isPrevDisabled }">
-      <flecheIcon class="w-4 h-4"/>
-    </button>
-    <button @click="next" :disabled="isNextDisabled" class="absolute w-8 h-8 right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full rotate-180" :class="{ 'opacity-50 cursor-not-allowed': isNextDisabled }">
-      <flecheIcon class="w-4 h-4"/>
-    </button>
+
+   
   </div>
 </template>
-
-
