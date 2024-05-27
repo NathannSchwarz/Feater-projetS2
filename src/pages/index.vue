@@ -11,19 +11,21 @@ const activitésFiltrées2 = activités.filter(activité => activité.id >= 4 &&
 <template>
 
   <div>
-    <div class="bg-red-600 p-2.5 pt-4 pb-4 rounded-2xl mx-6">
+    <div class="bg-red-600 p-2.5 pt-4 pb-4 rounded-xl mx-6">
       <h1 class="text-white pb-1">Content de te revoir Fabian !</h1>
       <p class="text-xs font-normal text-white">Tu as déjà fait la rencontre de <span class="font-bold">1 personnes</span> , continue comme ça, tu es sur la bonne voie !</p>
     </div>
 
-    <h2 class="text-center mb-6 mt-10">Nouveaux Challenges du jour !</h2>
+    <h2 class="text-center pb-6 mt-10">Nouveaux Challenges du jour !</h2>
     <Carroussel />
 
+   
     <h3 class="pb-2 font-bold text-xl mx-6">Activités faites pour vous</h3>
     <Carroussel2 :activités="activitésFiltrées" class="mb-10" />
 
     <h3 class="pb-2 font-bold text-xl mx-6">Activités près de chez vous</h3>
-    <Carroussel2 :activités="activitésFiltrées2" class="mb-12 " />
+    <Carroussel2 :activités="activitésFiltrées2" class="mb-12" />
+  
 
         
 
@@ -34,7 +36,7 @@ const activitésFiltrées2 = activités.filter(activité => activité.id >= 4 &&
                 <img class="rounded-xl " src="/img/courreur.webp" alt="activités">
                 <div class="absolute bottom-0 w-full h-20 text-white text-left bg-black bg-opacity-80 p-4 rounded-b-xl">
                     <h3 class="font-bold text-xl pb-1">Trouvez un coéquipier</h3>
-                    <p class="text-xs font-extralight">Trouve des gens en moins de 3 minute</p>
+                    <p class="text-xs font-extralight">Trouvez la ou les personnes qui vous accompagneront</p>
                 </div>
                 </button>
             </RouterLink>
@@ -46,8 +48,8 @@ const activitésFiltrées2 = activités.filter(activité => activité.id >= 4 &&
         <nav class="pb-10 w-full object-cover">
         
             <RouterLink to="/coaching">
-                <button class="relative">
-                <img class="rounded-xl h-28" src="/img/coach.webp" alt="coaching">
+                <button class="relative w-full">
+                <img class="rounded-xl h-28 w-full" src="/img/coach.webp" alt="coaching">
                 <div class="absolute bottom-0 w-full h-12 text-white text-left bg-black bg-opacity-80 p-2 px-3 rounded-b-xl">
                     <h4 class="font-bold text-xl pb-1">Coaching</h4>
                     
@@ -57,11 +59,11 @@ const activitésFiltrées2 = activités.filter(activité => activité.id >= 4 &&
         </nav>
 
         
-        <nav class="pb-10 w-full object-cover">
+        <nav class="pb-12 w-full object-cover">
             <RouterLink to="/carte">
                
-                <button class="relative">
-                <img class="rounded-xl h-28" src="/img/cartemontbéliard.webp" alt="carte">
+                <button class="relative w-full">
+                <img class="rounded-xl h-28 w-full" src="/img/cartemontbéliard.webp" alt="carte">
                 <div class="absolute bottom-0 w-full h-12 text-white text-left bg-black bg-opacity-80 p-2 px-3 rounded-b-xl">
                     <h4 class="font-bold text-xl pb-1">Carte</h4>
                     

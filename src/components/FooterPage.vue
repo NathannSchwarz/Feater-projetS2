@@ -15,12 +15,12 @@ import { RouterLink } from 'vue-router'
             <h4 class="font-bold uppercase">Organisation</h4>
 
             <ul class="text-sm font-light space-y-2">
-            <li><RouterLink to="/events">Conditions générales</RouterLink></li>
-            <li><RouterLink to="/contact">Politiques de confidentialité</RouterLink></li>
-            <li><RouterLink to="/contact">Données Personelles</RouterLink></li>
-            <li><RouterLink to="/contact">Abonnement</RouterLink></li>
-            <li><RouterLink to="/contact">Contact</RouterLink></li>
-            <li><RouterLink to="/contact">Langue</RouterLink></li>
+            <li><RouterLink to="/compte/conditionsgenerales">Conditions générales</RouterLink></li>
+            <li><RouterLink to="/compte/politiquesconfidentialité">Politiques de confidentialité</RouterLink></li>
+            <li><RouterLink to="/compte/donnéespersonnelles">Données Personelles</RouterLink></li>
+            <li><RouterLink to="/compte/abonnement">Abonnement</RouterLink></li>
+            <li><RouterLink to="/compte/">Contact</RouterLink></li>
+            <li><RouterLink to="/compte/langue">Langue</RouterLink></li>
             </ul>
 
             <div class="space-y-6 lg:col-span-3 lg:col-start-10">

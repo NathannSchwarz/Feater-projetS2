@@ -28,7 +28,6 @@ import IconCheck from '@/components/icons/IconCheck.vue'
 
         <p class="text-lg font-bold mb-2">Plaintes et Autorités de Protection des Données :</p>
         <p class="mb-10">En cas de réclamation concernant votre vie privée, veuillez contacter notre délégué à la protection des données. Vous avez également le droit de déposer une plainte auprès de l'autorité de contrôle compétente en France.</p>
-        
     </nav> 
     
     

@@ -15,6 +15,7 @@ const props = defineProps<{
 }>();
 
 const currentIndex = ref(0);
+const carouselRef = ref(null);
 
 const next = () => {
   if (currentIndex.value < props.activités.length - 1) {
@@ -51,7 +52,7 @@ const handleTouchEnd = () => {
 };
 
 onMounted(() => {
-  const carousel = document.getElementById('carousel');
+  const carousel = carouselRef.value;
   if (carousel) {
     carousel.addEventListener('touchstart', handleTouchStart);
     carousel.addEventListener('touchmove', handleTouchMove);
@@ -60,7 +61,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  const carousel = document.getElementById('carousel');
+  const carousel = carouselRef.value;
   if (carousel) {
     carousel.removeEventListener('touchstart', handleTouchStart);
     carousel.removeEventListener('touchmove', handleTouchMove);
@@ -70,7 +71,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div id="carousel" class="relative w-full overflow-hidden ">
+  <div ref="carouselRef" id="carousel" class="relative w-full overflow-hidden">
     <div class="flex transition-transform duration-500 ease-in-out" :style="{ transform: `translateX(-${currentIndex * (252 / props.activités.length)}%)` }" style="scroll-snap-type: x mandatory;">
       <div v-for="(activité, index) in props.activités" :key="activité.id" class="w-4/5 flex-shrink-0 ms-6" style="scroll-snap-align: center;">
         <RouterLink :to="activité.link">
@@ -87,7 +88,5 @@ onUnmounted(() => {
         </RouterLink>
       </div>
     </div>
-
-   
   </div>
 </template>
