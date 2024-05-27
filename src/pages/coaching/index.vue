@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import CardsCoach from '@/components/CardsCoach.vue'
-import Carroussel2 from '@/components/carrousselindex2.vue'
+import Carroussel2 from '@/components/Carroussel2.vue'
 import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
 import ShieldIcon from '@/components/icons/IconCoachShield.vue'
+import { activités } from '@/data'
+const activitésFiltrées = activités.filter(activité => activité.id >= 1 && activité.id <= 3);
 
 import { onMounted, onBeforeUnmount } from 'vue';
 
@@ -32,14 +34,15 @@ onMounted(() => {
             <flecheIcon class="rotate-180 h-6 w-10 text-white"/>
         </button>
 
-        <Carroussel2/>
+        <Carroussel2 :activités="activitésFiltrées" class="mb-10"/>
+        
          <h3 class="pb-2 font-bold">En fonction de vos habitudes</h3>
          
          <div class="grid grid-cols-2 pb-12 ">
             <CardsCoach v-for="coach in 4" />
          </div>
         
-        <Carroussel2/>
+        <Carroussel2 :activités="activitésFiltrées" class="mb-10"/>
 
         <button class="flex items-center justify-around p-3 w-full mb-10 bg-red-600 rounded-3xl ">
         

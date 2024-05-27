@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import Carroussel from '@/components/carrousselindex1.vue'
-import Carroussel3 from '@/components/Carroussel2.vue'
+import Carroussel2 from '@/components/Carroussel2.vue'
 import { activités } from '@/data'
 import { RouterLink } from 'vue-router'
 const activitésFiltrées = activités.filter(activité => activité.id >= 1 && activité.id <= 3);
@@ -39,7 +39,7 @@ const activitésFiltrées2 = activités.filter(activité => activité.id >= 4 &&
         
         <h3 class="pb-2 font-bold text-xl">Activités faites pour vous</h3>
 
-        <Carroussel3 :activités="activitésFiltrées" class="mb-10" />
+        <Carroussel2 :activités="activitésFiltrées" class="mb-10" />
 
         <h3 class="pb-2 font-bold text-xl">Coaching</h3>
 
@@ -57,7 +57,7 @@ const activitésFiltrées2 = activités.filter(activité => activité.id >= 4 &&
 
         <h3 class="pb-2 font-bold text-xl">Activités près de chez vous</h3>
 
-        <Carroussel3 :activités="activitésFiltrées2" class="mb-12" />
+        <Carroussel2 :activités="activitésFiltrées2" class="mb-12" />
 
         <h3 class="pb-2 font-bold text-xl">Carte</h3>
 
