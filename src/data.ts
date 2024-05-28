@@ -97,3 +97,67 @@ export const settings = [
     link: '/avis'
   }
 ]
+
+
+export const coach = [
+  {
+    id: 1,
+    Prénom: 'Mathieu',
+    Nom: 'Gallagher',
+    Sport: 'Vélo',
+    experience: '8',
+    imgCardPath: '/img/vélo2.webp',
+    imgAlt: 'vététiste',
+    link: '/'
+  },
+  {
+    id: 2,
+    Prénom: 'Ethan',
+    Nom: 'Walker',
+    Sport: 'Basketball',
+    experience: '2',
+    imgCardPath: '/img/basket.webp',
+    imgAlt: 'basketteur',
+    link: '/'
+  },
+  {
+    id: 3,
+    Prénom: 'Mason',
+    Nom: 'Bennet',
+    Sport: ' Tennis',
+    experience: '3',
+    imgCardPath: '/img/tennis.webp',
+    imgAlt: 'tennisman',
+    link: '/'
+  },
+  {
+    id: 4,
+    Prénom: 'Ryan',
+    Nom: 'Mitchell',
+    Sport: 'Natation',
+    experience: '9',
+    imgCardPath: '/img/natation.webp',
+    imgAlt: 'nageur',
+    link: '/'
+  },
+  {
+    id: 5,
+    Prénom: 'Olivier',
+    Nom: 'Grant',
+    Sport: 'Athlétisme',
+    experience: '10',
+    imgCardPath: '/img/athlétisme.webp',
+    imgAlt: 'athlète',
+    link: '/'
+  },
+  {
+    id: 6,
+    Prénom: 'Lucas',
+    Nom: 'Hayes',
+    Sport: 'Gym',
+    experience: '5',
+    imgCardPath: '/img/salledesport3.webp',
+    imgAlt: 'Gym',
+    link: '/'
+  }
+]

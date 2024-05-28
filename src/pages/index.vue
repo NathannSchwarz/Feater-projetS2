@@ -6,6 +6,7 @@ import { RouterLink } from 'vue-router';
 
 const activitésFiltrées = activités.filter(activité => activité.id >= 1 && activité.id <= 3);
 const activitésFiltrées2 = activités.filter(activité => activité.id >= 4 && activité.id <= 6);
+
 </script>
 
 <template>

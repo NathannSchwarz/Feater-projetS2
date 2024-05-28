@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import CardsCoach from '@/components/CardsCoach.vue'
-import Carroussel2 from '@/components/Carroussel2.vue'
+import Carroussel2coach from '@/components/Carroussel2coach.vue'
 import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
 import ShieldIcon from '@/components/icons/IconCoachShield.vue'
 import { activités } from '@/data'
@@ -40,19 +40,19 @@ onMounted(() => {
             
           </div>
         </RouterLink>
-
-        <Carroussel2 :activités="activitésFiltrées" class="mb-10"/>
+        <h3 class="pb-2 font-bold text-xl mx-6">Activités près de chez vous</h3>
+        <Carroussel2coach :activités="activitésFiltrées" class="mb-10"/>
         
-         <h3 class="pb-2 font-bold  mx-6">En fonction de vos habitudes</h3>
+         <h3 class="pb-2 font-bold text-xl mx-6">En fonction de vos habitudes</h3>
          
          <div class="grid grid-cols-2 pb-12  mx-6">
             <CardsCoach v-for="coach in 4" />
          </div>
-        
-        <Carroussel2 :activités="activitésFiltrées" class="mb-10"/>
+        <h3 class="pb-2 font-bold text-xl mx-6">Activités près de chez vous</h3>
+        <Carroussel2coach :activités="activitésFiltrées" class="mb-12 "/>
 
         <div class=" flex justify-center items-center">
-          <button class="flex items-center justify-around p-3  w-4/5 mb-10 bg-red-700 rounded-3xl ">
+          <button class="flex items-center justify-around p-3  w-4/5 mb-12 bg-red-700 rounded-3xl ">
           
               <h2 class="font-bold text-xl text-white">Devenir Coach !</h2>
               <ShieldIcon class=" h-14 w-14"/>
