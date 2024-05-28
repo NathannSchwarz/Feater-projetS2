@@ -14,8 +14,19 @@ import { RouterLink } from 'vue-router'
 <template>
 
     <nav>
-        <ul class="fixed grid grid-cols-4 justify-strecth  pt-2 bg-red-600 pb-2 p-4 bottom-0 z-20 w-full">
+        <ul class="fixed grid grid-cols-5 justify-strecth  pt-2 bg-red-600 pb-2 p-4 bottom-0 z-20 w-full">
 
+                <div  class="flex flex-col items-center justify-around p-1.5 text-white "  :class="{ 'bg-white rounded-xl': $route.path === '/activité' }" >
+                    <li class="">
+                        <RouterLink to="/activité" >
+                            
+                        <ActivitéIcon :class="{ ' text-red-600': $route.path === '/activité' }"/>
+            
+                        </RouterLink>
+                    </li>
+                    <p class="text-xs font-base " :class="{ ' text-red-600': $route.path === '/activité' }">Activité</p>
+
+                </div>
                 <div  class="flex flex-col items-center justify-around p-1.5 text-white "  :class="{ 'bg-white rounded-xl': $route.path === '/activité' }" >
                     <li class="">
                         <RouterLink to="/activité" >
