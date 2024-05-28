@@ -2,9 +2,9 @@
 import SearchwhiteIcon from '@/components/icons/Iconsearchwhite.vue'
 import CardsActivité from '@/components/CardsActivité.vue'
 import { RouterLink } from 'vue-router'
-
-import { onMounted, onBeforeUnmount } from 'vue';
-
+import { sport } from '@/data' 
+import { onMounted } from 'vue';
+const sportFiltrées = sport.filter(sport => sport.id >= 1 && sport.id <= 4);
 
 const updateTitle = (newTitle: string) => {
   document.title = newTitle;
@@ -72,19 +72,19 @@ onMounted(() => {
          <h3 class="pb-4 font-bold">Parcourir par Sport</h3>
 
         <div class="grid grid-cols-2">
-            <CardsActivité v-for="coach in 4" />
+            <CardsActivité v-for="sport in sportFiltrées" :key="sport.id" :sport="sport"/>
         </div>
 
         <RouterLink to="#">
             <div class="flex justify-end mb-12">
-                <button class="bg-red-500  p-1.5 rounded-3xl text-xs font-bold text-white">Voir plus de Sports</button>
-            </div>   
+            <button class="bg-red-500 p-1.5 rounded-3xl text-xs font-bold text-white">Voir plus de Sports</button>
+            </div>
         </RouterLink>
-        
+  
         <h3 class="pb-4 font-bold">Parcourir par Groupe</h3>
 
-        <div class="grid grid-cols-2 pb-12 ">
-            <CardsActivité v-for="coach in 4" />
+        <div class="grid grid-cols-2 pb-12">
+            <CardsActivité v-for="sport in sportFiltrées" :key="sport.id" :sport="sport"/>
         </div>
             
         <RouterLink to="#">

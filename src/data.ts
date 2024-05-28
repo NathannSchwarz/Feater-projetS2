@@ -161,3 +161,73 @@ export const coach = [
     link: '/'
   }
 ]
+
+
+export const coachhabitude = [
+  {
+    id: 1,
+    title: 'Course à pied',
+    imgCardPath: '/img/course.webp',
+    imgAlt: 'course à pied',
+    link: '/'
+  },
+  {
+    id: 2,
+    title: 'Badminton',
+    imgCardPath: '/img/badminton.webp',
+    imgAlt: 'badminton',
+    link: '/'
+  },
+  {
+    id: 3,
+    title: 'Vélo',
+    imgCardPath: '/img/vélo.webp',
+    imgAlt: 'vététiste',
+    link: '/'
+  },
+  {
+    id: 4,
+    title : 'Musculation',
+    imgCardPath: '/img/salledesport2.webp',
+    imgAlt: 'musculation',
+    link: '/'
+  },
+]
+
+
+export const sport = [
+  {
+    id: 1,
+    title: 'Badminton',
+    imgCardPath: '/img/badminton.webp',
+    imgAlt: 'badminton',
+    link: '/',
+    bgColor: 'bg-violet-400'
+  },
+  {
+    id: 2,
+    title: 'Salle de sport',
+    imgCardPath: '/img/salledesport2.webp',
+    imgAlt: 'musculation',
+    link: '/',
+    bgColor: 'bg-red-400'
+  },
+  {
+    id: 3,
+    title: 'Course à pied',
+    imgCardPath: '/img/course.webp',
+    imgAlt: 'course à pied',
+    link: '/',
+    bgColor: 'bg-violet-400'
+  },
+
+  {
+    id: 4,
+    title: 'Vélo',
+    imgCardPath: '/img/vélo.webp',
+    imgAlt: 'vététiste',
+    link: '/',
+    bgColor: 'bg-green-600'
+  },
+  
+]

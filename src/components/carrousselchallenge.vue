@@ -20,7 +20,7 @@ const prev = () => {
     </button>
 
     <div class="relative flex justify-center items-center overflow-hidden py-10 ">
-      <div class="flex w-full m-auto">
+      <div class="flex w-full h-44 m-auto">
         <RouterLink to="#">
           <div class="w-20 h-20 flex-shrink-0 flex justify-center transform transition-all duration-500"
               :class="currentIndex === 0 ? 'z-10 scale-110 w-44 h-44 ' : 'z-0 scale-90 blur-md '">
@@ -68,23 +68,9 @@ const prev = () => {
 </template>
 
 <style scoped>
-.blur-md {
-  filter: blur(5px);
-}
 
-.scale-90 {
-  transform: scale(0.9);
-}
+  .blur-md {
+    filter: blur(5px);
+  }
 
-.scale-110 {
-  transform: scale(1.10);
-}
-
-.w-36 {
-  width: 9rem;
-}
-
-.h-48 {
-  height: 12rem;
-}
 </style>

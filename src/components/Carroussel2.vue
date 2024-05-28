@@ -71,11 +71,11 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="carouselRef" id="carousel" class="relative w-full overflow-hidden">
-    <div class="flex transition-transform duration-500 ease-in-out" :style="{ transform: `translateX(-${currentIndex * (252 / props.activités.length)}%)` }" style="scroll-snap-type: x mandatory;">
-      <div v-for="(activité, index) in props.activités" :key="activité.id" class="w-4/5 flex-shrink-0 ms-6" style="scroll-snap-align: center;">
+  <div ref="carouselRef" id="carousel" class="relative w-full overflow-hidden ">
+    <div class="flex transition-transform duration-500 ease-in-out justify-cente items-center" :style="{ transform: `translateX(-${currentIndex * (262 / props.activités.length)}%)` }" style="scroll-snap-type: x mandatory;">
+      <div v-for="(activité, index) in props.activités" :key="activité.id" class="w-5/6 flex-shrink-0 ms-6" style="scroll-snap-align: center;">
         <RouterLink :to="activité.link">
-          <div class="relative flex justify-center w-80 h-44">
+          <div class="relative flex justify-center w-auto h-44">
             <img class="rounded-xl w-full h-full object-cover" :src="activité.imgCardPath" :alt="activité.imgAlt || activité.title">
             <div class="absolute bottom-0 w-full h-1/2 text-white bg-red-500 px-3 py-1 rounded-b-xl">
               <h4 class="text-lg font-bold pb-1">{{ activité.title }}</h4>

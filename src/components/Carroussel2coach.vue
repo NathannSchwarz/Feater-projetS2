@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, defineProps } from 'vue';
 
-
 const props = defineProps<{
-  coach: {
+  coaches: {
     id: number;
     Prénom: string;
     Nom: string;
@@ -19,7 +18,7 @@ const currentIndex = ref(0);
 const carouselRef = ref(null);
 
 const next = () => {
-  if (currentIndex.value < props.coach.length - 1) {
+  if (currentIndex.value < props.coaches.length - 1) {
     currentIndex.value += 1;
   }
 };
@@ -30,7 +29,7 @@ const prev = () => {
   }
 };
 
-const isNextDisabled = computed(() => currentIndex.value >= props.coach.length - 1);
+const isNextDisabled = computed(() => currentIndex.value >= props.coaches.length - 1);
 const isPrevDisabled = computed(() => currentIndex.value <= 0);
 
 const startX = ref(0);
@@ -73,15 +72,15 @@ onUnmounted(() => {
 
 <template>
   <div ref="carouselRef" id="carousel" class="relative w-full overflow-hidden">
-    <div class="flex transition-transform duration-500 ease-in-out" :style="{ transform: `translateX(-${currentIndex * (252 / props.coach.length)}%)` }" style="scroll-snap-type: x mandatory;">
-      <div v-for="(coach, index) in props.coach" :key="coach.id" class="w-4/5 flex-shrink-0 ms-6" style="scroll-snap-align: center;">
+    <div class="flex transition-transform duration-500 ease-in-out" :style="{ transform: `translateX(-${currentIndex * (252 / props.coaches.length)}%)` }" style="scroll-snap-type: x mandatory;">
+      <div v-for="(coach, index) in props.coaches" :key="coach.id" class="w-4/5 flex-shrink-0 ms-6" style="scroll-snap-align: center;">
         <RouterLink :to="coach.link">
           <div class="relative flex justify-center w-80 h-44">
             <img class="rounded-xl w-full h-full object-cover" :src="coach.imgCardPath" :alt="coach.imgAlt || coach.Nom">
-            <div class="absolute bottom-0 w-full h-1/2 text-white bg-red-500 px-3 py-1 rounded-b-xl">
-              <h4 class="text-lg font-bold pb-1">{{ coach.Nom }}</h4>
+            <div class="absolute bottom-0 w-full h-2/5 text-white bg-red-500 px-3 py-2 rounded-b-xl">
+              <h4 class="text-lg font-bold ">{{ coach.Prénom }} {{ coach.Nom }} </h4>
               <div class="flex justify-between gap-2">
-                <p class="text-sm">{{ coach.experience }} ans</p>
+                <p class="text-sm">Coach depuis {{ coach.experience }} ans</p>
               </div>
             </div>
           </div>

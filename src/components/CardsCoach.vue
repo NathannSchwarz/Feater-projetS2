@@ -1,28 +1,28 @@
 <script setup lang="ts">
+import { defineProps } from 'vue';
 
-import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
-
+const props = defineProps<{
+  coachhabitude: {
+    id: number;
+    title: string;
+    imgCardPath: string;
+    imgAlt: string;
+    link: string;
+  }
+}>();
 </script>
 
-
 <template>
-  
-    <nav>
-
-       
-        
-        <button class="relative flex justify-center w-full rounded-xl">
-            <div class="relative">
-                <img class="" src="/img/course.webp" alt="Course à pied" />
-                <div class="absolute bottom-0 left-0 w-full bg-black rounded-b-xl">
-                    <p class="text-white text-base font-bold text-center py-3">Course à pied</p>
-                </div>
-            </div>
-        </button>
-        
-    </nav>
-
-
-    
+  <nav>
+    <RouterLink :to="coachhabitude.link">
+      <button class="relative flex justify-center w-full rounded-xl pb-6">
+        <div class="relative">
+          <img class="rounded-xl" :src="coachhabitude.imgCardPath" :alt="coachhabitude.imgAlt"/>
+          <div class="absolute bottom-0 left-0 w-full bg-black rounded-b-xl">
+            <p class="text-white text-base font-bold text-center py-3">{{ coachhabitude.title }}</p>
+          </div>
+        </div>
+      </button>
+    </RouterLink>
+  </nav>
 </template>
-

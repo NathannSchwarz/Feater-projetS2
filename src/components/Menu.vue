@@ -49,15 +49,15 @@ import { RouterLink } from 'vue-router'
                     <p class="text-xs font-base" :class="{ ' text-red-600': $route.path === '/message' }">Message</p>  
                 </div>
 
-                <div class="flex flex-col items-center justify-around  p-1.5 text-white" :class="{'bg-white rounded-xl text-red-600  ': $route.path === '/compte' }">
+                <div class="flex flex-col items-center justify-around  p-1.5 text-white" :class="{'bg-white rounded-xl text-red-600  ': $route.path === '/compte' ||  $route.path === '/compte/settings'  }">
                     <li>
                         <RouterLink to="/compte">
                             
-                        <CompteIcon :class="{ ' text-red-600': $route.path === '/compte' }"/>
+                        <CompteIcon :class="{ ' text-red-600': $route.path === '/compte'  ||  $route.path === '/compte/settings'}"/>
             
                         </RouterLink>
                     </li>   
-                    <p class="text-xs font-base" :class="{ ' text-red-600': $route.path === '/compte' }">Compte</p> 
+                    <p class="text-xs font-base" :class="{ ' text-red-600': $route.path === '/compte'  ||  $route.path === '/compte/settings'}">Compte</p> 
                 </div>
                 
         </ul>

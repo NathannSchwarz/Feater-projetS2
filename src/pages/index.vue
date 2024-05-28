@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Carroussel from '@/components/carrousselindex1.vue';
+import Carrousselchallenge from '@/components/carrousselchallenge.vue';
 import Carroussel2 from '@/components/Carroussel2.vue';
 import { activités } from '@/data';
 import { RouterLink } from 'vue-router';
@@ -18,7 +18,7 @@ const activitésFiltrées2 = activités.filter(activité => activité.id >= 4 &&
     </div>
 
     <h2 class="text-center  mt-10">Nouveaux Challenges du jour !</h2>
-    <Carroussel />
+    <Carrousselchallenge/>
 
    
     <h3 class="pb-2 font-bold text-xl mx-6">Activités faites pour vous</h3>
