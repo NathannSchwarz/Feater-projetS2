@@ -92,6 +92,7 @@ onMounted(() => {
 
             <p class="text-xs text-center">© 2023 - 2024 Feater Inc.</p>
             
+            
         </div>
         
     

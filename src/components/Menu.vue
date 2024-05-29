@@ -21,7 +21,7 @@ import { RouterLink } from 'vue-router'
 <template>
 
     <nav>
-        <ul class="fixed grid grid-cols-5 justify-strecth  pt-1 pb-1 bg-white px-4 bottom-0 z-20 w-full">
+        <ul class="fixed grid grid-cols-5 justify-strecth  py-1.5 bg-white bottom-0 z-20 w-full border-t border-zinc-200">
 
                 <div  class="flex flex-col items-center justify-around p-1.5 text-black " >
                     <li class="">
@@ -33,7 +33,7 @@ import { RouterLink } from 'vue-router'
             
                         </RouterLink>
                     </li>
-                     <p class="text-xs font-base " :class="{ ' text-red-600': $route.path === '/' }">Accueil</p>
+                    
 
                 </div>
                <div  class="flex flex-col items-center justify-around p-1.5 text-black " >
@@ -46,7 +46,7 @@ import { RouterLink } from 'vue-router'
             
                         </RouterLink>
                     </li>
-                     <p class="text-xs font-base " :class="{ ' text-red-600': $route.path === '/activité' }">Activité</p>
+                     
 
                 </div>
                 <div  class="flex flex-col items-center justify-around p-1.5 text-black " >
@@ -59,7 +59,7 @@ import { RouterLink } from 'vue-router'
             
                         </RouterLink>
                     </li>
-                     <p class="text-xs font-base " :class="{ ' text-red-600': $route.path === '/carte' }">Carte</p>
+                    
 
                 </div>
 
@@ -73,7 +73,7 @@ import { RouterLink } from 'vue-router'
             
                         </RouterLink>
                     </li>
-                     <p class="text-xs font-base " :class="{ ' text-red-600': $route.path === '/message' }">Message</p>
+                     
 
                 </div>
 
@@ -87,7 +87,7 @@ import { RouterLink } from 'vue-router'
             
                         </RouterLink>
                     </li>
-                     <p class="text-xs font-base " :class="{ ' text-red-600': $route.path === '/compte' }">Compte</p>
+
 
                 </div>
                 

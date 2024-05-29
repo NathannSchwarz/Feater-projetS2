@@ -29,7 +29,7 @@ function goBack() {
 
   <header class="sticky bg-white top-0 left-0 w-full  z-30 flex items-center justify-between text-white mb-8">
 
-    <div :class="{'bg-red-600 z-10': activeMenu, }" class=" flex justify-between items-center w-full shadow-xl py-2 p-6">
+    <div :class="{'bg-red-600 z-10': activeMenu, }" class=" flex justify-between items-center w-full border-b border-zinc-200  py-2 p-6">
 
       
       <template v-if="$route.path === '/Notification' || $route.path ==='/compte/settings' || $route.path ==='/compte/langue' || $route.path ==='/compte/donnéespersonnelles' || $route.path ==='/compte/abonnement' || $route.path ==='/compte/personnesrencontrées' || $route.path ==='/compte/paiement' || $route.path ==='/compte/conditionsgenerales' || $route.path ==='/compte/politiquesconfidentialité' || $route.path ==='/connexion'">
