@@ -38,32 +38,45 @@ const doLoginOAuth = async () => {
     }
 }
 
+const updateTitle = (newTitle: string) => {
+  document.title = newTitle;
+};
+
+
+onMounted(() => {
+  updateTitle('');
+});
+
+
 </script>
 
 <template>
 
-    <nav class="grille ">
-
-        <LogoIcon class="w-24 h-24 mb-2"/>
-        <h1 class="font-bold text-3xl pb-5">Inscrivez-vous</h1>
+    <nav class="mx-10">
+        <div class="flex items-center justify-center">
+            <LogoIcon class="w-24 h-24 mb-5 mt-4 "/>
+        </div>
+        
+        <h1 class="font-bold text-5xl mb-10">Ça se passe maintenant</h1>
+        <h2 class="font-bold text-3xl pb-4">Inscrivez-vous</h2>
         
 
         
 
         <div class="flex flex-col">
-            <div class="flex border rounded-3xl justify-center gap-5 px-8 p-2 mb-3">
+            <div class="flex border border-gray-300 rounded-3xl justify-center gap-5 px-8 p-2 mb-2">
                 <img class="w-6 h-6" src="/public/img/logogoogle.png" alt="logogoogle">
                 <button class="font-bold"  @click="doLoginOAuth">Connexion avec Google</button> 
             </div>
 
-            <div class="flex items-center mb-3">
+            <div class="flex items-center mb-2">
                 <div class="flex-grow border-t border-gray-300"></div>
                 <span class="mx-4 font-bold text-sm">OU</span>
                 <div class="flex-grow border-t border-gray-300"></div>
             </div>
 
             
-            <RouterLink  to="" class="flex border rounded-3xl p-2 mb-2 justify-center bg-red-600 text-white  font-bold ">
+            <RouterLink  to="" class="flex border rounded-3xl p-2 mb-1 justify-center bg-red-600 text-white  font-bold ">
                 <button  @click="doLogin">Créer un compte</button>
             </RouterLink>
 
@@ -74,10 +87,10 @@ const doLoginOAuth = async () => {
             
             
 
-            <h2 class="font-bold text-xl pb-5">Vous avez déjà un compte ?</h2>
-            <button class="flex border rounded-3xl px-14 p-2 mb-5 bg-red-600 text-white font-bold text-center justify-center" @click="doLogin">Se Connecter</button>
+            <h2 class="font-bold text-xl pb-3">Vous avez déjà un compte ?</h2>
+            <button class="flex border border-gray-300  rounded-3xl px-14 p-2  text-red-500  font-bold text-center justify-center mb-20" @click="doLogin">Se Connecter</button>
 
-
+            <p class="text-xs text-center">© 2023 - 2024 Feater Inc.</p>
             
         </div>
         

@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
+
+import { RouterView, useRoute } from 'vue-router'
+import { computed } from 'vue'
 import Header from './components/HeaderPage.vue'
 import Footer from './components/FooterPage.vue'
 import Menu from './components/Menu.vue'
@@ -23,15 +25,19 @@ onMounted(async () => {
     window.location.href = '/'
   }
 })
+
+const route = useRoute()
+const showHeader = computed(() => route.path !== '/connexion')
 </script>
 
+
 <template>
-  <Header />
+  <Header v-if="showHeader"/>
 
   <main>
     <RouterView />
   </main>
 
-  <Menu />
-  <Footer />
+  <Menu v-if="showHeader" />
+  <Footer  v-if="showHeader" />
 </template>
