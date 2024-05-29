@@ -11,19 +11,18 @@ let pb = null
 let currentuser = ref()
 
 onMounted(async () => {
-    pb = new Pocketbase("http://127.0.0.1:8090")
-    currentuser.value = pb.authStore.isValid ? pb.authStore.model : null
+  pb = new Pocketbase('http://127.0.0.1:8090')
+  currentuser.value = pb.authStore.isValid ? pb.authStore.model : null
 
-    if (!currentuser.value && window.location.pathname !== '/connexion') {
-      window.location.href = '/connexion'
-    } else if (
-      (currentuser.value && window.location.pathname === '/connexion') ||
-      window.location.pathname === '/register'
-    ) {
-      window.location.href = '/'
-    }
+  if (!currentuser.value && window.location.pathname !== '/connexion') {
+    window.location.href = '/connexion'
+  } else if (
+    (currentuser.value && window.location.pathname === '/connexion') ||
+    window.location.pathname === '/register'
+  ) {
+    window.location.href = '/'
+  }
 })
-
 </script>
 
 <template>
@@ -32,8 +31,7 @@ onMounted(async () => {
   <main>
     <RouterView />
   </main>
-  
-    <Menu />
+
+  <Menu />
   <Footer />
-  
 </template>

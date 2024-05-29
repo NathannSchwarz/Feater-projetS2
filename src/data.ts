@@ -56,43 +56,29 @@ export const activités = [
 ]
 
 export const settings = [
+
   {
     id: 1,
-    title: 'Données Personnelles',
-    link: '/compte/donnéespersonnelles'
-  },
-  {
-    id: 2,
     title: 'Abonnement',
     link: 'compte/abonnement'
   },
   {
-    id: 3,
+    id: 2,
     title: 'Personnes rencontrées',
     link: '/compte/personnesrencontrées'
   },
   {
-    id: 4,
+    id: 3,
     title: 'Paiements',
     link: '/compte/paiement'
   },
   {
-    id: 5,
+    id: 4,
     title: 'Langues',
     link: '/compte/langue'
   },
   {
-    id: 6,
-    title: 'Conditions générales',
-    link: '/compte/conditionsgenerales'
-  },
-  {
-    id: 7,
-    title: 'Politique de confidentialité',
-    link: '/compte/politiquesconfidentialité'
-  },
-  {
-    id: 8,
+    id: 5,
     title: 'Donnez votre avis',
     link: '/avis'
   }

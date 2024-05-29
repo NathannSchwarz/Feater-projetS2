@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import LogoIcon from '@/components/icons/Iconlogored.vue'
 import LogowhiteIcon from '@/components/icons/Iconlogowhite.vue'
-import SearchIcon from '@/components/icons/Iconsearch.vue'
 import VectorMenuIcon from '@/components/icons/Iconvectormenu.vue'
-import SettingsIcon from '@/components/icons/Iconsettings.vue'
 import NotifIcon from '@/components/icons/Iconnotif.vue'
 import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
 
@@ -17,8 +15,12 @@ function closeMenu() {
   activeMenu.value = false
 }
 
+import { useRouter } from 'vue-router';
+const router = useRouter();
 
-
+function goBack() {
+  router.go(-1); // Cette ligne permet de revenir à la page précédente
+}
 
 
 </script>
@@ -30,18 +32,18 @@ function closeMenu() {
     <div :class="{'bg-red-600 z-10': activeMenu, }" class=" flex justify-between items-center w-full shadow-xl py-2 p-6">
 
       
-      <template v-if="$route.path === '/Notification' || $route.path ==='/compte/settings' || $route.path ==='/compte/langue' || $route.path ==='/compte/donnéespersonnelles' || $route.path ==='/compte/abonnement' || $route.path ==='/compte/personnesrencontrées' || $route.path ==='/compte/paiement' || $route.path ==='/compte/conditionsgenerales' || $route.path ==='/compte/politiquesconfidentialité' ">
-        <RouterLink to="/compte" @click="closeMenu">
-          <flecheIcon class=" w-10 h-6 my-3.5" :class="{ 'text-white': activeMenu, 'text-black': !activeMenu }"/>
-        </RouterLink>
+      <template v-if="$route.path === '/Notification' || $route.path ==='/compte/settings' || $route.path ==='/compte/langue' || $route.path ==='/compte/donnéespersonnelles' || $route.path ==='/compte/abonnement' || $route.path ==='/compte/personnesrencontrées' || $route.path ==='/compte/paiement' || $route.path ==='/compte/conditionsgenerales' || $route.path ==='/compte/politiquesconfidentialité' || $route.path ==='/connexion'">
+        <button @click="goBack">
+          <flecheIcon class="w-10 h-6 my-3" :class="{ 'text-white': activeMenu, 'text-black': !activeMenu }"/>
+        </button>
       </template>
-      <template v-else-if="!activeMenu" >
-        <RouterLink to="/">
+      <template v-else-if="!activeMenu"  >
+        <RouterLink to="/" @click="closeMenu">
           <LogoIcon />
         </RouterLink>
       </template>
       <template v-else>
-        <RouterLink to="/">
+        <RouterLink to="/" @click="closeMenu">
           <LogowhiteIcon />
         </RouterLink>
       </template>
@@ -50,33 +52,15 @@ function closeMenu() {
 
       <div class="flex items-center gap-3">
 
-        <button class="z-10">
-   
-          <template v-if="$route.path === '/compte' || $route.path ==='/compte/settings' || $route.path ==='/compte/langue' || $route.path ==='/compte/donnéespersonnelles' || $route.path ==='/compte/abonnement' || $route.path ==='/compte/personnesrencontrées' || $route.path ==='/compte/paiement' || $route.path ==='/compte/conditionsgenerales' || $route.path ==='/compte/politiquesconfidentialité' ">
-            <RouterLink to="/compte/settings">
-              <SettingsIcon/>
-            </RouterLink>
-          </template>
-          
-          <template v-else>
-            <RouterLink to="/">
-              <SearchIcon :class="{ 'text-white': activeMenu, 'text-black': !activeMenu }"/>
-            </RouterLink>
-          </template>
+        <RouterLink to="/Notification" @click="closeMenu">
+              <NotifIcon :class="{ 'text-white stroke-white': activeMenu, 'text-black': !activeMenu }"/>
+        </RouterLink>
 
+        <button class="z-10">
+          
         </button>
-
-        <button class="z-10">
-          
         
-          
-        </button>
-        <template v-if="$route.path === '/compte' || $route.path ==='/compte/settings' || $route.path ==='/compte/langue' || $route.path ==='/compte/donnéespersonnelles' || $route.path ==='/compte/abonnement' || $route.path ==='/compte/personnesrencontrées' || $route.path ==='/compte/paiement' || $route.path ==='/compte/conditionsgenerales' || $route.path ==='/compte/politiquesconfidentialité' ">
-          <RouterLink to="/Notification">
-              <NotifIcon/>
-          </RouterLink>
-        </template>
-        <template v-else>
+        
         <button 
           class="relative z-10 flex h-5 w-6 flex-col justify-between *:h-[4px] *:w-full *:bg-black *:transition-all *:duration-300 *:ease lg:hidden"
           @click="activeMenu = !activeMenu">
@@ -84,7 +68,7 @@ function closeMenu() {
           <div :class="{'opacity-0 !bg-white': activeMenu}" class="rounded"></div>
           <div :class="{'-translate-y-[8px] -rotate-45 !bg-white': activeMenu}" class="rounded"></div>
         </button>
-        </template>
+        
       </div>
     </div>
 

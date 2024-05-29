@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import Pocketbase from 'pocketbase'
+import LogoIcon from '@/components/icons/Iconlogored.vue'
 
 let email = ref('')
 let password = ref('')
@@ -40,10 +41,47 @@ const doLoginOAuth = async () => {
 </script>
 
 <template>
-<input v-model="email" type="email" placeholder="Adresse e-mail"/>
-<input v-model="password" type="password" placeholder="Mot de passe" />
-<button @click="doLogin">Connexion</button>
-<button @click="doLoginOAuth">Connexion avec Google</button>
-<h1 v-if="currentuser">SALUT {{ currentuser.prenom }} CA VA MEC ??????</h1>
-<button v-if="currentuser" @click="doLogout">Déconnexion</button>
+
+    <nav class="grille ">
+
+        <LogoIcon class="w-24 h-24 mb-2"/>
+        <h1 class="font-bold text-3xl pb-5">Inscrivez-vous</h1>
+        
+
+        
+
+        <div class="flex flex-col">
+            <div class="flex border rounded-3xl justify-center gap-5 px-8 p-2 mb-3">
+                <img class="w-6 h-6" src="/public/img/logogoogle.png" alt="logogoogle">
+                <button class="font-bold"  @click="doLoginOAuth">Connexion avec Google</button> 
+            </div>
+
+            <div class="flex items-center mb-3">
+                <div class="flex-grow border-t border-gray-300"></div>
+                <span class="mx-4 font-bold text-sm">OU</span>
+                <div class="flex-grow border-t border-gray-300"></div>
+            </div>
+
+            
+            <RouterLink  to="" class="flex border rounded-3xl p-2 mb-2 justify-center bg-red-600 text-white  font-bold ">
+                <button  @click="doLogin">Créer un compte</button>
+            </RouterLink>
+
+            <p class="text-[11px]/[13px] pr-2 mb-16">En vous inscrivant, vous acceptez les <span class="text-red-600">Conditions d'utilisation</span> et la <span  class="text-red-600">politique de confidentialité</span> notamment <span  class="text-red-600">l'Utilsation des cookies</span>.</p>
+            
+            
+            
+            
+            
+
+            <h2 class="font-bold text-xl pb-5">Vous avez déjà un compte ?</h2>
+            <button class="flex border rounded-3xl px-14 p-2 mb-5 bg-red-600 text-white font-bold text-center justify-center" @click="doLogin">Se Connecter</button>
+
+
+            
+        </div>
+        
+    
+    </nav>
+    
 </template>

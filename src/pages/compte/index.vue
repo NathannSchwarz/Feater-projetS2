@@ -2,12 +2,12 @@
 
 import Settings from '@/components/Settings.vue'
 import ShieldIcon from '@/components/icons/IconCoachShield.vue'
+import SettingsIcon from '@/components/icons/Iconsettings.vue'
 import { settings } from '@/data'
-const settingsFiltrées = settings.filter(setting => setting.id >= 1 && setting.id <= 4);
+const settingsFiltrées = settings.filter(setting => setting.id >= 1 && setting.id <= 5);
 
 import { onMounted, onBeforeUnmount, watch, ref } from 'vue';
 import Pocketbase from 'pocketbase'
-
 
 const updateTitle = (newTitle: string) => {
   document.title = newTitle;
@@ -32,13 +32,30 @@ watch(currentuser, (val) => {
 onMounted(() => {
   updateTitle('Votre compte / Vos Paramètres');
 });
+
+const doLogout = async () => {
+    pb.authStore.clear()
+    currentuser.value = null
+    window.location.href = '/connexion'
+}
+
+onMounted(async () => {
+    pb = new Pocketbase("http://127.0.0.1:8090")
+    currentuser.value = pb.authStore.isValid ? pb.authStore.model : null
+})
 </script>
 
 
 <template>
 
+        <div class="flex justify-between pe-6">
+            <h1 class="font-bold text-3xl pb-5 px-6">Compte</h1>
+            <RouterLink to="/compte/settings" class="pt-2">
+                <SettingsIcon/>
+            </RouterLink>
 
-        <h1 class="font-bold text-3xl pb-5 px-6">Compte</h1>
+        </div>
+        
         <div v-if="currentuser" class="flex flex-col items-center ">
             <img class="rounded-full w-32 mb-1 shadow-2xl shadow-red-400" :src="avatarUrl" alt="Course à pied" />
             <h2 class="text-3xl font-extrabold">{{ currentuser.prenom }} {{ currentuser.nom }}</h2>
@@ -51,6 +68,11 @@ onMounted(() => {
             <Settings :activités="settingsFiltrées" />
         </div>
         
+        <div class="flex items-center justify-center">
+            <button class="flex items-center justify-around p-3 w-2/3 mb-10 bg-red-600 rounded-3xl">
+                <button @click="doLogout" class="font-bold text-xl text-white">Déconnexion</button>
+            </button>
+         </div>
         
             <div class="flex items-center justify-center">
                 <button class="flex items-center justify-around p-3 w-5/6 mb-10 bg-red-600 rounded-3xl">

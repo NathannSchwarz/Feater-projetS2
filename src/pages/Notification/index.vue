@@ -17,10 +17,17 @@ onMounted(() => {
 
 <template>
 
-    <nav class="grille ">
+    <div class="mb-80">
+      <nav class="grille ">
         <h1 class="font-bold text-3xl pb-5">Notifications</h1>
-    </nav>
+      </nav>
 
-    <CardsNotification v-for="coach in 4"/>
+      <CardsNotification v-for="coach in 4"/>
 
+      <input class="border rounded-3xl px-8 p-2 mb-5 grow" v-model="email" type="email" placeholder="Adresse e-mail"/>
+            <input class="border rounded-3xl px-8 p-2 mb-5 grow" v-model="password" type="password" placeholder="Mot de passe" />
+
+    </div>
+
+    
 </template>
