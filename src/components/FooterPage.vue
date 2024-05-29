@@ -20,7 +20,6 @@ import { RouterLink } from 'vue-router'
             <li><RouterLink to="/compte/donnéespersonnelles">Données Personelles</RouterLink></li>
             <li><RouterLink to="/compte/abonnement">Abonnement</RouterLink></li>
             <li><RouterLink to="/compte/">Contact</RouterLink></li>
-            <li><RouterLink to="/compte/langue">Langue</RouterLink></li>
             </ul>
 
             <div class="space-y-6 lg:col-span-3 lg:col-start-10">

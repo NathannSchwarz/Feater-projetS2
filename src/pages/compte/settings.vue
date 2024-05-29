@@ -2,8 +2,16 @@
 
 import Settings from '@/components/Settings.vue'
 import { settings } from '@/data'
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
+import Pocketbase from 'pocketbase'
 
+let pb = null
+let currentuser = ref()
+
+onMounted(async () => {
+    pb = new Pocketbase("http://127.0.0.1:8090")
+    currentuser.value = pb.authStore.isValid ? pb.authStore.model : null
+})
 
 const settingsFiltrées2 = settings.filter(settings => settings.id >= 5 && settings.id <= 8);
 
@@ -15,6 +23,12 @@ const updateTitle = (newTitle: string) => {
 onMounted(() => {
   updateTitle('Votre compte / Vos Paramètres');
 });
+
+const doLogout = async () => {
+    pb.authStore.clear()
+    currentuser.value = null
+    window.location.href = '/connexion'
+}
 </script>
 
 
@@ -37,9 +51,7 @@ onMounted(() => {
         
     <div class="flex items-center justify-center">
         <button class="flex items-center justify-around p-3 w-2/3 mb-10 bg-red-600 rounded-3xl">
-            <RouterLink to="/">
-            <h2 class="font-bold text-xl text-white">Deconnexion</h2>
-            </RouterLink>
+            <button @click="doLogout" class="font-bold text-xl text-white">Déconnexion</button>
         </button>
     </div>
         

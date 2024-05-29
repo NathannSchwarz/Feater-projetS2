@@ -2,18 +2,28 @@
 import Carrousselchallenge from '@/components/carrousselchallenge.vue';
 import Carroussel2 from '@/components/Carroussel2.vue';
 import { activités } from '@/data';
+import { formatDate } from '@/helper'
 import { RouterLink } from 'vue-router';
+import { ref, onMounted } from 'vue'
+import Pocketbase from 'pocketbase'
 
 const activitésFiltrées = activités.filter(activité => activité.id >= 1 && activité.id <= 3);
 const activitésFiltrées2 = activités.filter(activité => activité.id >= 4 && activité.id <= 6);
 
+let pb = null
+let currentuser = ref()
+
+onMounted(async () => {
+    pb = new Pocketbase("http://127.0.0.1:8090")
+    currentuser.value = pb.authStore.isValid ? pb.authStore.model : null
+})
 </script>
 
 <template>
 
   <div>
-    <div class="bg-red-600 p-2.5 pt-4 pb-4 rounded-xl mx-6">
-      <h1 class="text-white pb-1">Content de te revoir Fabian !</h1>
+    <div v-if="currentuser" class="bg-red-600 p-2.5 pt-4 pb-4 rounded-xl mx-6">
+      <h1 class="text-white pb-1">Content de te revoir, {{ currentuser.prenom }}</h1>
       <p class="text-xs font-normal text-white">Tu as déjà fait la rencontre de <span class="font-bold">1 personnes</span> , continue comme ça, tu es sur la bonne voie !</p>
     </div>
 

@@ -16,15 +16,15 @@ import { RouterLink } from 'vue-router'
     <nav>
         <ul class="fixed grid grid-cols-5 justify-strecth  pt-2 bg-red-600 pb-2 p-4 bottom-0 z-20 w-full">
 
-                <div  class="flex flex-col items-center justify-around p-1.5 text-white "  :class="{ 'bg-white rounded-xl': $route.path === '/activité' }" >
+                <div  class="flex flex-col items-center justify-around p-1.5 text-white "  :class="{ 'bg-white rounded-xl': $route.path === '/' }" >
                     <li class="">
-                        <RouterLink to="/activité" >
+                        <RouterLink to="/" >
                             
-                        <ActivitéIcon :class="{ ' text-red-600': $route.path === '/activité' }"/>
+                        <ActivitéIcon :class="{ ' text-red-600': $route.path === '/' }"/>
             
                         </RouterLink>
                     </li>
-                    <p class="text-xs font-base " :class="{ ' text-red-600': $route.path === '/activité' }">Activité</p>
+                    <p class="text-xs font-base " :class="{ ' text-red-600': $route.path === '/' }">Accueil</p>
 
                 </div>
                 <div  class="flex flex-col items-center justify-around p-1.5 text-white "  :class="{ 'bg-white rounded-xl': $route.path === '/activité' }" >

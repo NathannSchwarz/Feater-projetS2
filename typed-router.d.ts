@@ -32,6 +32,7 @@ declare module 'vue-router/auto-routes' {
     '/compte/personnesrencontrées': RouteRecordInfo<'/compte/personnesrencontrées', '/compte/personnesrencontrées', Record<never, never>, Record<never, never>>,
     '/compte/politiquesconfidentialité': RouteRecordInfo<'/compte/politiquesconfidentialité', '/compte/politiquesconfidentialité', Record<never, never>, Record<never, never>>,
     '/compte/settings': RouteRecordInfo<'/compte/settings', '/compte/settings', Record<never, never>, Record<never, never>>,
+    '/connexion': RouteRecordInfo<'/connexion', '/connexion', Record<never, never>, Record<never, never>>,
     '/message/': RouteRecordInfo<'/message/', '/message', Record<never, never>, Record<never, never>>,
     '/Notification/': RouteRecordInfo<'/Notification/', '/Notification', Record<never, never>, Record<never, never>>,
   }
