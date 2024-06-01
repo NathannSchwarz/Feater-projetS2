@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 import Pocketbase from 'pocketbase'
 import LogoIcon from '@/components/icons/Iconlogored.vue'
+import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
 
 let email = ref('')
 let password = ref('')
@@ -20,13 +21,8 @@ onMounted(async () => {
 
 const doLogin = async () => {
     try {
-        if (pb) {
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            const authData = await pb.collection('users').authWithPassword(email.value, password.value)
-        }
-        if (pb) {
-            currentuser.value = pb.authStore.model
-        }
+        const authData = await pb.collection('users').authWithPassword(email.value, password.value)
+        currentuser.value = pb.authStore.model
         console.log(currentuser.value)
         location.reload()
     } catch (e) {
@@ -36,13 +32,8 @@ const doLogin = async () => {
 
 const doLoginOAuth = async () => {
     try {
-        if (pb) {
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            const authData = await pb.collection('users').authWithOAuth2({ provider: 'google'})
-        }
-        if (pb) {
-            currentuser.value = pb.authStore.model
-        }
+        const authData = await pb.collection('users').authWithOAuth2({ provider: 'google'})
+        currentuser.value = pb.authStore.model
         console.log(currentuser.value)
         location.reload()
     } catch (e) {
@@ -59,18 +50,30 @@ onMounted(() => {
   updateTitle('');
 });
 
+import { useRouter } from 'vue-router';
+const router = useRouter();
+function goBack() {
+  router.go(-1); // Cette ligne permet de revenir à la page précédente
+}
 
 </script>
 
 <template>
 
     <nav class="mx-10">
-        <div class="flex items-center justify-center">
-            <LogoIcon class="w-24 h-24 mb-5 mt-4 "/>
+
+        <div class="relative flex items-center mb-5">
+            <button @click="goBack" class="absolute left-0">
+                <flecheIcon />
+            </button>
+    
+            <div class="flex-grow flex justify-center">
+                <LogoIcon class="w-24 h-24 mb-5 mt-4" />
+            </div>
         </div>
         
-        <h1 class="font-bold text-5xl mb-10">Ça se passe maintenant</h1>
-        <h2 class="font-bold text-3xl pb-4">Inscrivez-vous</h2>
+        
+        <h2 class="font-bold text-3xl pb-10">Inscrivez-Vous à Feater</h2>
         
 
         
@@ -88,21 +91,19 @@ onMounted(() => {
             </div>
 
             
-            <RouterLink  to="" class="flex border rounded-3xl p-2 mb-1 justify-center bg-red-600 text-white  font-bold ">
-                <button  @click="doLogin">Créer un compte</button>
-            </RouterLink>
+        
+            <input class="border rounded-3xl px-8 p-2 mb-5 grow" v-model="email" type="email" placeholder="Adresse e-mail"/>
+            <input class="border rounded-3xl px-8 p-2 mb-5 grow" v-model="password" type="password" placeholder="Mot de passe" />
+            <button class="flex border border-gray-300  rounded-3xl px-14 p-2 bg-red-600 text-white  font-bold text-center justify-center mb-5" @click="doLogin">Se Connecter</button>
+            <button class="flex border border-gray-300  rounded-3xl px-14 p-2  text-red-600  font-bold text-center justify-center mb-10">Mot de passe oublié</button>
 
-            <p class="text-[11px]/[13px] pr-2 mb-16">En vous inscrivant, vous acceptez les <span class="text-red-600">Conditions d'utilisation</span> et la <span  class="text-red-600">politique de confidentialité</span> notamment <span  class="text-red-600">l'Utilsation des cookies</span>.</p>
-            
-            
-            
-            
-            
 
-            <h2 class="font-bold text-xl pb-3">Vous avez déjà un compte ?</h2>
-            <button class="flex border border-gray-300  rounded-3xl px-14 p-2  text-red-500  font-bold text-center justify-center mb-20" @click="doLogin">Se Connecter</button>
+            <p class="text-sm  text-center mb-40">Vous n'avez pas de compte ? <RouterLink to="#" class="text-red-600">Inscrivez-vous</RouterLink></p>
 
-            <p class="text-xs text-center">© 2023 - 2024 Feater Inc.</p>
+            
+            <p class="text-xs text-center  ">© 2023 - 2024 Feater Inc.</p>
+            
+            
             
             
         </div>

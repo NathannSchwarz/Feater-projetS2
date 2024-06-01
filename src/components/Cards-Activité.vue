@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 const props = defineProps<{
   sport: {
     id: number;

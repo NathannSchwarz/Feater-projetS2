@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, /* computed, onMounted, onUnmounted, */ defineProps } from 'vue';
+import { ref, computed, onMounted, onUnmounted, defineProps } from 'vue';
 
 const props = defineProps<{
   coaches: {
@@ -17,7 +17,7 @@ const props = defineProps<{
 const currentIndex = ref(0);
 const carouselRef = ref(null);
 
-/* const next = () => {
+const next = () => {
   if (currentIndex.value < props.coaches.length - 1) {
     currentIndex.value += 1;
   }
@@ -29,9 +29,9 @@ const prev = () => {
   }
 }; */
 
-/* const isNextDisabled = computed(() => currentIndex.value >= props.coaches.length - 1);
+const isNextDisabled = computed(() => currentIndex.value >= props.coaches.length - 1);
 const isPrevDisabled = computed(() => currentIndex.value <= 0); */
-/* 
+
 const startX = ref(0);
 const endX = ref(0);
 
@@ -49,9 +49,9 @@ const handleTouchEnd = () => {
   } else if (startX.value - endX.value < -50) {
     prev();
   }
-}; */
+}; 
 
-/* onMounted(() => {
+onMounted(() => {
   const carousel = carouselRef.value;
   if (carousel) {
     carousel.addEventListener('touchstart', handleTouchStart);
@@ -67,7 +67,7 @@ onUnmounted(() => {
     carousel.removeEventListener('touchmove', handleTouchMove);
     carousel.removeEventListener('touchend', handleTouchEnd);
   }
-}); */
+});
 </script>
 
 <template>

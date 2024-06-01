@@ -27,7 +27,9 @@ onMounted(async () => {
 })
 
 const route = useRoute()
-const showHeader = computed(() => route.path !== '/connexion')
+  const showHeader = computed(() => {
+    return route.path !== '/connexion' && route.path !== '/SeConnecter' && route.path !== '/Inscription';
+  });
 </script>
 
 
