@@ -13,11 +13,11 @@ const updateTitle = (newTitle: string) => {
   document.title = newTitle;
 };
 
-let pb = null
+let pb: Pocketbase | null = null
 let currentuser = ref()
 
 onMounted(async () => {
-    pb = new Pocketbase("http://127.0.0.1:8090")
+    pb = new Pocketbase("https://feater.schwarznathan.fr:443")
     currentuser.value = pb.authStore.isValid ? pb.authStore.model : null
 })
 
@@ -34,7 +34,9 @@ onMounted(() => {
 });
 
 const doLogout = async () => {
-    pb.authStore.clear()
+    if (pb) {
+        pb.authStore.clear()
+    }
     currentuser.value = null
     window.location.href = '/connexion'
 }

@@ -6,10 +6,10 @@ import LogoIcon from '@/components/icons/Iconlogored.vue'
 let email = ref('')
 let password = ref('')
 let currentuser = ref()
-let pb = null
+let pb: Pocketbase | null = null
 
 onMounted(async () => {
-    pb = new Pocketbase("http://127.0.0.1:8090")
+    pb = new Pocketbase("https://feater.schwarznathan.fr:443")
 
     pb.authStore.onChange(() => {
         currentuser.value = pb.authStore.model

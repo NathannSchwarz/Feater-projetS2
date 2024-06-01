@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { onMounted, onBeforeUnmount } from 'vue';
+import { onMounted } from 'vue';
 import CardsNotification from '@/components/CardsNotification.vue'
 
 const updateTitle = (newTitle: string) => {

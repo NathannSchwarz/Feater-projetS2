@@ -29,8 +29,6 @@ const prev = () => {
   }
 };
 
-const isNextDisabled = computed(() => currentIndex.value >= props.activités.length - 1);
-const isPrevDisabled = computed(() => currentIndex.value <= 0);
 
 const startX = ref(0);
 const endX = ref(0);
@@ -73,7 +71,7 @@ onUnmounted(() => {
 <template>
   <div ref="carouselRef" id="carousel" class="relative w-full overflow-hidden ">
     <div class="flex transition-transform duration-500 ease-in-out justify-cente items-center" :style="{ transform: `translateX(-${currentIndex * (262 / props.activités.length)}%)` }" style="scroll-snap-type: x mandatory;">
-      <div v-for="(activité, index) in props.activités" :key="activité.id" class="w-5/6 flex-shrink-0 ms-6" style="scroll-snap-align: center;">
+      <div v-for="(activité) in props.activités" :key="activité.id" class="w-5/6 flex-shrink-0 ms-6" style="scroll-snap-align: center;">
         <RouterLink :to="activité.link">
           <div class="relative flex justify-center w-auto h-44">
             <img class="rounded-xl w-full h-full object-cover" :src="activité.imgCardPath" :alt="activité.imgAlt || activité.title">

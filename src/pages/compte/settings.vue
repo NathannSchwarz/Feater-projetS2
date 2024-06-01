@@ -2,6 +2,7 @@
 
 import Settings from '@/components/Settings.vue'
 import { settings } from '@/data'
+import { onMounted } from 'vue/dist/vue.js';
 
 
 

@@ -13,7 +13,7 @@ let pb = null
 let currentuser = ref()
 
 onMounted(async () => {
-  pb = new Pocketbase('http://127.0.0.1:8090')
+  pb = new Pocketbase('https://feater.schwarznathan.fr:443')
   currentuser.value = pb.authStore.isValid ? pb.authStore.model : null
 
   if (!currentuser.value && window.location.pathname !== '/connexion') {
