@@ -2,9 +2,9 @@
 
 import { RouterView, useRoute } from 'vue-router'
 import { computed } from 'vue'
-import Header from '../components/HeaderPage.vue'
-import Footer from '../components/FooterPage.vue'
-import Menu from '../components/AppMenu.vue'
+import Header from './components/HeaderPage.vue'
+import Footer from './components/FooterPage.vue'
+import Menu from './components/AppMenu.vue'
 
 import { onMounted, ref } from 'vue'
 import Pocketbase from 'pocketbase'
