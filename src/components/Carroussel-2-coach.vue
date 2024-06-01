@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, defineProps } from 'vue';
+import { ref, /* computed, onMounted, onUnmounted, */ defineProps } from 'vue';
 
 const props = defineProps<{
   coaches: {
@@ -17,7 +17,7 @@ const props = defineProps<{
 const currentIndex = ref(0);
 const carouselRef = ref(null);
 
-const next = () => {
+/* const next = () => {
   if (currentIndex.value < props.coaches.length - 1) {
     currentIndex.value += 1;
   }
@@ -27,11 +27,11 @@ const prev = () => {
   if (currentIndex.value > 0) {
     currentIndex.value -= 1;
   }
-};
+}; */
 
-const isNextDisabled = computed(() => currentIndex.value >= props.coaches.length - 1);
-const isPrevDisabled = computed(() => currentIndex.value <= 0);
-
+/* const isNextDisabled = computed(() => currentIndex.value >= props.coaches.length - 1);
+const isPrevDisabled = computed(() => currentIndex.value <= 0); */
+/* 
 const startX = ref(0);
 const endX = ref(0);
 
@@ -49,9 +49,9 @@ const handleTouchEnd = () => {
   } else if (startX.value - endX.value < -50) {
     prev();
   }
-};
+}; */
 
-onMounted(() => {
+/* onMounted(() => {
   const carousel = carouselRef.value;
   if (carousel) {
     carousel.addEventListener('touchstart', handleTouchStart);
@@ -67,13 +67,13 @@ onUnmounted(() => {
     carousel.removeEventListener('touchmove', handleTouchMove);
     carousel.removeEventListener('touchend', handleTouchEnd);
   }
-});
+}); */
 </script>
 
 <template>
   <div ref="carouselRef" id="carousel" class="relative w-full overflow-hidden">
     <div class="flex transition-transform duration-500 ease-in-out" :style="{ transform: `translateX(-${currentIndex * (252 / props.coaches.length)}%)` }" style="scroll-snap-type: x mandatory;">
-      <div v-for="(coach, index) in props.coaches" :key="coach.id" class="w-4/5 flex-shrink-0 ms-6" style="scroll-snap-align: center;">
+      <div v-for="(coach, /* index */) in props.coaches" :key="coach.id" class="w-4/5 flex-shrink-0 ms-6" style="scroll-snap-align: center;">
         <RouterLink :to="coach.link">
           <div class="relative flex justify-center w-80 h-44">
             <img class="rounded-xl w-full h-full object-cover" :src="coach.imgCardPath" :alt="coach.imgAlt || coach.Nom">

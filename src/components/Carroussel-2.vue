@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, defineProps } from 'vue';
+import { ref, /* computed, onMounted, onUnmounted */ defineProps } from 'vue';
 
 
 const props = defineProps<{
@@ -17,7 +17,7 @@ const props = defineProps<{
 const currentIndex = ref(0);
 const carouselRef = ref(null);
 
-const next = () => {
+/* const next = () => {
   if (currentIndex.value < props.activités.length - 1) {
     currentIndex.value += 1;
   }
@@ -31,9 +31,9 @@ const prev = () => {
 
 
 const startX = ref(0);
-const endX = ref(0);
+const endX = ref(0); */
 
-const handleTouchStart = (event: TouchEvent) => {
+/* const handleTouchStart = (event: TouchEvent) => {
   startX.value = event.touches[0].clientX;
 };
 
@@ -47,9 +47,9 @@ const handleTouchEnd = () => {
   } else if (startX.value - endX.value < -50) {
     prev();
   }
-};
+}; */
 
-onMounted(() => {
+/* onMounted(() => {
   const carousel = carouselRef.value;
   if (carousel) {
     carousel.addEventListener('touchstart', handleTouchStart);
@@ -65,7 +65,7 @@ onUnmounted(() => {
     carousel.removeEventListener('touchmove', handleTouchMove);
     carousel.removeEventListener('touchend', handleTouchEnd);
   }
-});
+}); */
 </script>
 
 <template>

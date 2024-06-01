@@ -3,7 +3,7 @@ import { RouterLink } from 'vue-router'
 import { defineProps } from 'vue';
 import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
 
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<{
   activités: {
     id: number;

@@ -1,12 +1,12 @@
 <script setup lang="ts">
 
-import Settings from '@/components/Settings.vue'
+import Settings from '@/components/AppSettings.vue'
 import ShieldIcon from '@/components/icons/IconCoachShield.vue'
 import SettingsIcon from '@/components/icons/Iconsettings.vue'
 import { settings } from '@/data'
 const settingsFiltrées = settings.filter(setting => setting.id >= 1 && setting.id <= 5);
 
-import { onMounted, onBeforeUnmount, watch, ref } from 'vue';
+import { onMounted, watch, ref } from 'vue';
 import Pocketbase from 'pocketbase'
 
 const updateTitle = (newTitle: string) => {
@@ -25,7 +25,9 @@ const avatarUrl = ref<string>('')
 
 watch(currentuser, (val) => {
     if (val) {
-        avatarUrl.value = pb.getFileUrl(val, val.avatar, { thumb: '100x100'})
+        if (pb) {
+            avatarUrl.value = pb.getFileUrl(val, val.avatar, { thumb: '100x100'})
+        }
     }
 })
 
@@ -42,7 +44,7 @@ const doLogout = async () => {
 }
 
 onMounted(async () => {
-    pb = new Pocketbase("http://127.0.0.1:8090")
+    pb = new Pocketbase("https://feater.schwarznathan.fr:443")
     currentuser.value = pb.authStore.isValid ? pb.authStore.model : null
 })
 </script>

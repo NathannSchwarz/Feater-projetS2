@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import SearchwhiteIcon from '@/components/icons/Iconsearchwhite.vue'
-import CardsActivité from '@/components/CardsActivité.vue'
+import CardsActivité from '@/components/Cards-Activité.vue'
 import { RouterLink } from 'vue-router'
 import { sport } from '@/data' 
 import { onMounted } from 'vue';

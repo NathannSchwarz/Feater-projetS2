@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import { onMounted } from 'vue';
-import CardsNotification from '@/components/CardsNotification.vue'
+/* import CardsNotification from '@/components/CardsNotification.vue' */
 
 const updateTitle = (newTitle: string) => {
   document.title = newTitle;
@@ -22,11 +22,11 @@ onMounted(() => {
         <h1 class="font-bold text-3xl pb-5">Notifications</h1>
       </nav>
 
-      <CardsNotification v-for="coach in 4"/>
+      <!-- <CardsNotification v-for="coach in 4"/> -->
 
       
-      <input class="border rounded-3xl px-8 p-2 mb-5 grow" v-model="email" type="email" placeholder="Adresse e-mail"/>
-      <input class="border rounded-3xl px-8 p-2 mb-5 grow" v-model="password" type="password" placeholder="Mot de passe" />
+      <!-- <input class="border rounded-3xl px-8 p-2 mb-5 grow" v-model="email" type="email" placeholder="Adresse e-mail"/>
+      <input class="border rounded-3xl px-8 p-2 mb-5 grow" v-model="password" type="password" placeholder="Mot de passe" /> -->
     </div>
 
     

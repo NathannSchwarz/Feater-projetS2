@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import Carrousselchallenge from '@/components/carrousselchallenge.vue';
-import Carroussel2 from '@/components/Carroussel2.vue';
+import Carrousselchallenge from '@/components/Carroussel-challenge.vue';
+import Carroussel2 from '@/components/Carroussel-2.vue';
 import { activités } from '@/data';
-import { formatDate } from '@/helper'
+/* import { formatDate } from '@/helper' */
 import { RouterLink } from 'vue-router';
 import { ref, onMounted } from 'vue'
 import Pocketbase from 'pocketbase'

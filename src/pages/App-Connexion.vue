@@ -12,14 +12,21 @@ onMounted(async () => {
     pb = new Pocketbase("https://feater.schwarznathan.fr:443")
 
     pb.authStore.onChange(() => {
-        currentuser.value = pb.authStore.model
+        if (pb) {
+            currentuser.value = pb.authStore.model
+        }
     }, true)
 })
 
 const doLogin = async () => {
     try {
-        const authData = await pb.collection('users').authWithPassword(email.value, password.value)
-        currentuser.value = pb.authStore.model
+        if (pb) {
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            const authData = await pb.collection('users').authWithPassword(email.value, password.value)
+        }
+        if (pb) {
+            currentuser.value = pb.authStore.model
+        }
         console.log(currentuser.value)
         location.reload()
     } catch (e) {
@@ -29,8 +36,13 @@ const doLogin = async () => {
 
 const doLoginOAuth = async () => {
     try {
-        const authData = await pb.collection('users').authWithOAuth2({ provider: 'google'})
-        currentuser.value = pb.authStore.model
+        if (pb) {
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            const authData = await pb.collection('users').authWithOAuth2({ provider: 'google'})
+        }
+        if (pb) {
+            currentuser.value = pb.authStore.model
+        }
         console.log(currentuser.value)
         location.reload()
     } catch (e) {
