@@ -16,11 +16,6 @@ const updateTitle = (newTitle: string) => {
 let pb: Pocketbase | null = null
 let currentuser = ref()
 
-onMounted(async () => {
-    pb = new Pocketbase("https://feater.schwarznathan.fr:443")
-    currentuser.value = pb.authStore.isValid ? pb.authStore.model : null
-})
-
 const avatarUrl = ref<string>('')
 
 watch(currentuser, (val) => {
@@ -44,7 +39,7 @@ const doLogout = async () => {
 }
 
 onMounted(async () => {
-    pb = new Pocketbase("https://feater.schwarznathan.fr:443")
+    pb = new Pocketbase('http://127.0.0.1:8090')
     currentuser.value = pb.authStore.isValid ? pb.authStore.model : null
 })
 </script>

@@ -13,14 +13,14 @@ let pb = null
 let currentuser = ref()
 
 onMounted(async () => {
-  pb = new Pocketbase('https://feater.schwarznathan.fr:443')
+  pb = new Pocketbase('http://127.0.0.1:8090')
   currentuser.value = pb.authStore.isValid ? pb.authStore.model : null
 
   if (!currentuser.value && window.location.pathname !== '/connexion') {
     window.location.href = '/connexion'
   } else if (
     (currentuser.value && window.location.pathname === '/connexion') ||
-    window.location.pathname === '/register'
+    window.location.pathname === '/inscription'
   ) {
     window.location.href = '/'
   }
@@ -28,7 +28,7 @@ onMounted(async () => {
 
 const route = useRoute()
   const showHeader = computed(() => {
-    return route.path !== '/connexion' && route.path !== '/SeConnecter' && route.path !== '/Inscription';
+    return route.path !== '/connexion' && route.path !== '/SeConnecter' && route.path !== '/inscription' && route.path !== '/inscription/config';
   });
 </script>
 

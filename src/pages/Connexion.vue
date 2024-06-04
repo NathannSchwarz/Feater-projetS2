@@ -9,7 +9,7 @@ let currentuser = ref()
 let pb: Pocketbase | null = null
 
 onMounted(async () => {
-    pb = new Pocketbase("https://feater.schwarznathan.fr:443")
+    pb = new Pocketbase('http://127.0.0.1:8090')
 
     pb.authStore.onChange(() => {
         if (pb) {
@@ -22,8 +22,7 @@ const doLogin = async () => {
     try {
         const authData = await pb.collection('users').authWithPassword(email.value, password.value)
         currentuser.value = pb.authStore.model
-        console.log(currentuser.value)
-        location.reload()
+        window.location.href = '/'
     } catch (e) {
         console.error(e)
     }
@@ -33,8 +32,7 @@ const doLoginOAuth = async () => {
     try {
         const authData = await pb.collection('users').authWithOAuth2({ provider: 'google'})
         currentuser.value = pb.authStore.model
-        console.log(currentuser.value)
-        location.reload()
+        window.location.href = '/'
     } catch (e) {
         console.error(e)
     }
@@ -78,7 +76,7 @@ onMounted(() => {
             </div>
 
             
-            <RouterLink  to="/Inscription" class="flex border rounded-3xl p-2 mb-1 justify-center bg-red-600 text-white  font-bold ">
+            <RouterLink  to="/inscription" class="flex border rounded-3xl p-2 mb-1 justify-center bg-red-600 text-white  font-bold ">
                 <button  @click="doLogin">Créer un compte</button>
             </RouterLink>
 
@@ -92,6 +90,7 @@ onMounted(() => {
             </RouterLink>
             
             <p class="text-xs text-center">© 2023 - 2024 Feater Inc.</p>
+
             
         </div>
         

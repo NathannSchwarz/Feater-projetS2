@@ -27,10 +27,10 @@ const prev = () => {
   if (currentIndex.value > 0) {
     currentIndex.value -= 1;
   }
-}; */
+}
 
 const isNextDisabled = computed(() => currentIndex.value >= props.coaches.length - 1);
-const isPrevDisabled = computed(() => currentIndex.value <= 0); */
+const isPrevDisabled = computed(() => currentIndex.value <= 0);
 
 const startX = ref(0);
 const endX = ref(0);

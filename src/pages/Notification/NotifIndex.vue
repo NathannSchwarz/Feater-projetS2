@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import { onMounted } from 'vue';
-import CardsNotification from '@/components/CardsNotification.vue'
+import CardsNotification from '@/components/Cards-Notification.vue'
 
 const updateTitle = (newTitle: string) => {
   document.title = newTitle;

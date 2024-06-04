@@ -10,7 +10,7 @@ let currentuser = ref()
 let pb: Pocketbase | null = null
 
 onMounted(async () => {
-    pb = new Pocketbase("https://feater.schwarznathan.fr:443")
+    pb = new Pocketbase('http://127.0.0.1:8090')
 
     pb.authStore.onChange(() => {
         if (pb) {
@@ -23,8 +23,7 @@ const doLogin = async () => {
     try {
         const authData = await pb.collection('users').authWithPassword(email.value, password.value)
         currentuser.value = pb.authStore.model
-        console.log(currentuser.value)
-        location.reload()
+        window.location.href = '/'
     } catch (e) {
         console.error(e)
     }
@@ -34,7 +33,6 @@ const doLoginOAuth = async () => {
     try {
         const authData = await pb.collection('users').authWithOAuth2({ provider: 'google'})
         currentuser.value = pb.authStore.model
-        console.log(currentuser.value)
         location.reload()
     } catch (e) {
         console.error(e)
@@ -63,9 +61,11 @@ function goBack() {
     <nav class="mx-10">
 
         <div class="relative flex items-center mb-5">
-            <button @click="goBack" class="absolute left-0">
-                <flecheIcon />
-            </button>
+            <RouterLink to="/Connexion">
+                <button  class="absolute left-0 ">
+                    <flecheIcon />
+                </button>
+            </RouterLink>
     
             <div class="flex-grow flex justify-center">
                 <LogoIcon class="w-24 h-24 mb-5 mt-4" />
@@ -98,7 +98,7 @@ function goBack() {
             <button class="flex border border-gray-300  rounded-3xl px-14 p-2  text-red-600  font-bold text-center justify-center mb-10">Mot de passe oublié</button>
 
 
-            <p class="text-sm  text-center mb-40">Vous n'avez pas de compte ? <RouterLink to="#" class="text-red-600">Inscrivez-vous</RouterLink></p>
+            <p class="text-sm  text-center mb-40">Vous n'avez pas de compte ? <RouterLink to="/Inscription" class="text-red-600">Inscrivez-vous</RouterLink></p>
 
             
             <p class="text-xs text-center  ">© 2023 - 2024 Feater Inc.</p>
