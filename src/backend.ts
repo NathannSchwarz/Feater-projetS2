@@ -1,5 +1,7 @@
 import Pocketbase from 'pocketbase'
-const pb = new Pocketbase('http://127.0.0.1:8090')
+import { type TypedPocketBase } from './pocketbase-types.js'
+
+export const pb = new PocketBase(import.meta.env.VITE_URL_POCKETBASE) as TypedPocketBase
 
 export async function updateProfile(userid: string, data: any) {
     await pb.collection('users').update(userid, data)
