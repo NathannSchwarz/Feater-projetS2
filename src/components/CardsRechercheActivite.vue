@@ -13,6 +13,8 @@ const props = defineProps<{
     link: string;
   }[];
 }>();
+
+
 </script>
 
 
@@ -32,6 +34,5 @@ const props = defineProps<{
       <IconCross class="w-4 text-white mr-1"/>
     </div>
   </nav>
-  
 
 </template>

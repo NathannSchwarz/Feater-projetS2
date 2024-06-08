@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CardsCoach from '@/components/Cards-Coach.vue'
+import CardsCoach from '@/components/CardsSportHabitude.vue'
 import Carroussel2coach from '@/components/Carroussel-2-coach.vue'
 import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
 import ShieldIcon from '@/components/icons/IconCoachShield.vue'

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import IconCheck from '@/components/icons/IconCheck.vue'
+
 </script>
 
 <template>

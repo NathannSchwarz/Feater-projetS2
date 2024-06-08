@@ -20,14 +20,14 @@ const searchQuery = ref('');
             <input
                 type="text"
                 v-model="searchQuery"
-                class="w-full pl-10 p-2  border rounded-3xl shadow-sm focus:outline-none border-gray-400 text-black"
+                class="w-full pl-10 p-2  border-t border-b border-red-600 rounded-3xl shadow-sm  text-black placeholder:text-red-600"
                 placeholder="Trouvez un coach..."
             />
-            <SearchIcon class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400"/>
+            <SearchIcon class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-red-600"/>
             </div>
         </div>
 
-        <h2 class="mb-7">Tous</h2>
+        <h2 class="mb-7">Recherches récentes</h2>
 
         <CardRechercheCoach v-for="coach in coachsFiltrées3" :key="coach.id" :coachhabitude="coach"/>
     </div>

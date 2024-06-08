@@ -33,7 +33,7 @@ import { RouterLink } from 'vue-router'
             
                         </RouterLink>
                     </li>
-                    
+                    <p class="text-xs font-base " :class="{ ' text-red-600': $route.path === '/' }">Accueil</p>
 
                 </div>
                <div  class="flex flex-col items-center justify-around p-1.5 text-black " >
@@ -46,7 +46,7 @@ import { RouterLink } from 'vue-router'
             
                         </RouterLink>
                     </li>
-                     
+                    <p class="text-xs font-base " :class="{ ' text-red-600': $route.path === '/activité' }">Activité</p>
 
                 </div>
                 <div  class="flex flex-col items-center justify-around p-1.5 text-black " >
@@ -60,7 +60,7 @@ import { RouterLink } from 'vue-router'
                         </RouterLink>
                     </li>
                     
-
+                    <p class="text-xs font-base " :class="{ ' text-red-600': $route.path === '/carte' }">Carte</p>
                 </div>
 
                 <div  class="flex flex-col items-center justify-around p-1.5 text-black " >
@@ -73,22 +73,22 @@ import { RouterLink } from 'vue-router'
             
                         </RouterLink>
                     </li>
-                     
+                     <p class="text-xs font-base " :class="{ ' text-red-600': $route.path === '/message' }">Message</p>
 
                 </div>
 
-                <div  class="flex flex-col items-center justify-around p-1.5 text-black " >
-                    <li class="">
+                <div  class="flex flex-col items-center justify-around p-1.5 text-black" >
+                    <li class="pb-1">
                         <RouterLink to="/compte" >
                         
                         <CompteIcon class="text-red-600" v-if="$route.path === '/compte'"/>
-
+                        
                         <CompteIconStroke  v-else />
             
                         </RouterLink>
                     </li>
 
-
+                    <p class="text-xs font-base " :class="{ ' text-red-600': $route.path === '/compte' }">Compte</p>
                 </div>
                 
         </ul>
