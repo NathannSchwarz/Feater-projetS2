@@ -31,6 +31,8 @@ const toggleSelection = (sport: string) => {
 };
 </script>
 
+
+
 <template>
   <div class="grille">
     <div class="flex-grow flex justify-center">

@@ -13,14 +13,15 @@ const props = defineProps<{
 }>();
 </script>
 
+
 <template>
   <nav>
     <RouterLink :to="coachhabitude.link">
-      <button class="relative flex justify-center w-full rounded-xl pb-6">
+      <button class="rounded-xl w-full h-full">
         <div class="relative">
-          <img class="rounded-xl" :src="coachhabitude.imgCardPath" :alt="coachhabitude.imgAlt"/>
-          <div class="absolute bottom-0 left-0 w-full bg-black rounded-b-xl">
-            <p class="text-white text-base font-bold text-center py-3">{{ coachhabitude.title }}</p>
+          <img class="rounded-3xl w-full" :src="coachhabitude.imgCardPath" :alt="coachhabitude.imgAlt"/>
+          <div class="absolute bottom-0 w-full h-1/3 bg-black rounded-b-3xl flex items-center justify-center">
+            <p class="text-white text-lg font-bold text-center py-3">{{ coachhabitude.title }}</p>
           </div>
         </div>
       </button>

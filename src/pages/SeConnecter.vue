@@ -61,7 +61,7 @@ function goBack() {
     <nav class="mx-10">
 
         <div class="relative flex items-center mb-5">
-            <RouterLink to="/Connexion">
+            <RouterLink to="/connexion">
                 <button  class="absolute left-0 ">
                     <flecheIcon />
                 </button>

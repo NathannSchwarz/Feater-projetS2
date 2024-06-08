@@ -32,16 +32,18 @@ function goBack() {
     <div :class="{'bg-red-600 z-10': activeMenu, }" class=" flex justify-between items-center w-full border-b border-zinc-200  py-2 p-6">
 
       
-      <template v-if="$route.path === '/Notification' || $route.path ==='/compte/settings' || $route.path ==='/compte/langue' || $route.path ==='/compte/donnéespersonnelles' || $route.path ==='/compte/abonnement' || $route.path ==='/compte/personnesrencontrées' || $route.path ==='/compte/paiement' || $route.path ==='/compte/conditionsgenerales' || $route.path ==='/compte/politiquesconfidentialité' || $route.path ==='/connexion'">
+      <template v-if="$route.path === '/Notification' || $route.path ==='/compte/settings' || $route.path ==='/compte/langue' || $route.path ==='/compte/donnéespersonnelles' || $route.path ==='/compte/abonnement' || $route.path ==='/compte/personnesrencontrées' || $route.path ==='/compte/paiement' || $route.path ==='/compte/conditionsgenerales' || $route.path ==='/compte/politiquesconfidentialité' || $route.path ==='/connexion' || $route.path ==='/coaching/recherche'">
         <button @click="goBack">
           <flecheIcon class="w-10 h-6 my-3" :class="{ 'text-white': activeMenu, 'text-black': !activeMenu }"/>
         </button>
       </template>
+
       <template v-else-if="!activeMenu"  >
         <RouterLink to="/" @click="closeMenu">
           <LogoIcon />
         </RouterLink>
       </template>
+      
       <template v-else>
         <RouterLink to="/" @click="closeMenu">
           <LogowhiteIcon />

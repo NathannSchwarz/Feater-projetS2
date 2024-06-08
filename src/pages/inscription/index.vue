@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import PocketBase from 'pocketbase'
 import LogoIcon from '@/components/icons/Iconlogored.vue'
 import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
-import { useRouter } from 'vue-router';
+import { RouterLink, useRouter } from 'vue-router';
 
 let email = ref('')
 let password = ref('')
@@ -83,9 +83,11 @@ function goBack() {
 <template>
     <nav class="mx-10">
         <div class="relative flex items-center mb-5">
-            <button @click="goBack" class="absolute left-0">
-                <flecheIcon />
-            </button>
+            <RouterLink to="/connexion">
+                <button class="absolute left-0">
+                    <flecheIcon />
+                </button>
+            </RouterLink>
             <div class="flex-grow flex justify-center">
                 <LogoIcon class="w-24 h-24 mb-5 mt-4" />
             </div>

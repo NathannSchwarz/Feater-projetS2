@@ -14,13 +14,18 @@ const props = defineProps<{
 }>();
 </script>
 
+
 <template>
-  <RouterLink :to="sport.link">
-    <button class="flex justify-around rounded-3xl w-40 h-24 m-auto overflow-hidden relative mb-6">
-      <img class="absolute w-full h-24 object-cover" :src="sport.imgCardPath" :alt="sport.imgAlt" />
-      <div :class="`absolute w-full ${sport.bgColor} rounded-t-3xl`">
-        <p class="text-white text-base font-bold py-2">{{ sport.title }}</p>
-      </div>
-    </button>
-  </RouterLink>
+  <nav>
+    <RouterLink :to="sport.link">
+      <button class="rounded-xl w-full h-full">
+        <div class="relative">
+          <img class="rounded-3xl w-full" :src="sport.imgCardPath" :alt="sport.imgAlt"/>
+          <div class="absolute bottom-0 w-full h-1/3 bg-black rounded-b-3xl flex items-center justify-center">
+            <p class="text-white text-lg font-bold text-center py-3">{{ sport.title }}</p>
+          </div>
+        </div>
+      </button>
+    </RouterLink>
+  </nav>
 </template>

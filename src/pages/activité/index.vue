@@ -29,71 +29,77 @@ onMounted(() => {
 
         <h1 class="font-bold text-3xl pb-5">Activité</h1>
         
-        <button class="flex items-center justify-around p-3 pt-4 pb-4 bg-red-600 rounded-xl mb-12 w-full">
+        <button class="flex items-center justify-around p-3 pt-4 pb-4 bg-red-700 rounded-3xl mb-8 w-full">
             <SearchwhiteIcon class="w-10"/>
             <h2 class="font-bold text-base text-white text-left">Quelle sport recherchez-vous ?</h2>
             
         </button>
 
-          <h3 class="pb-2 font-bold">Séléction du jour</h3>
+          <h3 class="pb-2 font-bold text-2xl">Sélection du jour</h3>
 
         <button class="w-full">
 
-            <div class="flex justify-around bg-red-700 p-5 rounded-3xl text-white gap-4 mb-10">
-                <img class="rounded-3xl w-32" src="/img/course.webp" alt="Course à pied" />
-                <div class="flex flex-col justify-between">
-                    <div class="text-left">
-                        <h3 class="pb-2 font-bold">Course à pied</h3>
-                        <p>Montbéliard - 1h </p>
-                        <p>Marie Louise</p>
-                    </div>
-                    
-                    <h3 class="flex justify-end ">12 mars 2024</h3>
-                </div>
+           
+        <div class="grid grid-cols-12 grid-rows-2 bg-red-700 p-5 rounded-3xl text-white text-lg  mb-10">
+            <img class="col-span-5 row-span-2 rounded-3xl" src="/img/course.webp" alt="Course à pied" />
+
+            <div class="text-left col-span-7 row-span-1 pl-5">
+                <h3 class="pb-1 font-bold">Course à pied</h3>
+                <p class="text-sm">Montbéliard - 1h</p>
+                <p class="text-sm">Marie Louise</p>  
             </div>
+
+            <h3 class="col-start-7 col-end-13 row-span-1  self-end text-right">12 mars 2024</h3>
+        </div>
+
+
 
         </button>
 
          
 
-        <div class="flex justify-around gap-3 pb-10">
+        <div class="flex justify-around gap-5 pb-10">
              <RouterLink to="#">
-            <button class="bg-red-600 text-white font-bold text-base p-2 px-3  rounded-3xl">
+            <button class=" bg-red-600 text-white font-bold text-base p-3 px-3  rounded-2xl">
                 Créer un groupe 
             </button>
             </RouterLink>
             <RouterLink to="#">
-            <button class="bg-red-600 text-white font-bold text-base p-2 px-3 rounded-3xl">
+            <button class="border border-red-600 text-red-600 font-bold text-base p-3 px-3 rounded-2xl">
                 Créer un Activité
             </button>
             </RouterLink>
         </div>
+        
 
-         <h3 class="pb-4 font-bold">Parcourir par Sport</h3>
+        <h3 class="pb-4 font-bold text-xl">Parcourir par Sport</h3>
 
-        <div class="grid grid-cols-2">
-            <CardsActivité v-for="sport in sportFiltrées" :key="sport.id" :sport="sport"/>
+        
+        <div class="grid grid-cols-2 gap-6 mb-14">
+            <CardsActivité v-for="sport in sportFiltrées" :key="sport.id" :sport="sport" />
+
+            <RouterLink to="#" class="col-start-2">
+                <div class="flex justify-end ">
+                <button class="bg-red-600  p-2 px-3 -mt-2 rounded-2xl text-xs font-bold text-white">Voir plus de Sports</button>
+                </div>
+            </RouterLink>
         </div>
+        
 
-        <RouterLink to="#">
-            <div class="flex justify-end mb-12">
-            <button class="bg-red-500 p-1.5 rounded-3xl text-xs font-bold text-white">Voir plus de Sports</button>
-            </div>
-        </RouterLink>
+        <h3 class="pb-4 font-bold text-xl">Parcourir par Groupes</h3>
+
+        
+        <div class="grid grid-cols-2 gap-6 mb-10">
+            <CardsActivité v-for="sport in sportFiltrées" :key="sport.id" :sport="sport" />
+
+            <RouterLink to="#" class="col-start-2">
+                <div class="flex justify-end ">
+                <button class="bg-red-600  p-2 px-3  -mt-2 rounded-2xl text-xs font-bold text-white">Voir plus de Groupes</button>
+                </div>
+            </RouterLink>
+        </div>
+        
   
-        <h3 class="pb-4 font-bold">Parcourir par Groupe</h3>
-
-        <div class="grid grid-cols-2 pb-12">
-            <CardsActivité v-for="sport in sportFiltrées" :key="sport.id" :sport="sport"/>
-        </div>
-            
-        <RouterLink to="#">
-            <div class="flex justify-end -mt-10 mb-12 ">
-                <button class="bg-red-500 p-1.5 rounded-3xl text-xs font-bold text-white">Voir plus de Groupes</button>
-            </div>                  
-        </RouterLink>
-        
-        
     </nav>
 
 </template>

@@ -2,7 +2,6 @@
 import Carrousselchallenge from '@/components/Carroussel-challenge.vue';
 import Carroussel2 from '@/components/Carroussel-2.vue';
 import { activités } from '@/data';
-import { formatDate } from '@/helper'
 import { RouterLink } from 'vue-router';
 import { ref, onMounted } from 'vue'
 import Pocketbase from 'pocketbase'
@@ -34,13 +33,13 @@ onMounted(async () => {
     <h3 class="pb-2 font-bold text-xl mx-6">Activités faites pour vous</h3>
     <Carroussel2 :activités="activitésFiltrées" class="mb-10" />
 
-    <h3 class="pb-2 font-bold text-xl mx-6">Activités près de chez vous</h3>
+    <h3 class="pb-2 font-bold text-xl mx-6">En fonction de vos habitudes</h3>
     <Carroussel2 :activités="activitésFiltrées2" class="mb-12" />
   
 
         
 
-    <h3 class="pb-2 font-bold text-xl mx-6">Activités faites pour vous</h3>
+    <h3 class="pb-2 font-bold text-xl mx-6">Voici ce qu'on vous propose</h3>
         <nav class="pb-2 mx-6 ">
             <RouterLink to="/activité">
                 <button class="relative">
