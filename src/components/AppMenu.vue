@@ -38,15 +38,15 @@ import { RouterLink } from 'vue-router'
                 </div>
                <div  class="flex flex-col items-center justify-around p-1.5 text-black " >
                     <li class="">
-                        <RouterLink to="/activité" >
+                        <RouterLink to="/activite" >
                         
-                        <ActivitéIcon class="text-red-600" v-if="$route.path === '/activité'"/>
+                        <ActivitéIcon class="text-red-600" v-if="$route.path === '/activite'"/>
 
                         <ActivitéIconStroke  v-else />
             
                         </RouterLink>
                     </li>
-                    <p class="text-xs font-base " :class="{ ' text-red-600': $route.path === '/activité' }">Activité</p>
+                    <p class="text-xs font-base " :class="{ ' text-red-600': $route.path === '/activite' }">Activité</p>
 
                 </div>
                 <div  class="flex flex-col items-center justify-around p-1.5 text-black " >

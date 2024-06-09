@@ -89,7 +89,7 @@ function goBack() {
                 >
             </li>
             <li class="menu-item ">
-                <RouterLink class="menu-link" to="/activité" @click="closeMenu"
+                <RouterLink class="menu-link" to="/activite" @click="closeMenu"
                 >Activité</RouterLink
                 >
             </li>
