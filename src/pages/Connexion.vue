@@ -11,18 +11,15 @@ let pb: Pocketbase | null = null
 onMounted(async () => {
     pb = new Pocketbase('http://127.0.0.1:8090')
 
-    pb.authStore.onChange(() => {
-        if (pb) {
-            currentuser.value = pb.authStore.model
-        }
-    }, true)
 })
 
 const doLogin = async () => {
     try {
-        const authData = await pb.collection('users').authWithPassword(email.value, password.value)
-        currentuser.value = pb.authStore.model
-        window.location.href = '/'
+        if (pb) {
+            const authData = await pb.collection('users').authWithPassword(email.value, password.value)
+            currentuser.value = pb.authStore.model
+            window.location.href = '/'
+        }
     } catch (e) {
         console.error(e)
     }
@@ -30,9 +27,12 @@ const doLogin = async () => {
 
 const doLoginOAuth = async () => {
     try {
-        const authData = await pb.collection('users').authWithOAuth2({ provider: 'google'})
+        if (pb){
+            const authData = await pb.collection('users').authWithOAuth2({ provider: 'google'})
         currentuser.value = pb.authStore.model
         window.location.href = '/'
+        }
+        
     } catch (e) {
         console.error(e)
     }

@@ -13,7 +13,7 @@
 
 
  
-    <form @submit.prevent="handleSubmit">
+    <form >
 
         <div class="mb-10">
             <p class="mt-1 block w-full p-2 px-5 bg-red-600 text-white rounded-2xl shadow-sm">Vos certifications & qualifications</p>
@@ -23,7 +23,6 @@
                 type="file"
                 id="file"
                 multiple
-                @change="handleFileChange"
                 class="mt-3 block w-72 p-2 px-5 border border-gray-900 text-white rounded-xl shadow-sm"
                 required
                 />
@@ -38,7 +37,6 @@
                 type="file"
                 id="file"
                 multiple
-                @change="handleFileChange"
                 class="mt-3 block w-72 p-2 px-5 border border-gray-900 text-white rounded-xl shadow-sm"
                 required
                 />
@@ -55,7 +53,6 @@
                 type="file"
                 id="file"
                 multiple
-                @change="handleFileChange"
                 class="mt-3 block w-72 p-2 px-5 border border-gray-900 text-white rounded-xl shadow-sm"
                 required
                 />

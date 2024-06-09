@@ -18,7 +18,7 @@ const props = defineProps<{
 
 <template>
   <nav>
-    <RouterLink to="/activité/[id]">
+    <RouterLink to="/activite/[id]">
       <div class="flex bg-red-600 gap-4 p-3 px-6 mb-10 rounded-3xl">
         <img src="/img/badminton.webp" alt="imgsportif" class="w-14 h-14 rounded-full ">
         <div class="flex flex-col  text-white ">

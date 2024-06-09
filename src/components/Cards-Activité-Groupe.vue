@@ -17,7 +17,7 @@ const props = defineProps<{
 
 <template>
   <nav>
-    <RouterLink to="/activité/Groupe">
+    <RouterLink to="/activite/Groupe">
       <button class="rounded-xl w-full h-full">
         <div class="relative">
           <img class="rounded-3xl w-full" :src="sport.imgCardPath" :alt="sport.imgAlt"/>

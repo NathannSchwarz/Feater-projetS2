@@ -31,14 +31,14 @@ onMounted(() => {
         
             <h1 class="font-bold text-3xl pb-5">Activité</h1>
 
-        <div class="grid grid-cols-2 gap-4 pb-7">
-            <RouterLink to="/activité/CreationActivité">
-            <button class="bg-red-600 text-white font-bold text-base p-2 w-full rounded-3xl">
+        <div class="grid grid-cols-2 gap-5 pb-7">
+            <RouterLink to="/activite/CreationActivité">
+            <button class="bg-red-600 text-white font-bold text-sm p-2 w-full rounded-3xl">
                 Créer une Activité
             </button>
             </RouterLink>
-            <RouterLink to="/activité/CreationGroupe">
-            <button class="bg-red-600 text-white font-bold text-base p-2 w-full rounded-3xl">
+            <RouterLink to="/activite/CreationGroupe">
+            <button class="bg-red-600 text-white font-bold text-sm p-2 w-full rounded-3xl">
                 Créer un Groupe 
             </button>
             </RouterLink>
@@ -50,7 +50,7 @@ onMounted(() => {
         
         <button class="flex items-center justify-around p-2 border-t border-b border-red-600 rounded-3xl mb-8 w-full">
             <SearchwhiteIcon class="w-10 text-red-600"/>
-            <RouterLink to="/activité/recherche">
+            <RouterLink to="/activite/recherche">
                 <h2 class="font-bold text-base text-red-600 text-left">Quelle sport recherchez-vous ?</h2>
             </RouterLink>
         </button>
@@ -85,10 +85,11 @@ onMounted(() => {
 
         <h3 class="pb-4 font-bold text-xl">Parcourir par Sport</h3>
 
-        
-        <div class="grid grid-cols-2 gap-6">
-            <CardsActivité v-for="sport in sportFiltrées" :key="sport.id" :sport="sport" />   
-        </div>
+        <RouterLink to="/activite/Filtre">
+            <div class="grid grid-cols-2 gap-6">
+                <CardsActivité v-for="sport in sportFiltrées" :key="sport.id" :sport="sport" />
+            </div>
+        </RouterLink>
 
         <RouterLink to="#" >
             <div class="flex justify-end ">

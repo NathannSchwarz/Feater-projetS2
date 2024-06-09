@@ -15,7 +15,7 @@ const props = defineProps<{
 }>();
 
 const currentIndex = ref(0);
-const carouselRef = ref(null);
+const carouselRef = ref<HTMLElement | null>(null);
 
 const next = () => {
   if (currentIndex.value < props.activités.length - 1) {

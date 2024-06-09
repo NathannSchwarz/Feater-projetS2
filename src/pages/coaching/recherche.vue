@@ -29,7 +29,7 @@ const searchQuery = ref('');
 
         <h2 class="mb-7">Recherches récentes</h2>
 
-        <CardRechercheCoach v-for="coach in coachsFiltrées3" :key="coach.id" :coachhabitude="coach"/>
+        <!-- <CardRechercheCoach v-for="coach in coachsFiltrées3" :key="coach.id" :coachhabitude="coach"/> -->
     </div>
 
     

@@ -21,7 +21,6 @@
                     <input
                     type="text"
                     id="firstName"
-                    v-model="firstName"
                     class="mt-1 block w-full p-2 px-5 border border-red-200 text-black rounded-2xl shadow-sm  placeholder:text-gray-500"
                     required
                     placeholder="Prénom"
@@ -32,7 +31,6 @@
                     <input
                     type="text"
                     id="lastName"
-                    v-model="lastName"
                     class="mt-1 block w-full p-2 px-5 border border-red-200 text-black rounded-2xl shadow-sm  placeholder:text-gray-500"
                     required
                     placeholder="Nom"
@@ -43,7 +41,6 @@
                     <input
                     type="email"
                     id="email"
-                    v-model="email"
                     class="mt-1 block w-full p-2 px-5 border border-red-200 text-black rounded-2xl shadow-sm  placeholder:text-gray-500"
                     required
                     placeholder="Email"
@@ -54,7 +51,7 @@
                     <input
                     type="tel"
                     id="phone"
-                    v-model="phone"
+                   
                     class="mt-1 block w-full p-2 px-5 border border-red-200 text-black rounded-2xl shadow-sm  placeholder:text-gray-500"
                     required
                     placeholder="Numéro"
@@ -64,7 +61,7 @@
                 <div class="mb-4">
                     <textarea
                     id="reason"
-                    v-model="reason"
+                    
                     class="mt-1 block w-full p-2 px-5 border border-red-200 text-black rounded-2xl shadow-sm  placeholder:text-gray-500"
                     required
                     placeholder="Motif "

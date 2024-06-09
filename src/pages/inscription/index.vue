@@ -19,19 +19,18 @@ const router = useRouter();
 onMounted(async () => {
     pb = new PocketBase('http://127.0.0.1:8090')
 
-    pb.authStore.onChange(() => {
-        if (pb) {
-            currentuser.value = pb.authStore.model
-        }
-    }, true)
 })
 
 const doLogin = async () => {
     try {
-        const authData = await pb.collection('users').authWithPassword(email.value, password.value)
-        currentuser.value = pb.authStore.model
-        console.log(currentuser.value)
-        window.location.href = '/inscription/config'
+        if (pb) {
+            const authData = await pb.collection('users').authWithPassword(email.value, password.value)
+            currentuser.value = pb.authStore.model
+            console.log(currentuser.value)
+            window.location.href = '/inscription/config'
+        } else {
+            console.error('pb is null')
+        }
     } catch (e) {
         console.error(e)
     }
@@ -51,8 +50,11 @@ const doRegister = async () => {
             "sports_pref": null, // Assurez-vous d'avoir ce champ dans votre collection si nécessaire
             "coach": false, // Ajustez en fonction de votre logique
         }
-        const record = await pb.collection('users').create(userData)
-        console.log(record)
+        if (pb){
+            const record = await pb.collection('users').create(userData)
+            console.log(record)
+        }
+        
 
         // Envoyer une demande de vérification d'email (optionnel)
         // await pb.collection('users').requestVerification(email.value)

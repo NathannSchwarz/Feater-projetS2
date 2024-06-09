@@ -34,6 +34,6 @@ onMounted(() => {
     </div>
   
     <h4 class="text-xl font-bold mb-4">Déjà inscrit au prochain RDV </h4>
-    <CardsActivitéGroupe v-for="coach in 4"/>
+    <!-- <CardsActivitéGroupe v-for="coach in 4"/> -->
   </nav>
 </template>
