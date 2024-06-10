@@ -49,7 +49,7 @@ onMounted(() => {
         
         
         <button class="flex items-center justify-around p-2 border-t border-b border-red-600 rounded-3xl mb-8 w-full">
-            <SearchwhiteIcon class="w-10 text-red-600"/>
+            <SearchwhiteIcon class="w-5 text-red-600"/>
             <RouterLink to="/activite/recherche">
                 <h2 class="font-bold text-base text-red-600 text-left">Quelle sport recherchez-vous ?</h2>
             </RouterLink>

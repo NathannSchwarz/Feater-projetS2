@@ -17,11 +17,11 @@ const searchQuery = ref('')
         <input
           type="text"
           v-model="searchQuery"
-          class="w-full pl-10 p-2 border rounded-3xl shadow-sm focus:outline-none border-gray-400 text-black"
+          class="w-full pl-10 p-2 border  border-t border-b border-red-600 rounded-3xl text-black"
           placeholder="Trouvez un sport..."
         />
         <SearchIcon
-          class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400"
+          class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 text-red-600"
         />
       </div>
     </div>
