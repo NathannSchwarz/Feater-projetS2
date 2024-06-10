@@ -1,31 +1,23 @@
 <script setup lang="ts">
-import { defineProps } from 'vue';
 
+import ImgPb from '@/components/ImgPb.vue'
+import type { SportResponse } from '@/pocketbase-types'
+const props = defineProps<SportResponse<any>>()
 
-const props = defineProps<{
-  sport: {
-    id: number;
-    title: string;
-    imgCardPath: string;
-    imgAlt: string;
-    link: string;
-    bgColor: string;
-  }
-}>();
 </script>
 
 
 <template>
   <nav>
-    
-    <button class="rounded-xl w-full h-full">
-      <div class="relative">
-        <img class="rounded-3xl w-full" :src="sport.imgCardPath" :alt="sport.imgAlt"/>
-        <div class="absolute bottom-0 w-full h-1/3 bg-black rounded-b-3xl flex items-center justify-center">
-          <p class="text-white text-lg font-bold text-center py-3">{{ sport.title }}</p>
+    <RouterLink to="/activite/Filtre">
+      <button class="rounded-3xl">
+        <div class="relative">
+          <ImgPb :record="props" :filename="Image" class="rounded-3xl w-56 h-32" />
+          <div class="absolute bottom-0 w-full  bg-black rounded-b-3xl flex items-center justify-center">
+            <p class="text-white text-lg font-bold text-center py-3">{{ Nom }}</p>
+          </div>
         </div>
-      </div>
-    </button>
-    
+      </button>
+    </RouterLink>
   </nav>
 </template>

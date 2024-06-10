@@ -35,11 +35,11 @@ const route = useRoute()
 
 <template>
   <Header v-if="showHeader"/>
-
+  <Suspense>
   <main>
     <RouterView />
   </main>
-
+  </Suspense>
   <Menu v-if="showHeader" />
   <Footer  v-if="showHeader" />
 </template>

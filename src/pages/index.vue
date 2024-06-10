@@ -5,6 +5,9 @@ import { activités } from '@/data';
 import { RouterLink } from 'vue-router';
 import { ref, onMounted } from 'vue'
 import Pocketbase from 'pocketbase'
+import { allActivite } from '@/backend';
+const activites = ref([]);
+activites.value = await allActivite();
 
 const activitésFiltrées = activités.filter(activité => activité.id >= 1 && activité.id <= 3);
 const activitésFiltrées2 = activités.filter(activité => activité.id >= 4 && activité.id <= 6);
@@ -31,10 +34,10 @@ onMounted(async () => {
 
    
     <h3 class="pb-2 font-bold text-xl mx-6">Activités faites pour vous</h3>
-    <Carroussel2 :activités="activitésFiltrées" class="mb-10" />
+    <Carroussel2 v-bind="activite" v-for="activite in activites" :key="activite.id" class="mb-12" />
 
     <h3 class="pb-2 font-bold text-xl mx-6">En fonction de vos habitudes</h3>
-    <Carroussel2 :activités="activitésFiltrées2" class="mb-12" />
+    <Carroussel2 v-bind="activite" v-for="activite in activites" :key="activite.id" class="mb-12" />
   
 
         
