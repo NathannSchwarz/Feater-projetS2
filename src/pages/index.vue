@@ -7,21 +7,21 @@ import Pocketbase from 'pocketbase';
 import type { ActiviteResponse } from '@/pocketbase-types';
 import { allActivite } from '@/backend';
 
-// Initialize the activities ref
+
 const activites = ref<ActiviteResponse<any>[]>([]);
 activites.value = await allActivite();
 
-// Initialize Pocketbase and current user ref
+
 let pb = null;
 let currentuser = ref();
 
-// Fetch the current user on component mount
+
 onMounted(async () => {
   pb = new Pocketbase('http://127.0.0.1:8090');
   currentuser.value = pb.authStore.isValid ? pb.authStore.model : null;
 });
 
-// Create computed properties for filtered activities
+
 const filteredActivites1 = computed(() => activites.value.slice(0, 3)); // First 3 activities for first carousel
 const filteredActivites2 = computed(() => activites.value.slice(3, 6)); // Next 3 activities for second carousel
 

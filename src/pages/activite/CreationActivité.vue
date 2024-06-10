@@ -4,6 +4,7 @@ import CardsActivité from '@/components/Cards-Activité.vue'
 
 import { allSport } from '@/backend'
 import { ref } from 'vue'
+import { RouterLink } from 'vue-router/auto';
 const sports = ref()
 sports.value = await allSport()
 
@@ -13,11 +14,11 @@ sports.value = await allSport()
 
   <nav class="grille">
     <h1 class="font-bold text-3xl mb-10">Choisissez un Sport</h1>
-      <Routerlink to="/activité/RDV">
+      <RouterLink to="/activite/RDV">
         <div class="grid grid-cols-2 gap-6 mb-14">
-            <CardsActivité v-bind="sport" v-for="sport in sports" :key="sport.id" />
+            <CardsActivité v-bind="sport" v-for="sport in sports" :key="sport.id" />    
         </div>
-      </Routerlink>
+      </RouterLink>
   </nav>
 </template>
 

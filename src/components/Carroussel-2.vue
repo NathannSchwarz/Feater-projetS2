@@ -65,12 +65,12 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="carouselRef" id="carousel" class="relative w-full overflow-hidden pl-6 ">
+  <div ref="carouselRef" id="carousel" class="relative w-full overflow-hidden px-6 ">
     <div
       class="flex transition-transform duration-500 ease-in-out"
-      :style="{ transform: `translateX(-${currentIndex * 83}%) ` }"
+      :style="{ transform: `translateX(-${currentIndex * 92}%) ` }"
     >
-      <div v-for="(activite, index) in activites" :key="index" class="w-5/6 h-42 flex-shrink-0 mr-4">
+      <div v-for="(activite, index) in activites" :key="index" class="w-11/12 h-42 flex-shrink-0 mr-4">
         <RouterLink :to="`/activite/${activite.id}`">
           <div class="relative flex justify-center w-auto h-40">
             <ImgPb
