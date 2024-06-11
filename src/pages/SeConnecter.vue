@@ -63,7 +63,7 @@ function goBack() {
       </RouterLink>
 
       <div class="flex-grow flex justify-center">
-        <LogoIcon class="w-24 h-24 mb-5 mt-4" />
+        <LogoIcon class="w-24 h-24 mt-4" />
       </div>
     </div>
 

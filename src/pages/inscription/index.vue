@@ -1,115 +1,104 @@
-<script lang="ts">
-import { defineComponent, ref, computed } from 'vue'
+<script setup lang="ts">
+import { ref, computed } from 'vue'
 import PocketBase from 'pocketbase'
-import flecheIcon from '@/components/icons/Iconlogored.vue'
+import LogoIcon from '@/components/icons/Iconlogored.vue'
+import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
 import { useRouter } from 'vue-router'
 
-export default defineComponent({
-  setup() {
-    const step = ref(1)
-    const form = ref({
-      username: '',
-      email: '',
-      password: '',
-      passwordConfirm: '',
-      Nom: '',
-      Prenom: '',
-      Numero: 0,
-      Date_naissance: '',
-      Description: '',
-      Personnalite: '',
-      Abonnement: '',
-      Sport: '',
-      avatar: null
-    })
+const step = ref(1)
+const form = ref({
+  username: '',
+  email: '',
+  password: '',
+  passwordConfirm: '',
+  Nom: '',
+  Prenom: '',
+  Numero: 0,
+  Date_naissance: '',
+  Description: '',
+  Personnalite: '',
+  Abonnement: '',
+  Sport: '',
+  avatar: null
+})
 
-    const pb = new PocketBase('http://127.0.0.1:8090')
-    const router = useRouter()
+const pb = new PocketBase('http://127.0.0.1:8090')
+const router = useRouter()
 
-    const onFileChange = (e: Event) => {
-      const input = e.target as HTMLInputElement
-      if (input.files && input.files[0]) {
-        form.value.avatar = input.files[0]
+const onFileChange = (e: Event) => {
+  const input = e.target as HTMLInputElement
+  if (input.files && input.files[0]) {
+    form.value.avatar = input.files[0]
+  }
+}
+
+const nextStep = async () => {
+  if (step.value < 3) {
+    step.value++
+  } else {
+    // Créer l'utilisateur à l'étape finale
+    try {
+      const data = {
+        username: form.value.username,
+        email: form.value.email,
+        emailVisibility: true,
+        password: form.value.password,
+        passwordConfirm: form.value.passwordConfirm,
+        Nom: form.value.Nom,
+        Prenom: form.value.Prenom,
+        Numero: form.value.Numero,
+        Date_naissance: new Date(form.value.Date_naissance).toISOString(),
+        Description: form.value.Description,
+        Personnalite: form.value.Personnalite,
+        Abonnement: form.value.Abonnement,
+        Sport: [form.value.Sport] // Assure-toi que cette valeur correspond à un ID valide
       }
-    }
 
-    const nextStep = async () => {
-      if (step.value < 3) {
-        step.value++
-      } else {
-        // Créer l'utilisateur à l'étape finale
-        try {
-          const data = {
-            username: form.value.username,
-            email: form.value.email,
-            emailVisibility: true,
-            password: form.value.password,
-            passwordConfirm: form.value.passwordConfirm,
-            Nom: form.value.Nom,
-            Prenom: form.value.Prenom,
-            Numero: form.value.Numero,
-            Date_naissance: new Date(form.value.Date_naissance).toISOString(),
-            Description: form.value.Description,
-            Personnalite: form.value.Personnalite,
-            Abonnement: form.value.Abonnement,
-            Sport: [form.value.Sport] // Assure-toi que cette valeur correspond à un ID valide
-          }
-
-          const formData = new FormData()
-          for (const key in data) {
-            formData.append(key, (data as any)[key])
-          }
-          if (form.value.avatar) {
-            formData.append('avatar', form.value.avatar)
-          }
-
-          const record = await pb.collection('users').create(formData)
-          console.log('User created successfully:', record)
-
-          await pb.collection('users').requestVerification(form.value.email)
-          console.log('Verification email sent successfully')
-
-          // Rediriger vers la page activite/config
-          router.push('/inscription/config')
-        } catch (error) {
-          console.error('Error creating user:', error)
-        }
+      const formData = new FormData()
+      for (const key in data) {
+        formData.append(key, (data as any)[key])
       }
-    }
-
-    const prevStep = () => {
-      if (step.value > 1) {
-        step.value--
+      if (form.value.avatar) {
+        formData.append('avatar', form.value.avatar)
       }
-    }
 
-    const progress = computed(() => {
-      return ((step.value - 1) / 2) * 100
-    })
+      const record = await pb.collection('users').create(formData)
+      console.log('User created successfully:', record)
 
-    return {
-      step,
-      form,
-      nextStep,
-      prevStep,
-      onFileChange,
-      progress
+      await pb.collection('users').requestVerification(form.value.email)
+      console.log('Verification email sent successfully')
+
+      // Rediriger vers la page inscription/config
+      router.push('/inscription/config')
+    } catch (error) {
+      console.error('Error creating user:', error)
     }
   }
+}
+
+const prevStep = () => {
+  if (step.value > 1) {
+    step.value--
+  }
+}
+
+const progress = computed(() => {
+  return ((step.value - 1) / 2) * 100
 })
 </script>
 
 <template>
-  <div class="relative flex items-center mb-5">
-    <RouterLink to="/connexion">
-      <button class="absolute left-0">
-        <flecheIcon />
-      </button>
-    </RouterLink>
-    <div class="flex-grow flex justify-center">
-      <LogoIcon class="w-24 h-24 mb-5 mt-4" />
+  <div class="relative flex items-center mb-5 mx-10">
+      <RouterLink to="/connexion">
+        <button class="absolute left-0">
+          <flecheIcon />
+        </button>
+      </RouterLink>
+
+      <div class="flex-grow flex justify-center">
+        <LogoIcon class="w-24 h-24  mt-4" />
+      </div>
     </div>
-  </div>
 
   <div class="max-w-md mx-auto p-6">
     <h2 class="font-bold text-3xl mb-6">Créer un compte</h2>
@@ -128,7 +117,7 @@ export default defineComponent({
             v-model="form.username"
             id="username"
             type="text"
-            class="mt-1 block w-full border border-gray-300 rounded-xl p-2"
+            class="mt-1 block w-full border rounded-3xl p-2"
             required
           />
         </div>
@@ -138,7 +127,7 @@ export default defineComponent({
             v-model="form.email"
             id="email"
             type="email"
-            class="mt-1 block w-full border border-gray-300 rounded-xl p-2"
+            class="mt-1 block w-full border  rounded-3xl p-2"
             required
           />
         </div>
@@ -148,7 +137,7 @@ export default defineComponent({
             v-model="form.password"
             id="password"
             type="password"
-            class="mt-1 block w-full border border-gray-300 rounded-xl p-2"
+            class="mt-1 block w-full border  rounded-3xl p-2"
             required
           />
         </div>
@@ -158,7 +147,7 @@ export default defineComponent({
             v-model="form.passwordConfirm"
             id="passwordConfirm"
             type="password"
-            class="mt-1 block w-full border border-gray-300 rounded-xl p-2"
+            class="mt-1 block w-full border rounded-3xl p-2"
             required
           />
         </div>
@@ -171,7 +160,7 @@ export default defineComponent({
             v-model="form.Nom"
             id="Nom"
             type="text"
-            class="mt-1 block w-full border border-gray-300 rounded-xl p-2"
+            class="mt-1 block w-full border rounded-3xl p-2"
             required
           />
         </div>
@@ -181,7 +170,7 @@ export default defineComponent({
             v-model="form.Prenom"
             id="Prenom"
             type="text"
-            class="mt-1 block w-full border border-gray-300 rounded-xl p-2"
+            class="mt-1 block w-full border rounded-3xl p-2"
             required
           />
         </div>
@@ -191,7 +180,7 @@ export default defineComponent({
             v-model="form.Numero"
             id="Numero"
             type="number"
-            class="mt-1 block w-full border border-gray-300 rounded-xl p-2"
+            class="mt-1 block w-full border rounded-3xl p-2"
             required
           />
         </div>
@@ -201,7 +190,7 @@ export default defineComponent({
             v-model="form.Date_naissance"
             id="Date_naissance"
             type="date"
-            class="mt-1 block w-full border border-gray-300 rounded-xl p-2"
+            class="mt-1 block w-full border rounded-3xl p-2"
             required
           />
         </div>
@@ -213,7 +202,7 @@ export default defineComponent({
           <textarea
             v-model="form.Description"
             id="Description"
-            class="mt-1 block w-full border border-gray-300 rounded-xl p-2"
+            class="mt-1 block w-full border rounded-3xl p-2"
             rows="4"
             required
           ></textarea>
@@ -224,7 +213,7 @@ export default defineComponent({
             v-model="form.Personnalite"
             id="Personnalite"
             type="text"
-            class="mt-1 block w-full border border-gray-300 rounded-xl p-2"
+            class="mt-1 block w-full border rounded-3xl p-2"
           />
         </div>
 
@@ -234,7 +223,7 @@ export default defineComponent({
             @change="onFileChange"
             id="avatar"
             type="file"
-            class="mt-1 block w-full border border-gray-300 rounded-xl p-2"
+            class="mt-1 block w-full border rounded-3xl p-2"
             accept="image/*"
           />
         </div>
@@ -245,11 +234,11 @@ export default defineComponent({
           type="button"
           @click="prevStep"
           v-if="step > 1"
-          class="bg-gray-500 text-white py-2 px-4 rounded-3xl"
+          class="bg-zinc-400 text-white py-2 px-4 rounded-3xl"
         >
           Précédent
         </button>
-        <button type="submit" class="bg-red-500 text-white py-2 px-4 rounded-3xl">
+        <button type="submit" class="bg-red-600 text-white py-2 px-4 rounded-3xl">
           {{ step < 3 ? 'Suivant' : 'Créer le compte' }}
         </button>
       </div>
