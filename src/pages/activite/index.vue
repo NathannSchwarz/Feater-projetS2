@@ -6,8 +6,8 @@ import { RouterLink } from 'vue-router'
 import { onMounted, ref } from 'vue';
 import { allSport, allGroupe } from '@/backend'
 
-const sports = ref([]);
-const groupes = ref([]);
+const sports = ref<any[]>([]);
+const groupes = ref<any[]>([]);
 const displayedSports = ref([]);
 const initialCount = 4;
 const incrementCount = 4;

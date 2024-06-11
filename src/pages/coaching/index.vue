@@ -43,11 +43,11 @@ onMounted(() => {
       <h3 class="pb-2 font-bold text-xl mx-6">En fonction de vos habitudes</h3>
 
       <div class="grid grid-cols-2 gap-6 mb-10 grille">
-        <CardsCoach v-for="coach in coachsFiltrées3" :key="coach.id" :coachhabitude="coach" />
+        <CardsCoach v-for="coach in filteredCoach1" :key="coach.id"  />
         <RouterLink to="#" class="col-start-2">
-                <div class="flex justify-end ">
-                <button class="bg-red-500  p-2 px-3 -mt-2 rounded-2xl text-xs font-bold text-white">Voir plus de Sports</button>
-                </div>
+          <div class="flex justify-end ">
+            <button class="bg-red-500  p-2 px-3 -mt-2 rounded-2xl text-xs font-bold text-white">Voir plus de Sports</button>
+          </div>
         </RouterLink>
       </div>
 

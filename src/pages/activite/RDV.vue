@@ -29,15 +29,23 @@ const submitForm = () => {
     alert('Veuillez remplir tous les champs avant de soumettre le formulaire.');
   }
 };
+/* import { IDusers } from '@/backend'
+import { useRoute } from 'vue-router/auto'
+import { ref } from 'vue'
+const route = useRoute('/activite/[id]')
+console.log('id :', route.params.id)
+const sport = ref()
+sport.value = await IDusers(route.params.id)
 
-import ImgPb from '@/components/ImgPb.vue'
 import type { SportResponse } from '@/pocketbase-types'
-const props = defineProps<SportResponse<any>>()
+const props = defineProps<SportResponse<any>>() */
+
+
 </script>
 
 <template>
   <nav class="grille">
-    <h1 class="font-bold text-3xl mb-5">{{Nom}}</h1>
+    <h1 class="font-bold text-3xl mb-5">Salle de sport</h1>
 
     <div class="max-w-lg mx-auto p-6">
       <form @submit.prevent="submitForm">
@@ -68,7 +76,7 @@ const props = defineProps<SportResponse<any>>()
         </div>
         <div class="mb-4">
           <label for="image" class="block text-base font-medium text-gray-700">Image de présentation</label>
-          <input type="file" id="image" @change="handleImageUpload" class="mt-1 mb-8 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+          <input type="file" id="image"  class="mt-1 mb-8 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
         </div>
         <div>
           <RouterLink to="/activite/felicitation">

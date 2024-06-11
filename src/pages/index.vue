@@ -45,7 +45,7 @@ const filteredActivites2 = computed(() => activites.value.slice(3, 6)); // Next 
 
     <h3 class="pb-2 font-bold text-xl mx-6">Voici ce qu'on vous propose</h3>
     <nav class="pb-2 mx-6">
-      <RouterLink to="/activité">
+      <RouterLink to="/activite">
         <button class="relative">
           <img class="rounded-xl" src="/img/courreur.webp" alt="activités">
           <div class="absolute bottom-0 w-full h-20 text-white text-left bg-black bg-opacity-80 p-4 rounded-b-xl">

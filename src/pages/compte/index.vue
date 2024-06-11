@@ -1,8 +1,6 @@
 <script setup lang="ts">
 
-import Settings from '@/components/AppSettings.vue'
 import ShieldIcon from '@/components/icons/IconCoachShield.vue'
-import SettingsIcon from '@/components/icons/Iconsettings.vue'
 import { settings } from '@/data'
 const settingsFiltrées = settings.filter(setting => setting.id >= 1 && setting.id <= 5);
 import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
@@ -47,13 +45,8 @@ onMounted(async () => {
 
 <template>
 
-        <div class="flex justify-between pe-6">
             <h1 class="font-bold text-3xl pb-5 px-6">Compte</h1>
-            <RouterLink to="/compte/settings" class="pt-2">
-                <SettingsIcon/>
-            </RouterLink>
-
-        </div>
+        
         
         <div v-if="currentuser" class="flex flex-col items-center ">
             <img class="rounded-full w-32 mb-1 shadow-2xl shadow-red-400" :src="avatarUrl" alt="Course à pied" />
