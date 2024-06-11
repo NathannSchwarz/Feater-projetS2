@@ -38,7 +38,7 @@ const filteredActivites2 = computed(() => activites.value.slice(3, 6)); // Next 
     <Carrousselchallenge/>
 
     <h3 class="pb-2 font-bold text-xl mx-6">Activités faites pour vous</h3>
-    <Carroussel2 v-bind="activite" v-for="activite in filteredActivites2" :key="activite.id" class="mb-12" />
+    <Carroussel2 v-bind="activite" v-for="activite in filteredActivites1" :key="activite.id" class="mb-12" />
 
     <h3 class="pb-2 font-bold text-xl mx-6">En fonction de vos habitudes</h3>
     <Carroussel2 v-bind="activite" v-for="activite in filteredActivites2" :key="activite.id" class="mb-12" />

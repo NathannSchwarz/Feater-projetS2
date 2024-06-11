@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import CardsCoach from '@/components/CardsSportHabitude.vue'
-import Carroussel2coach from '@/components/Carroussel-2-coach.vue'
+import Carroussel2 from '@/components/Carroussel-2-coach.vue'
 import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
 import ShieldIcon from '@/components/icons/IconCoachShield.vue'
 import { onMounted, ref, computed } from 'vue';
@@ -37,13 +37,13 @@ onMounted(() => {
         </div>
       </RouterLink>
       <h3 class="pb-2 font-bold text-xl mx-6">Coachs près de chez vous</h3>
-      <Carroussel2coach v-bind="coach" v-for="coach in filteredCoach1" :key="coach.id" class="mb-10"/>
+      <Carroussel2 v-bind="coach" v-for="coach in filteredCoach1" :key="coach.id" class="mb-10"/>
 
 
       <h3 class="pb-2 font-bold text-xl mx-6">En fonction de vos habitudes</h3>
 
       <div class="grid grid-cols-2 gap-6 mb-10 grille">
-        <CardsCoach v-for="coach in filteredCoach1" :key="coach.id"  />
+        <!-- <CardsCoach v-bind="coach" v-for="coach in filteredCoach1" :key="coach.id" /> -->
         <RouterLink to="#" class="col-start-2">
           <div class="flex justify-end ">
             <button class="bg-red-500  p-2 px-3 -mt-2 rounded-2xl text-xs font-bold text-white">Voir plus de Sports</button>
