@@ -52,6 +52,7 @@ export enum ActiviteRyhtmeOptions {
 export type ActiviteRecord = {
 	Adresse?: string
 	Date?: IsoDateString
+	Description?: string
 	Image?: string
 	Niveau?: ActiviteNiveauOptions
 	Nom?: string
@@ -99,6 +100,7 @@ export type CoachRecord = {
 	Description?: string
 	Documents?: string
 	Email?: string
+	Experience?: string
 	Image?: string
 	Nom?: string
 	Numero?: string

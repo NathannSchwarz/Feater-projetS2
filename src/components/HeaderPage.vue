@@ -19,7 +19,7 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 function goBack() {
-  router.go(-1); // Cette ligne permet de revenir à la page précédente
+  router.go(-1); 
 }
 
 
@@ -32,7 +32,7 @@ function goBack() {
     <div :class="{'bg-red-600 z-10': activeMenu, }" class=" flex justify-between items-center w-full border-b border-zinc-200  py-2 p-6">
 
       
-      <template v-if="$route.path === '/Notification' || $route.path ==='/compte/settings' || $route.path ==='/compte/langue' || $route.path ==='/compte/donnéespersonnelles' || $route.path ==='/compte/abonnement' || $route.path ==='/compte/personnesrencontrées' || $route.path ==='/compte/paiement' || $route.path ==='/compte/conditionsgenerales' || $route.path ==='/compte/politiquesconfidentialité' || $route.path ==='/connexion' || $route.path ==='/coaching/recherche' || $route.path ==='/activite/recherche' || $route.path ==='/activite/CreationActivité' || $route.path ==='/activite/CreationGroupe' || $route.path ==='/activite/Groupe' || $route.path ==='/activite/[id]' || $route.path ==='/activite/Filtre'">
+      <template v-if="$route.path === '/Notification' || $route.path ==='/compte/settings' || $route.path ==='/compte/CompteLangue' || $route.path ==='/compte/DP' || $route.path ==='/compte/CompteAbonnement' || $route.path ==='/compte/ComptePersonneRencontré' || $route.path ==='/compte/ComptePaiement' || $route.path ==='/compte/CompteCG' || $route.path ==='/compte/PC' || $route.path ==='/connexion' || $route.path ==='/coaching/recherche' || $route.path ==='/activite/recherche' || $route.path ==='/activite/CreationActivité' || $route.path ==='/activite/CreationGroupe' || $route.path ==='/activite/Groupe' || $route.path ==='/activite/[id]' || $route.path ==='/activite/Filtre' || $route.path ==='/activite/RDV'">
         <button @click="goBack">
           <flecheIcon class="w-10 h-6 my-3" :class="{ 'text-white': activeMenu, 'text-black': !activeMenu }"/>
         </button>
@@ -107,9 +107,9 @@ function goBack() {
             <li class="menu-item ">
                 <RouterLink
                 class="menu-link lg:bg-black lg:text-white lg:px-8"
-                to="/compte/abonnement"
+                to="/compte"
                 @click="closeMenu"
-                >Abonnement</RouterLink
+                >Compte</RouterLink
                 >
             </li>
             </ul>

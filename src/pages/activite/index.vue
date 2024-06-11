@@ -79,7 +79,9 @@ onMounted(() => {
     <h3 class="pb-4 font-bold text-xl">Parcourir par Sport</h3>
 
     <transition-group name="list" tag="div" class="grid grid-cols-2 gap-6">
+
       <CardsActivité v-bind="sport" v-for="sport in displayedSports" :key="sport.id"/>
+      
     </transition-group>
 
     <div class="flex justify-end">

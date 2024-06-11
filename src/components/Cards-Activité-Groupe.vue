@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import ImgPb from '@/components/ImgPb.vue'
+
+
 import type { GroupeResponse } from '@/pocketbase-types'
 const props = defineProps<GroupeResponse<any>>()
 

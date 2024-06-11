@@ -3,13 +3,16 @@ import CardsCoach from '@/components/CardsSportHabitude.vue'
 import Carroussel2coach from '@/components/Carroussel-2-coach.vue'
 import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
 import ShieldIcon from '@/components/icons/IconCoachShield.vue'
-import { coach, coachhabitude } from '@/data' 
-import { onMounted } from 'vue';
+import { onMounted, ref, computed } from 'vue';
 import { RouterLink } from 'vue-router'
 
-const coachsFiltrées = coach.filter(coach => coach.id >= 1 && coach.id <= 3);
-const coachsFiltrées2 = coach.filter(coach => coach.id >= 4 && coach.id <= 6);
-const coachsFiltrées3 = coachhabitude.filter(coach => coach.id >= 1 && coach.id <= 4);
+import type { ActiviteResponse } from '@/pocketbase-types';
+import { allActivite } from '@/backend';
+const coachs = ref<ActiviteResponse<any>[]>([]);
+coachs.value = await allActivite();
+
+const filteredCoach1 = computed(() => coachs.value.slice(0, 3)); // First 3 activities for first carousel
+const filteredCoach2 = computed(() => coachs.value.slice(3, 6)); // Next 3 activities for second carousel
 
 const updateTitle = (newTitle: string) => {
   document.title = newTitle;
@@ -34,7 +37,7 @@ onMounted(() => {
         </div>
       </RouterLink>
       <h3 class="pb-2 font-bold text-xl mx-6">Coachs près de chez vous</h3>
-      <Carroussel2coach :coaches="coachsFiltrées" class="mb-10"/>
+      <Carroussel2coach v-bind="coach" v-for="coach in filteredCoach1" :key="coach.id" class="mb-10"/>
 
 
       <h3 class="pb-2 font-bold text-xl mx-6">En fonction de vos habitudes</h3>
@@ -49,7 +52,7 @@ onMounted(() => {
       </div>
 
       <h3 class="pb-2 font-bold text-xl mx-6">Coachs déjà rencontrés</h3>
-      <Carroussel2coach :coaches="coachsFiltrées2" class="mb-12"/>
+      <Carroussel2 :v-bind="coach" v-for="coach in filteredCoach2" :key="coach.id" class="mb-12"/>
       <RouterLink to="/coaching/DevenirCoach">
         <div class="flex justify-center items-center">
           <button class="flex items-center justify-around p-3 w-4/5 mb-12 bg-red-600 rounded-3xl">

@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import Pocketbase from 'pocketbase'
+import PocketBase from 'pocketbase'
 import LogoIcon from '@/components/icons/Iconlogored.vue'
 import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
 
 let email = ref('')
 let password = ref('')
 let currentuser = ref()
-let pb: Pocketbase | null = null
+let pb: PocketBase | null = null
 
 onMounted(async () => {
-  pb = new Pocketbase('http://127.0.0.1:8090')
+  pb = new PocketBase('http://127.0.0.1:8090');
+
 })
 
 const doLogin = async () => {
@@ -48,7 +49,7 @@ onMounted(() => {
 import { useRouter } from 'vue-router'
 const router = useRouter()
 function goBack() {
-  router.go(-1) // Cette ligne permet de revenir à la page précédente
+  router.go(-1) 
 }
 </script>
 

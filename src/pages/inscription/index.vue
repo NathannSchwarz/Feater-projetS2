@@ -1,147 +1,92 @@
-<script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import PocketBase from 'pocketbase'
-import LogoIcon from '@/components/icons/Iconlogored.vue'
-import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
-import { RouterLink, useRouter } from 'vue-router';
-
-let email = ref('')
-let password = ref('')
-let nom = ref('')
-let prenom = ref('')
-let date_naissance = ref('')
-let telephone = ref('')
-let currentuser = ref()
-let pb: PocketBase | null = null
-
-const router = useRouter();
-
-onMounted(async () => {
-    pb = new PocketBase('http://127.0.0.1:8090')
-
-})
-
-const doLogin = async () => {
-    try {
-        if (pb) {
-            const authData = await pb.collection('users').authWithPassword(email.value, password.value)
-            currentuser.value = pb.authStore.model
-            console.log(currentuser.value)
-            window.location.href = '/inscription/config'
-        } else {
-            console.error('pb is null')
-        }
-    } catch (e) {
-        console.error(e)
-    }
-}
-
-const doRegister = async () => {
-    try {
-        const userData = {
-            "email": email.value,
-            "password": password.value,
-            "passwordConfirm": password.value,
-            "nom": nom.value,
-            "prenom": prenom.value,
-            "date_naissance": date_naissance.value,
-            "telephone": telephone.value,
-            "emailVisibility": true, // Optionnel, selon votre configuration
-            "sports_pref": null, // Assurez-vous d'avoir ce champ dans votre collection si nécessaire
-            "coach": false, // Ajustez en fonction de votre logique
-        }
-        if (pb){
-            const record = await pb.collection('users').create(userData)
-            console.log(record)
-        }
-        
-
-        // Envoyer une demande de vérification d'email (optionnel)
-        // await pb.collection('users').requestVerification(email.value)
-
-        // Optionnel, connecter l'utilisateur après l'enregistrement
-        await doLogin()
-    } catch (e) {
-        console.error(e)
-    }
-}
-
-const updateTitle = (newTitle: string) => {
-    document.title = newTitle;
-};
-
-onMounted(() => {
-    updateTitle('Créer un compte - Feater');
-});
-
-function goBack() {
-    router.go(-1); // Cette ligne permet de revenir à la page précédente
-}
-</script>
-
-
-
-
 <template>
-    <nav class="mx-10">
-        <div class="relative flex items-center mb-5">
-            <RouterLink to="/connexion">
-                <button class="absolute left-0">
-                    <flecheIcon />
-                </button>
-            </RouterLink>
-            <div class="flex-grow flex justify-center">
-                <LogoIcon class="w-24 h-24 mb-5 mt-4" />
-            </div>
+  <div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800">Créer un compte</h2>
+      <form @submit.prevent="register">
+        <div class="mb-4">
+            <label for="username" class="block text-sm font-medium text-gray-700">Nom d'utilisateur</label>
+            <input v-model="form.username" id="username" type="text" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
         </div>
-        <h2 class="font-bold text-3xl pb-10">Inscrivez-Vous à Feater</h2>
-        <div class="flex flex-col">
-            <input
-                class="border rounded-3xl px-8 p-2 mb-5 grow"
-                v-model="nom"
-                type="text"
-                placeholder="Nom"
-            />
-            <input
-                class="border rounded-3xl px-8 p-2 mb-5 grow"
-                v-model="prenom"
-                type="text"
-                placeholder="Prénom"
-            />
-            <input
-                class="border rounded-3xl px-8 p-2 mb-5 grow"
-                v-model="email"
-                type="email"
-                placeholder="Adresse e-mail"
-            />
-            <input
-                class="border rounded-3xl px-8 p-2 mb-5 grow"
-                v-model="date_naissance"
-                type="date"
-                placeholder="Date de naissance"
-            />
-            <input
-                class="border rounded-3xl px-8 p-2 mb-5 grow"
-                v-model="telephone"
-                type="tel"
-                placeholder="Numéro de téléphone"
-            />
-            <input
-                class="border rounded-3xl px-8 p-2 mb-5 grow"
-                v-model="password"
-                type="password"
-                placeholder="Mot de passe"
-            />
-            <button
-                class="flex border border-gray-300 rounded-3xl px-14 p-2 bg-red-600 text-white font-bold text-center justify-center mb-5"
-                @click="doRegister"
-            >
-                Créer un compte
-            </button>
-            <p class="text-sm text-center mb-40">
-                Vous avez déjà un compte ? <RouterLink to="SeConnecter" class="text-red-600">Connectez-vous</RouterLink>
-            </p>
-            <p class="text-xs text-center">© 2023 - 2024 Feater Inc.</p>
+        <div class="mb-4">
+          <label for="Prenom" class="block text-sm font-medium text-gray-700">Prénom</label>
+          <input v-model="form.Prenom" id="Prenom" type="text" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
         </div>
-    </nav>
+        <div class="mb-4">
+          <label for="Nom" class="block text-sm font-medium text-gray-700">Nom</label>
+          <input v-model="form.Nom" id="Nom" type="text" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+          <input v-model="form.email" id="email" type="email" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+        </div>
+        <div class="mb-4">
+          <label for="password" class="block text-sm font-medium text-gray-700">Mot de passe</label>
+          <input v-model="form.password" id="password" type="password" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+        </div>
+        <div class="mb-6">
+          <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirmer le mot de passe</label>
+          <input v-model="form.confirmPassword" id="confirmPassword" type="password" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+        </div>
+        <button type="submit" class="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700">Créer un compte</button>
+        <div v-if="errorMessage" class="mt-4 text-red-500">{{ errorMessage }}</div>
+      </form>
+    </div>
+  </div>
 </template>
+
+<script lang="ts">
+import { defineComponent, reactive, ref } from 'vue';
+import PocketBase from 'pocketbase';
+
+export default defineComponent({
+  name: 'RegisterForm',
+  setup() {
+    const form = reactive({
+      Prenom: '',
+      Nom: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      username: '',
+    });
+    const errorMessage = ref<string | null>(null);
+
+    const pb = new PocketBase('http://127.0.0.1:8090');
+
+    const register = async () => {
+      if (form.password !== form.confirmPassword) {
+        errorMessage.value = "Les mots de passe ne correspondent pas !";
+        return;
+      }
+
+      const data = {
+        "username": form.username, // Si le champ username est nécessaire
+        "email": form.email,
+        "emailVisibility": true,
+        "password": form.password,
+        "passwordConfirm": form.confirmPassword,
+        "Nom": form.Nom,
+        "Prenom": form.Prenom
+        // Ajoutez les autres champs nécessaires ici
+      };
+
+      try {
+        const record = await pb.collection('users').create(data);
+        await pb.collection('users').requestVerification(form.email);
+        alert('Compte créé avec succès !');
+        errorMessage.value = null;
+      } catch (error: any) {
+  console.error(error);
+  if (error.response) {
+    console.error('Response data:', error.response.data);
+    console.error('Response status:', error.response.status);
+    console.error('Response headers:', error.response.headers);
+  }
+        errorMessage.value = error.message || 'Une erreur est survenue lors de la création du compte.';
+      }
+    };
+
+    return { form, register, errorMessage };
+  }
+});
+</script>

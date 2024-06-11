@@ -4,10 +4,10 @@ import Carroussel2 from '@/components/Carroussel-2.vue';
 import { RouterLink } from 'vue-router';
 import { ref, onMounted, computed } from 'vue';
 import Pocketbase from 'pocketbase';
+
+
 import type { ActiviteResponse } from '@/pocketbase-types';
 import { allActivite } from '@/backend';
-
-
 const activites = ref<ActiviteResponse<any>[]>([]);
 activites.value = await allActivite();
 
@@ -30,7 +30,7 @@ const filteredActivites2 = computed(() => activites.value.slice(3, 6)); // Next 
 <template>
   <div>
     <div v-if="currentuser" class="bg-red-600 p-2.5 pt-4 pb-4 rounded-xl mx-6">
-      <h1 class="text-white pb-1">Content de te revoir, {{ currentuser.prenom }}</h1>
+      <h1 class="text-white pb-1">Content de te revoir, {{ currentuser.Prenom }}</h1>
       <p class="text-xs font-normal text-white">Tu as déjà fait la rencontre de <span class="font-bold">1 personnes</span> , continue comme ça, tu es sur la bonne voie !</p>
     </div>
 
@@ -38,7 +38,7 @@ const filteredActivites2 = computed(() => activites.value.slice(3, 6)); // Next 
     <Carrousselchallenge/>
 
     <h3 class="pb-2 font-bold text-xl mx-6">Activités faites pour vous</h3>
-    <Carroussel2 v-bind="activite" v-for="activite in filteredActivites1" :key="activite.id" class="mb-12" />
+    <Carroussel2 v-bind="activite" v-for="activite in filteredActivites2" :key="activite.id" class="mb-12" />
 
     <h3 class="pb-2 font-bold text-xl mx-6">En fonction de vos habitudes</h3>
     <Carroussel2 v-bind="activite" v-for="activite in filteredActivites2" :key="activite.id" class="mb-12" />

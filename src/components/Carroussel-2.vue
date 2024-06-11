@@ -76,10 +76,10 @@ onUnmounted(() => {
             <ImgPb
               :record="activite"
               :filename="activite.Image"
-              class="rounded-3xl w-full h-full object-cover"
+              class="rounded-xl w-full h-full object-cover"
             />
             <div
-              class="absolute bottom-0 w-full h-1/2  text-white bg-red-500 px-5 py-2 rounded-b-3xl "
+              class="absolute bottom-0 w-full h-1/2  text-white bg-red-500 px-5 py-2 rounded-b-xl "
             >
               <h4 class="text-lg font-bold ">{{ activite.Nom }} - </h4>
               <div class="flex justify-between gap-2">

@@ -9,7 +9,7 @@ const props = defineProps<SportResponse<any>>()
 
 <template>
   <nav>
-    <RouterLink to="/activite/Filtre">
+    
       <button class="rounded-3xl">
         <div class="relative">
           <ImgPb :record="props" :filename="Image" class="rounded-3xl w-56 h-32 object-cover" />
@@ -18,6 +18,6 @@ const props = defineProps<SportResponse<any>>()
           </div>
         </div>
       </button>
-    </RouterLink>
+    
   </nav>
 </template>

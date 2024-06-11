@@ -5,7 +5,7 @@ import ShieldIcon from '@/components/icons/IconCoachShield.vue'
 import SettingsIcon from '@/components/icons/Iconsettings.vue'
 import { settings } from '@/data'
 const settingsFiltrées = settings.filter(setting => setting.id >= 1 && setting.id <= 5);
-
+import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
 import { onMounted, watch, ref } from 'vue';
 import Pocketbase from 'pocketbase'
 
@@ -57,14 +57,46 @@ onMounted(async () => {
         
         <div v-if="currentuser" class="flex flex-col items-center ">
             <img class="rounded-full w-32 mb-1 shadow-2xl shadow-red-400" :src="avatarUrl" alt="Course à pied" />
-            <h2 class="text-3xl font-extrabold">{{ currentuser.prenom }} {{ currentuser.nom }}</h2>
+            <h2 class="text-3xl font-extrabold">{{ currentuser.Prenom }} {{ currentuser.Nom }}</h2>
             <p class="text-sm mb-4">Membre ID : {{currentuser.id}}</p>
             <p class="bg-red-600 p-2 rounded-3xl text-sm font-bold text-white w-40 text-center mb-8">Membre Premium</p>
         </div>
         
 
         <div class="border-b border-black mb-10">
-            <Settings :activités="settingsFiltrées" />
+            
+
+            <RouterLink to="/compte/CompteAbonnement">
+                <div class="flex justify-between items-center border-t p-3 px-6 border-black">
+                <h3 class="font-bold">Abonnement</h3>
+                <flecheIcon class="rotate-180"/>
+                </div>
+            </RouterLink>
+            <RouterLink to="/compte/ComptePersonneRencontré">
+                <div class="flex justify-between items-center border-t p-3 px-6 border-black">
+                <h3 class="font-bold">Personnes Rencontrées</h3>
+                <flecheIcon class="rotate-180"/>
+                </div>
+            </RouterLink>
+            <RouterLink to="/compte/ComptePaiement">
+                <div class="flex justify-between items-center border-t p-3 px-6 border-black">
+                <h3 class="font-bold">Paiements</h3>
+                <flecheIcon class="rotate-180"/>
+                </div>
+            </RouterLink>
+            <RouterLink to="/compte/CompteLangue">
+                <div class="flex justify-between items-center border-t p-3 px-6 border-black">
+                <h3 class="font-bold">Langue</h3>
+                <flecheIcon class="rotate-180"/>
+                </div>
+            </RouterLink>
+            
+            <div class="flex justify-between items-center border-t p-3 px-6 border-black">
+            <h3 class="font-bold">Donnez votre avis</h3>
+            <flecheIcon class="rotate-180"/>
+            </div>
+            
+            
         </div>
         
         <div class="flex items-center justify-center">

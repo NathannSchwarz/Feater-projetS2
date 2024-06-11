@@ -28,3 +28,15 @@ export async function allMessage() {
   const records = await pb.collection('users').getFullList()
   return records
 }
+
+
+export async function allCoach() {
+  const records = await pb.collection('Coach').getFullList()
+  return records
+}
+
+
+export async function IDusers(id: string) {
+  const record = await pb.collection('activite').getOne(id)
+  return record
+}
