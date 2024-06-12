@@ -58,6 +58,7 @@ export type ActiviteRecord = {
 	Nom?: string
 	Ryhtme?: ActiviteRyhtmeOptions
 	Sport?: RecordIdString
+	Users?: RecordIdString
 }
 
 export enum CoachSpecialiteOptions {

@@ -65,7 +65,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="carouselRef" id="carousel" class="relative w-full overflow-hidden px-6 ">
+  <div ref="carouselRef" id="carousel" class="relative w-full overflow-hidden px-6 -mt-8">
     <div
       class="flex transition-transform duration-500 ease-in-out"
       :style="{ transform: `translateX(-${currentIndex * 92}%) ` }"
