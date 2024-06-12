@@ -42,7 +42,7 @@ const sports_choisis = ref<string[]>([]);
 const listes_sports = ref<{ id: string, Nom: string }[]>([]);
 
 onMounted(async () => {
-  pb = new PocketBase('http://127.0.0.1:8090');
+  pb = new PocketBase(import.meta.env.VITE_URL_POCKETBASE);
 
   currentuser.value = pb.authStore.isValid ? pb.authStore.model : null;
 
