@@ -170,7 +170,7 @@ onMounted(() => {
         
           <button
             @click="goToActivity(selectedActivity.id)"
-            class=" px-2 py-2 bg-white text-red-600 mt-10 rounded-lg text-sm font-bold"
+            class=" px-2 py-2 bg-white text-red-600 mt-10 rounded-xl text-sm font-bold"
           >
             Ouvrir
           </button>
