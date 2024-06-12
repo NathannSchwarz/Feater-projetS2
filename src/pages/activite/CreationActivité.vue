@@ -51,7 +51,8 @@ const createActivity = async () => {
       Ryhtme: form.value.Ryhtme,
       Sport: form.value.Sport,
       Description: form.value.Description,
-      users: userId.value // Ajout de l'ID de l'utilisateur connecté
+      users: userId.value, // Ajout de l'ID de l'utilisateur connecté
+      Image: form.value.image
     }
 
     console.log('Données envoyées à PocketBase :', data) // Débogage
@@ -214,7 +215,7 @@ const progress = computed(() => {
     </div>
 
     <div v-if="step === 4">
-      <h1 class="font-bold text-3xl mb-5">Félicitations</h1>
+      <h2 class="font-bold text-2xl mb-5">Félicitations</h2>
 
       <p class="pb-3">
         Vous venez de créer une activité, vous serez notifié si quelqu’un souhaite la rejoindre.

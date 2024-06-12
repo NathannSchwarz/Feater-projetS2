@@ -23,7 +23,7 @@ onMounted(async () => {
 
 
 const filteredActivites1 = computed(() => activites.value.slice(0, 3)); // First 3 activities for first carousel
-const filteredActivites2 = computed(() => activites.value.slice(3, 6)); // Next 3 activities for second carousel
+/* const filteredActivites2 = computed(() => activites.value.slice(3, 6)); // Next 3 activities for second carousel */
 
 </script>
 
@@ -41,7 +41,7 @@ const filteredActivites2 = computed(() => activites.value.slice(3, 6)); // Next 
     <Carroussel2 v-bind="activite" v-for="activite in filteredActivites1" :key="activite.id" class="mb-12" />
 
     <h3 class="pb-2 font-bold text-xl mx-6">En fonction de vos habitudes</h3>
-    <Carroussel2 v-bind="activite" v-for="activite in filteredActivites2" :key="activite.id" class="mb-12" />
+    <Carroussel2 v-bind="activite" v-for="activite in filteredActivites1" :key="activite.id" class="mb-12" />
 
     <h3 class="pb-2 font-bold text-xl mx-6">Voici ce qu'on vous propose</h3>
     <nav class="pb-2 mx-6">

@@ -1,17 +1,26 @@
 <script setup lang="ts">
-import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
-import ImgPb from '@/components/ImgPb.vue'
+import flecheIcon from '@/components/icons/Iconflèchemenu.vue';
+import ImgPb from '@/components/ImgPb.vue';
+import { pb } from '@/backend';
+import { IDusers } from '@/backend';
+import { useRoute } from 'vue-router/auto';
+import { ref } from 'vue';
 
-import { IDusers } from '@/backend'
-import { useRoute } from 'vue-router/auto'
-import { ref } from 'vue'
-const route = useRoute('/activite/[id]')
-console.log('id :', route.params.id)
-const activite = ref()
-activite.value = await IDusers(route.params.id)
+const route = useRoute('/activite/[id]');
+console.log('id :', route.params.id);
 
-import type { ActiviteResponse } from '@/pocketbase-types'
-const act: ActiviteResponse<any> = await IDusers(route.params.id)
+const activite = ref<any>();
+const utilisateur = ref<any>();
+
+// Récupérer les données de l'activité
+activite.value = await IDusers(route.params.id);
+
+// Récupérer l'utilisateur associé à l'activité
+
+const userId = activite.value.userId; // Assurez-vous que c'est le bon champ pour l'ID utilisateur
+utilisateur.value = await pb.collection('users').getOne(userId);
+
+
 </script>
 
 <template>
@@ -19,7 +28,7 @@ const act: ActiviteResponse<any> = await IDusers(route.params.id)
     <h1 class="font-bold text-3xl mb-8">{{ activite.Nom }}</h1>
     <h3 class="text-2xl font-bold">{{ activite.Adresse }}</h3>
 
-    <ImgPb :record="act" :filename="activite.Image" alt="" class="w-full rounded-3xl mb-8" />
+    <ImgPb :record="activite" :filename="activite.Image" alt="" class="w-full rounded-3xl mb-8" />
 
     <h3 class="text-2xl font-bold">{{ activite.Adresse }}</h3>
     <p class="mb-8 text-sm font-normal">{{ activite.Description }}</p>
@@ -33,7 +42,7 @@ const act: ActiviteResponse<any> = await IDusers(route.params.id)
         {{ activite.Ryhtme }}
       </li>
       <li class="bg-red-600 text-center text-white p-1.5 px-3 rounded-3xl">
-        {{ activite.Ryhtme }}
+        {{ utilisateur.Personnalite }}
       </li>
     </ul>
 
