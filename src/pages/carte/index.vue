@@ -139,6 +139,8 @@ onMounted(() => {
 </script>
 
 <template>
+
+  <h1 class="font-bold text-3xl mb-5 px-6">Carte</h1>
   <div class="relative w-full h-full">
     <div id="map" class="w-full h-full"></div>
 
@@ -168,7 +170,7 @@ onMounted(() => {
         
           <button
             @click="goToActivity(selectedActivity.id)"
-            class="mt-10 px-2 bg-white text-red-600 rounded-lg text-sm font-bold"
+            class=" px-2 py-2 bg-white text-red-600 mt-10 rounded-lg text-sm font-bold"
           >
             Ouvrir
           </button>

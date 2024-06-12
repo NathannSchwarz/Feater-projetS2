@@ -49,7 +49,6 @@ declare module 'vue-router/auto-routes' {
     '/inscription/': RouteRecordInfo<'/inscription/', '/inscription', Record<never, never>, Record<never, never>>,
     '/inscription/config': RouteRecordInfo<'/inscription/config', '/inscription/config', Record<never, never>, Record<never, never>>,
     '/message/': RouteRecordInfo<'/message/', '/message', Record<never, never>, Record<never, never>>,
-    '/message/message': RouteRecordInfo<'/message/message', '/message/message', Record<never, never>, Record<never, never>>,
     '/Notification/': RouteRecordInfo<'/Notification/', '/Notification', Record<never, never>, Record<never, never>>,
     '/SeConnecter': RouteRecordInfo<'/SeConnecter', '/SeConnecter', Record<never, never>, Record<never, never>>,
   }
