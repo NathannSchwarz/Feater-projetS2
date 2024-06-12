@@ -17,10 +17,11 @@ const act: ActiviteResponse<any> = await IDusers(route.params.id)
 <template>
   <div class="grille">
     <h1 class="font-bold text-3xl mb-8">{{ activite.Nom }}</h1>
+    <h3 class="text-2xl font-bold">{{ activite.Adresse }}</h3>
 
     <ImgPb :record="act" :filename="activite.Image" alt="" class="w-full rounded-3xl mb-8" />
 
-    <h2 class="text-2xl font-bold">{{ activite.Adresse }}</h2>
+    <h3 class="text-2xl font-bold">{{ activite.Adresse }}</h3>
     <p class="mb-8 text-sm font-normal">{{ activite.Description }}</p>
 
     <h2 class="text-2xl font-bold pb-1">Personnalité</h2>

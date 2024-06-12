@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import PocketBase from 'pocketbase'
+import { pb } from '@/backend'
 import { useRouter } from 'vue-router'
 import CardsActivité from '@/components/Cards-Activité.vue'
+import IconCheck from '@/components/icons/IconCheck.vue'
 import { allSport } from '@/backend'
+
+// Récupérer l'ID de l'utilisateur connecté
+const userId = ref(pb.authStore.model?.id)
+console.log('ID de l\'utilisateur connecté :', userId.value) // Débogage
 
 const step = ref(1)
 const form = ref({
@@ -17,21 +22,13 @@ const form = ref({
   image: null // Nouveau champ pour l'image
 })
 
-const pb = new PocketBase('http://127.0.0.1:8090')
 const router = useRouter()
 
 const sports = ref()
 sports.value = await allSport()
 
-const onFileChange = (e: Event) => {
-  const input = e.target as HTMLInputElement
-  if (input.files && input.files[0]) {
-    form.value.image = input.files[0]
-  }
-}
-
 const nextStep = () => {
-  if (step.value < 3) {
+  if (step.value < 4) {
     step.value++
   } else {
     createActivity()
@@ -52,9 +49,12 @@ const createActivity = async () => {
       Date: new Date(form.value.Date).toISOString(),
       Niveau: form.value.Niveau,
       Ryhtme: form.value.Ryhtme,
-      Sport: form.value.Sport, // Assure-toi que cette valeur correspond à un ID valide
-      Description: form.value.Description
+      Sport: form.value.Sport,
+      Description: form.value.Description,
+      users: userId.value // Ajout de l'ID de l'utilisateur connecté
     }
+
+    console.log('Données envoyées à PocketBase :', data) // Débogage
 
     const formData = new FormData()
     for (const key in data) {
@@ -67,17 +67,17 @@ const createActivity = async () => {
     }
 
     const record = await pb.collection('Activite').create(formData)
-    console.log('Activity created successfully:', record)
+    console.log('Activité créée avec succès :', record)
 
-    // Rediriger vers la page activite/RDV
-    router.push('/activite/RDV')
+    // Passer à l'étape suivante pour afficher le message de félicitations
+    step.value = 4
   } catch (error) {
-    console.error('Error creating activity:', error)
+    console.error('Erreur lors de la création de l\'activité :', error)
   }
 }
 
 const progress = computed(() => {
-  return ((step.value - 1) / 2) * 100
+  return ((step.value - 1) / 3) * 100
 })
 </script>
 
@@ -148,14 +148,19 @@ const progress = computed(() => {
           </select>
         </div>
         <div class="mb-4">
-          <label for="Ryhtme" class="block text-sm font-medium text-gray-700">Ryhtme</label>
-          <input
+          <label for="Ryhtme" class="block text-sm font-medium text-gray-700">Rythme</label>
+          <select
             v-model="form.Ryhtme"
             id="Ryhtme"
-            type="text"
             class="mt-1 block w-full border border-gray-300 rounded-xl p-2"
             required
-          />
+          >
+            <option value="" disabled>Choisir un rythme</option>
+            <option value="Cardio">Cardio</option>
+            <option value="Intensif">Intensif</option>
+            <option value="Rythmé">Rythmé</option>
+            <option value="Endurant">Endurant</option>
+          </select>
         </div>
         <div class="mb-4">
           <label for="Description" class="block text-sm font-medium text-gray-700">Description</label>
@@ -170,7 +175,7 @@ const progress = computed(() => {
         <div class="mb-4">
           <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
           <input
-            @change="onFileChange"
+            @change="form.image = $event.target.files[0]"
             id="image"
             type="file"
             class="mt-1 block w-full border border-gray-300 rounded-xl p-2"
@@ -195,7 +200,7 @@ const progress = computed(() => {
       <p class="mb-4"><strong>Adresse:</strong> {{ form.Adresse }}</p>
       <p class="mb-4"><strong>Date:</strong> {{ form.Date }}</p>
       <p class="mb-4"><strong>Niveau:</strong> {{ form.Niveau }}</p>
-      <p class="mb-4"><strong>Ryhtme:</strong> {{ form.Ryhtme }}</p>
+      <p class="mb-4"><strong>Rythme:</strong> {{ form.Ryhtme }}</p>
       <p class="mb-4"><strong>Sport:</strong> {{ form.Sport }}</p>
       <p class="mb-4"><strong>Description:</strong> {{ form.Description }}</p>
       <div class="flex justify-between">
@@ -205,6 +210,20 @@ const progress = computed(() => {
         <button @click="createActivity" class="bg-red-500 text-white py-2 px-4 rounded-3xl">
           Créer l'activité
         </button>
+      </div>
+    </div>
+
+    <div v-if="step === 4">
+      <h1 class="font-bold text-3xl mb-5">Félicitations</h1>
+
+      <p class="pb-3">
+        Vous venez de créer une activité, vous serez notifié si quelqu’un souhaite la rejoindre.
+      </p>
+      <p class="font-bold mb-10"> En attendant restez actif !</p>
+
+      <div class="bg-red-600 rounded-xl py-44 mb-20">  
+          <IconCheck class="w-12 h-12 m-auto mb-5 text-white"/> 
+          <p class="font-bold text-xl text-center text-white">ACTIVITÉ CRÉÉE</p>
       </div>
     </div>
   </div>
