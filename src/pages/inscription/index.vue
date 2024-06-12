@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import PocketBase from 'pocketbase'
 import LogoIcon from '@/components/icons/Iconlogored.vue'
 import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
@@ -76,6 +76,12 @@ const nextStep = async () => {
   }
 }
 
+onMounted(async () => {
+    if (pb.authStore.model) {
+        router.replace('/')
+    }
+})
+
 const prevStep = () => {
   if (step.value > 1) {
     step.value--
@@ -100,7 +106,7 @@ const progress = computed(() => {
       </div>
     </div>
 
-  <div class="max-w-md mx-auto p-6">
+  <div class=" mx-auto w-11/12 p-6">
     <h2 class="font-bold text-3xl mb-6">Créer un compte</h2>
 
     <!-- Barre de progression -->
@@ -175,7 +181,7 @@ const progress = computed(() => {
           />
         </div>
         <div class="mb-4">
-          <label for="Numero" class="block text-sm font-medium text-gray-700">Numéro</label>
+          <label for="Numero" class="block text-sm font-medium text-gray-700">Téléphone</label>
           <input
             v-model="form.Numero"
             id="Numero"

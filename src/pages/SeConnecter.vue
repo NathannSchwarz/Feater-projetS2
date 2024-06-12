@@ -19,7 +19,7 @@ const doLogin = async () => {
     if (pb !== null) {
       const authData = await pb.collection('users').authWithPassword(email.value, password.value)
       currentuser.value = pb.authStore.model
-      window.location.href = '/'
+      router.replace('/')
     }
   } catch (e) {
     console.error(e)
@@ -31,7 +31,7 @@ const doLoginOAuth = async () => {
     if (pb !== null) {
     const authData = await pb.collection('users').authWithOAuth2({ provider: 'google' })
     currentuser.value = pb.authStore.model
-    location.reload()
+     router.replace('/')
     }
   } catch (e) {
     console.error(e)
