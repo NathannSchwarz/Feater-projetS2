@@ -72,7 +72,7 @@
 </template>
 
 <script setup lang="ts">
-import SearchwhiteIcon from '@/components/icons/Iconsearchwhite.vue';
+
 import CardsActivité from '@/components/Cards-Activité.vue';
 import CardsActivitéGroupe from '@/components/Cards-Activité-Groupe.vue';
 import { RouterLink, useRouter } from 'vue-router';

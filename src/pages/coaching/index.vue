@@ -96,6 +96,41 @@ onUnmounted(() => {
     carousel2.removeEventListener('touchend', () => handleTouchEnd(startX2, endX2, currentIndex2, filteredCoach2.value))
   }
 })
+
+
+import CardsActivité from '@/components/Cards-Activité.vue';
+
+import { useRouter } from 'vue-router';
+import { allSport, allGroupe } from '@/backend';
+
+const sports = ref<any[]>([]);
+const groupes = ref<any[]>([]);
+const displayedSports = ref([]);
+const initialCount = 4;
+const incrementCount = 4;
+const router = useRouter();
+
+onMounted(async () => {
+  sports.value = await allSport();
+  groupes.value = await allGroupe();
+  displayedSports.value = sports.value.slice(0, initialCount);
+  updateTitle('Découvrez nos Activités !');
+});
+
+const showMoreSports = () => {
+  const nextCount = displayedSports.value.length + incrementCount;
+  displayedSports.value = sports.value.slice(0, nextCount);
+};
+
+const collapseSports = () => {
+  displayedSports.value = sports.value.slice(0, initialCount);
+};
+
+
+
+const goToSportActivities = (sportId: string) => {
+  router.push({ name: 'SportsActivities', params: { sportId } });
+};
 </script>
 
 <template>
@@ -119,7 +154,7 @@ onUnmounted(() => {
           :style="{ transform: `translateX(-${currentIndex1 * 92}%)` }"
         >
           <div v-for="(coach, index) in filteredCoach1" :key="index" class="w-11/12 h-42 flex-shrink-0 mr-4">
-            <RouterLink :to="`/activite/${coach.id}`">
+            <RouterLink :to="`/coaching/${coach.id}`">
               <div class="relative flex justify-center w-auto h-40">
                 <ImgPb
                   :record="coach"
@@ -138,16 +173,30 @@ onUnmounted(() => {
         </div>
       </div>
 
-      <h3 class="pb-2 font-bold text-xl mx-6">En fonction de vos habitudes</h3>
-      <div class="grid grid-cols-2 gap-6 mb-10 grille">
-        <RouterLink to="#" class="col-start-2">
-          <div class="flex justify-end">
-            <button class="bg-red-500 p-2 px-3 -mt-2 rounded-2xl text-xs font-bold text-white">
-              Voir plus de Sports
-            </button>
-          </div>
-        </RouterLink>
+      <h3 class="pb-2 font-bold text-xl mx-6">Parcourir par Sport</h3>
+      <div class="mx-6">
+        <transition-group name="list" tag="div" class="grid grid-cols-2 gap-6">
+        <div
+          v-for="sport in displayedSports"
+          :key="sport.id"
+          @click="goToSportActivities(sport.id)"
+          class="cursor-pointer"
+        >
+          <CardsActivité v-bind="sport" />
+        </div>
+      </transition-group>
+
+      <div class="flex justify-end">
+        <button v-if="displayedSports.length < sports.length" @click="showMoreSports" class="bg-red-600 flex justify-end p-1 px-3 mt-3 mb-14 rounded-2xl text-sm font-bold text-white">
+          Voir plus de Sports
+        </button>
+        <button v-else @click="collapseSports" class="bg-red-600 flex justify-end p-1 px-3 mt-3 mb-14 rounded-2xl text-sm font-bold text-white">
+          Réduire
+        </button>
       </div>
+
+      </div>
+      
 
       <h3 class="pb-2 font-bold text-xl mx-6">Coachs déjà rencontrés</h3>
       <div ref="carouselRef2" id="carousel2" class="relative w-full overflow-hidden px-6 mb-12">
@@ -156,7 +205,7 @@ onUnmounted(() => {
           :style="{ transform: `translateX(-${currentIndex2 * 92}%)` }"
         >
           <div v-for="(coach, index) in filteredCoach2" :key="index" class="w-11/12 h-42 flex-shrink-0 mr-4">
-            <RouterLink :to="`/activite/${coach.id}`">
+            <RouterLink :to="`/coaching/${coach.id}`">
               <div class="relative flex justify-center w-auto h-40">
                 <ImgPb
                   :record="coach"

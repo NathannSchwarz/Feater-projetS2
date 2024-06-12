@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Carrousselchallenge from '@/components/Carroussel-challenge.vue'
-import Carroussel2 from '@/components/Carroussel-2.vue'
 import { RouterLink } from 'vue-router'
 import { ref, onMounted, computed, onUnmounted, defineProps } from 'vue'
 import Pocketbase from 'pocketbase'
@@ -122,7 +121,7 @@ onUnmounted(() => {
           :style="{ transform: `translateX(-${currentIndex1 * 92}%)` }"
         >
           <div
-            v-for="activite in filteredActivites1"
+            v-for="activite in filteredActivites2"
             :key="activite.id"
             class="w-11/12 h-42 flex-shrink-0 mr-4"
           >
@@ -156,7 +155,7 @@ onUnmounted(() => {
           :style="{ transform: `translateX(-${currentIndex2 * 92}%)` }"
         >
           <div
-            v-for="activite in filteredActivites2"
+            v-for="activite in filteredActivites1"
             :key="activite.id"
             class="w-11/12 h-42 flex-shrink-0 mr-4"
           >

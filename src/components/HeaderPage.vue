@@ -49,7 +49,9 @@ function goBack() {
           $route.path === '/activite/Groupe' ||
           $route.path === '/activite/[id]' ||
           $route.path === '/activite/Filtre' ||
-          $route.path === '/activite/RDV'
+          $route.path === '/activite/RDV' ||
+          $route.path === '/coaching/contact' ||
+          $route.path === '`/coaching/${coach.id}`'
         "
       >
         <button @click="goBack">
