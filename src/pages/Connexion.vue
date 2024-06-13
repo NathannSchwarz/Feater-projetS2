@@ -9,7 +9,7 @@ let currentuser = ref()
 let pb: Pocketbase | null = null
 
 onMounted(async () => {
-    pb = new Pocketbase('http://127.0.0.1:8090')
+    pb = new Pocketbase('https://feater.schwarznathan.fr:443')
 
 })
 

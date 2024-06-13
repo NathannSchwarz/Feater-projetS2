@@ -16,12 +16,12 @@ onMounted(async () => {
   activites.value = allActivities // Ne limitez pas les données ici
   console.log(activites.value)
 
-  pb = new Pocketbase('http://127.0.0.1:8090')
+  pb = new Pocketbase('https://feater.schwarznathan.fr:443')
   currentuser.value = pb.authStore.isValid ? pb.authStore.model : null
 })
 
-const filteredActivites1 = computed(() => activites.value.slice(0, 4)) // First 3 activities for first carousel
-const filteredActivites2 = computed(() => activites.value.slice(4, 9)) // All remaining activities for second carousel
+const filteredActivites1 = computed(() => activites.value.slice(0, 12)) // First 3 activities for first carousel
+const filteredActivites2 = computed(() => activites.value.slice(6, 10)) // All remaining activities for second carousel
 
 import ImgPb from '@/components/ImgPb.vue'
 const props = defineProps<ActiviteResponse<any>>()
@@ -118,7 +118,7 @@ onUnmounted(() => {
       <div ref="carouselRef1" id="carousel1" class="relative w-full overflow-hidden px-6">
         <div
           class="flex transition-transform duration-500 ease-in-out"
-          :style="{ transform: `translateX(-${currentIndex1 * 93}%)` }"
+          :style="{ transform: `translateX(-${currentIndex1 * 94}%)` }"
         >
           <div
             v-for="activite in filteredActivites2"
@@ -152,7 +152,7 @@ onUnmounted(() => {
       <div ref="carouselRef2" id="carousel2" class="relative w-full overflow-hidden px-6">
         <div
           class="flex transition-transform duration-500 ease-in-out"
-          :style="{ transform: `translateX(-${currentIndex2 * 93}%)` }"
+          :style="{ transform: `translateX(-${currentIndex2 * 94}%)` }"
         >
           <div
             v-for="activite in filteredActivites1"
