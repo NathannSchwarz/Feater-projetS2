@@ -2,17 +2,23 @@
 import flecheIcon from '@/components/icons/Iconflèchemenu.vue'
 import ShieldIcon from '@/components/icons/IconCoachShield.vue'
 import ImgPb from '@/components/ImgPb.vue'
-import { onMounted, ref, computed, onUnmounted } from 'vue'
+import { onMounted, ref, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
 
 import type { CoachResponse } from '@/pocketbase-types'
 import { allCoach } from '@/backend'
 
 const coachs = ref<CoachResponse<any>[]>([])
-coachs.value = await allCoach()
+const filteredCoach1 = ref()
+const filteredCoach2 = ref()
 
-const filteredCoach1 = computed(() => coachs.value.slice(0, 3)) // First 3 coaches for first carousel
-const filteredCoach2 = computed(() => coachs.value.slice(3, 6)) // Next 3 coaches for second carousel
+onMounted(async () => {
+  coachs.value = await allCoach()
+  filteredCoach1.value = coachs.value.slice(0, 3) // First 3 coaches for first carousel
+  filteredCoach2.value = coachs.value.slice(3, 6) // Next 3 coaches for second carousel
+})
+
+
 
 const updateTitle = (newTitle: string) => {
   document.title = newTitle
@@ -151,7 +157,7 @@ const goToSportActivities = (sportId: string) => {
       <div ref="carouselRef1" id="carousel1" class="relative w-full overflow-hidden px-6 mb-10">
         <div
           class="flex transition-transform duration-500 ease-in-out"
-          :style="{ transform: `translateX(-${currentIndex1 * 92}%)` }"
+          :style="{ transform: `translateX(-${currentIndex1 * 93}%)` }"
         >
           <div v-for="(coach, index) in filteredCoach1" :key="index" class="w-11/12 h-42 flex-shrink-0 mr-4">
             <RouterLink :to="`/coaching/${coach.id}`">
@@ -162,7 +168,7 @@ const goToSportActivities = (sportId: string) => {
                   class="rounded-xl w-full h-full object-cover"
                 />
                 <div class="absolute bottom-0 w-full h-1/2 text-white bg-red-500 px-5 py-2 rounded-b-xl">
-                  <h4 class="text-lg font-bold">{{ coach.Nom }} - {{ coach.Sport }}</h4>
+                  <h4 class="text-lg font-bold">{{ coach.Prenom }} {{ coach.Nom }} - {{ coach.expand.Sport.Nom }}</h4>
                   <div class="flex justify-between gap-2">
                     <p class="text-xs">Coach depuis <span class="font-semibold">{{ coach.Experience }}</span>.</p>
                   </div>
@@ -202,7 +208,7 @@ const goToSportActivities = (sportId: string) => {
       <div ref="carouselRef2" id="carousel2" class="relative w-full overflow-hidden px-6 mb-12">
         <div
           class="flex transition-transform duration-500 ease-in-out"
-          :style="{ transform: `translateX(-${currentIndex2 * 92}%)` }"
+          :style="{ transform: `translateX(-${currentIndex2 * 93}%)` }"
         >
           <div v-for="(coach, index) in filteredCoach2" :key="index" class="w-11/12 h-42 flex-shrink-0 mr-4">
             <RouterLink :to="`/coaching/${coach.id}`">
@@ -213,7 +219,7 @@ const goToSportActivities = (sportId: string) => {
                   class="rounded-xl w-full h-full object-cover"
                 />
                 <div class="absolute bottom-0 w-full h-1/2 text-white bg-red-500 px-5 py-2 rounded-b-xl">
-                  <h4 class="text-lg font-bold">{{ coach.Nom }} - {{ coach.Sport }}</h4>
+                  <h4 class="text-lg font-bold">{{ coach.Prenom }} {{ coach.Nom }} - {{ coach.expand.Sport.Nom }}</h4>
                   <div class="flex justify-between gap-2">
                     <p class="text-xs">Coach depuis <span class="font-semibold">{{ coach.Experience }}</span>.</p>
                   </div>

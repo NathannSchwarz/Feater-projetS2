@@ -31,7 +31,9 @@ export async function allMessage() {
 
 
 export async function allCoach() {
-  const records = await pb.collection('Coach').getFullList()
+  const records = await pb.collection('Coach').getFullList({
+    expand: 'Sport'
+  })
   return records
 }
 

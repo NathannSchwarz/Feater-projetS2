@@ -56,20 +56,29 @@
 
       <h3 class="pb-4 font-bold text-xl">Parcourir par Groupes</h3>
 
-      <div class="grid grid-cols-2 gap-6">
-        <CardsActivitéGroupe v-bind="groupe" v-for="groupe in groupes" :key="groupe.id"/>
-      </div>
-
-      <RouterLink to="#">
-        <div class="flex justify-end">
-          <button class="bg-red-600 flex justify-end p-1 px-3 mt-3 mb-14 rounded-2xl text-sm font-bold text-white">
-            Voir plus de Groupes
-          </button>
+      <transition-group name="list" tag="div" class="grid grid-cols-2 gap-6">
+        <div
+          v-for="groupe in displayedGroupes"
+          :key="groupe.id"
+          @click="goToGroupActivities(groupe.id)"
+          class="cursor-pointer"
+        >
+          <CardsActivitéGroupe v-bind="groupe"/>
         </div>
-      </RouterLink>
+      </transition-group>
+
+      <div class="flex justify-end">
+        <button v-if="displayedGroupes.length < groupes.length" @click="showMoreGroupes" class="bg-red-600 flex justify-end p-1 px-3 mt-3 mb-14 rounded-2xl text-sm font-bold text-white">
+          Voir plus de Groupes
+        </button>
+        <button v-else @click="collapseGroupes" class="bg-red-600 flex justify-end p-1 px-3 mt-3 mb-14 rounded-2xl text-sm font-bold text-white">
+          Réduire
+        </button>
+      </div>
     </nav>
   </div>
 </template>
+
 
 <script setup lang="ts">
 
@@ -82,6 +91,7 @@ import { allSport, allGroupe } from '@/backend';
 const sports = ref<any[]>([]);
 const groupes = ref<any[]>([]);
 const displayedSports = ref([]);
+const displayedGroupes = ref([]);
 const initialCount = 4;
 const incrementCount = 4;
 const router = useRouter();
@@ -90,6 +100,7 @@ onMounted(async () => {
   sports.value = await allSport();
   groupes.value = await allGroupe();
   displayedSports.value = sports.value.slice(0, initialCount);
+  displayedGroupes.value = groupes.value.slice(0, initialCount);
   updateTitle('Découvrez nos Activités !');
 });
 
@@ -102,6 +113,15 @@ const collapseSports = () => {
   displayedSports.value = sports.value.slice(0, initialCount);
 };
 
+const showMoreGroupes = () => {
+  const nextCount = displayedGroupes.value.length + incrementCount;
+  displayedGroupes.value = groupes.value.slice(0, nextCount);
+};
+
+const collapseGroupes = () => {
+  displayedGroupes.value = groupes.value.slice(0, initialCount);
+};
+
 const updateTitle = (newTitle: string) => {
   document.title = newTitle;
 };
@@ -109,8 +129,9 @@ const updateTitle = (newTitle: string) => {
 const goToSportActivities = (sportId: string) => {
   router.push({ name: 'SportsActivities', params: { sportId } });
 };
+
+const goToGroupActivities = (groupeId: string) => {
+  router.push({ name: 'GroupActivities', params: { groupeId } });
+};
 </script>
 
-<style scoped>
-/* Ajoutez des styles si nécessaire */
-</style>

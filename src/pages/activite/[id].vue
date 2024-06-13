@@ -63,10 +63,12 @@ onMounted(async () => {
 
 <template>
   <div class="grille">
+    
     <template v-if="!showContactForm">
+      <RouterLink to="#" @click.prevent="$router.go(-1)"><flecheIcon class="mb-5"/></RouterLink>
       <h1 class="font-bold text-3xl mb-8">{{ activite?.Nom }}</h1>
       <ImgPb v-if="activite" :record="activite" :filename="activite.Image" alt="" class="w-full rounded-3xl mb-8" />
-      <h3 class="text-2xl font-bold">{{ activite?.Adresse }}</h3>
+      <h3 class="text-xl font-bold">{{ activite?.Adresse }}</h3>
       <p class="mb-8 text-sm font-normal">{{ activite?.Description }}</p>
       <h2 class="text-2xl font-bold pb-1">Rythme</h2>
       <ul class="flex text-xs font-normal items-center justify-start gap-3 mb-8">
@@ -86,13 +88,13 @@ onMounted(async () => {
           <flecheIcon class="h-5 w-10 rotate-180" />
         </div>
       </RouterLink>
-      <button @click="handleContactClick" class="w-5/6 m-auto text-red-600 text-center border-2 border-red-600 rounded-3xl p-4 mb-12">
+      <button @click="handleContactClick" class="w-5/6 mx-auto flex justify-center text-red-600 text-center border-2 border-red-600 rounded-3xl font-bold p-4 mb-12">
         PRENDRE CONTACT
       </button>
     </template>
     
     <template v-else>
-      <button @click="handleBackClick" class="text-red-600 mb-4">&#8592; Retour</button>
+      <button @click="handleBackClick"><flecheIcon class="mb-5"/></button>
       <h1 class="font-bold text-3xl mb-8">{{ activite?.Nom }}</h1>
       <ImgPb v-if="activite" :record="activite" :filename="activite.Image" alt="" class="w-full rounded-3xl mb-8" />
       <div class="max-w-lg mx-auto p-5">

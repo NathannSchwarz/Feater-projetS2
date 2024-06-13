@@ -63,8 +63,11 @@ onMounted(async () => {
 <template>
   <div class="grille">
     <template v-if="!showContactForm">
-      <h1 class="font-bold text-3xl mb-8">{{ coach?.Nom }} {{ coach?.Prenom }}</h1>
+      <h1 class="font-bold text-3xl mb-4">{{ coach?.Nom }} {{ coach?.Prenom }}</h1>
+      <h2 class="text-2xl font-bold pb-1 mb-4">Coach de {{ sport?.Nom }} </h2>
       <ImgPb v-if="coach" :record="coach" :filename="coach.Image" class="h-1/2 rounded-3xl mb-8" />
+      
+      
       <h3 class="text-2xl font-bold">Spécialités</h3>
       <ul class="flex text-xs font-normal items-center justify-start gap-3 mb-8">
         <li
@@ -75,13 +78,10 @@ onMounted(async () => {
           {{ speciality }}
         </li>
       </ul>
-      <h2 class="text-2xl font-bold pb-1">Abonnement</h2>
-      <p class="mb-8 text-sm font-normal">{{ coach?.Abonnement }}</p>
-      <h2 class="text-2xl font-bold pb-1">Sport</h2>
-      <p class="mb-8 text-sm font-normal">{{ sport?.Nom }}</p>
+      
       <h2 class="text-2xl font-bold pb-1">Expérience</h2>
-      <p class="mb-8 text-sm font-normal">{{ coach?.Experience }}</p>
-      <button @click="handleContactClick" class="w-5/6 m-auto text-red-600 text-center border-2 border-red-600 rounded-3xl p-4 mb-12">
+      <p class="mb-8 text-sm font-normal">Coach depuis {{ coach?.Experience }}</p>
+      <button @click="handleContactClick" class="w-5/6 mx-auto flex justify-center text-red-600 text-center border-2 border-red-600 rounded-3xl font-bold p-4 mb-12">
         PRENDRE CONTACT
       </button>
     </template>

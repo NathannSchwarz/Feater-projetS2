@@ -68,8 +68,8 @@ const nextStep = async () => {
       await pb.collection('users').requestVerification(form.value.email)
       console.log('Verification email sent successfully')
 
-      // Rediriger vers la page inscription/config
-      router.push('/inscription/config')
+      // Rediriger vers la page SeConnecter
+      router.push('/SeConnecter')
     } catch (error) {
       console.error('Error creating user:', error)
     }
@@ -77,9 +77,9 @@ const nextStep = async () => {
 }
 
 onMounted(async () => {
-    if (pb.authStore.model) {
-        router.replace('/')
-    }
+  if (pb.authStore.model) {
+    router.replace('/')
+  }
 })
 
 const prevStep = () => {
@@ -93,20 +93,21 @@ const progress = computed(() => {
 })
 </script>
 
+
 <template>
   <div class="relative flex items-center mb-5 mx-10">
-      <RouterLink to="/connexion">
-        <button class="absolute left-0">
-          <flecheIcon />
-        </button>
-      </RouterLink>
+    <RouterLink to="/connexion">
+      <button class="absolute left-0">
+        <flecheIcon />
+      </button>
+    </RouterLink>
 
-      <div class="flex-grow flex justify-center">
-        <LogoIcon class="w-24 h-24  mt-4" />
-      </div>
+    <div class="flex-grow flex justify-center">
+      <LogoIcon class="w-24 h-24 mt-4" />
     </div>
+  </div>
 
-  <div class=" mx-auto w-11/12 p-6">
+  <div class="mx-auto w-11/12 p-6">
     <h2 class="font-bold text-3xl mb-6">Créer un compte</h2>
 
     <!-- Barre de progression -->
@@ -133,7 +134,7 @@ const progress = computed(() => {
             v-model="form.email"
             id="email"
             type="email"
-            class="mt-1 block w-full border  rounded-3xl p-2"
+            class="mt-1 block w-full border rounded-3xl p-2"
             required
           />
         </div>
@@ -143,7 +144,7 @@ const progress = computed(() => {
             v-model="form.password"
             id="password"
             type="password"
-            class="mt-1 block w-full border  rounded-3xl p-2"
+            class="mt-1 block w-full border rounded-3xl p-2"
             required
           />
         </div>

@@ -20,8 +20,8 @@ onMounted(async () => {
   currentuser.value = pb.authStore.isValid ? pb.authStore.model : null
 })
 
-const filteredActivites1 = computed(() => activites.value.slice(0, 3)) // First 3 activities for first carousel
-const filteredActivites2 = computed(() => activites.value.slice(3)) // All remaining activities for second carousel
+const filteredActivites1 = computed(() => activites.value.slice(0, 4)) // First 3 activities for first carousel
+const filteredActivites2 = computed(() => activites.value.slice(4, 9)) // All remaining activities for second carousel
 
 import ImgPb from '@/components/ImgPb.vue'
 const props = defineProps<ActiviteResponse<any>>()
@@ -118,7 +118,7 @@ onUnmounted(() => {
       <div ref="carouselRef1" id="carousel1" class="relative w-full overflow-hidden px-6">
         <div
           class="flex transition-transform duration-500 ease-in-out"
-          :style="{ transform: `translateX(-${currentIndex1 * 92}%)` }"
+          :style="{ transform: `translateX(-${currentIndex1 * 93}%)` }"
         >
           <div
             v-for="activite in filteredActivites2"
@@ -135,7 +135,7 @@ onUnmounted(() => {
                 <div
                   class="absolute bottom-0 w-full h-1/2 text-white bg-red-500 px-5 py-2 rounded-b-xl"
                 >
-                  <h4 class="text-lg font-bold">{{ activite.Nom }} -</h4>
+                  <h4 class="text-lg font-bold">{{ activite.Nom }}</h4>
                   <div class="flex justify-between gap-2">
                     <p class="text-xs">{{ activite.Niveau }} - {{ activite.Adresse }}</p>
                   </div>
@@ -152,7 +152,7 @@ onUnmounted(() => {
       <div ref="carouselRef2" id="carousel2" class="relative w-full overflow-hidden px-6">
         <div
           class="flex transition-transform duration-500 ease-in-out"
-          :style="{ transform: `translateX(-${currentIndex2 * 92}%)` }"
+          :style="{ transform: `translateX(-${currentIndex2 * 93}%)` }"
         >
           <div
             v-for="activite in filteredActivites1"

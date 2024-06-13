@@ -56,7 +56,7 @@ export type ActiviteRecord = {
 	Image?: string
 	Niveau?: ActiviteNiveauOptions
 	Nom?: string
-	Ryhtme?: ActiviteRyhtmeOptions
+	Ryhtme?: ActiviteRyhtmeOptions[]
 	Sport?: RecordIdString
 	Users?: RecordIdString
 }
