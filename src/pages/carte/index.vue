@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router'
 import PocketBase from 'pocketbase'
 import ImgPb from '@/components/ImgPb.vue'
 // Initialiser PocketBase
-const pb = new PocketBase(import.meta.env.VITE_URL_POCKETBASE)
+const pb = new PocketBase('http://127.0.0.1:8090')
 
 const map = ref(null)
 const markers = ref([])

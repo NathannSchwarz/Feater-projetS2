@@ -9,7 +9,7 @@ let currentuser = ref()
 let pb: Pocketbase | null = null
 
 onMounted(async () => {
-    pb = new Pocketbase(import.meta.env.VITE_URL_POCKETBASE)
+    pb = new Pocketbase('http://127.0.0.1:8090')
 
 })
 
