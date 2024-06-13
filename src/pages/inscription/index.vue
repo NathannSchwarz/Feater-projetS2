@@ -69,7 +69,7 @@ const nextStep = async () => {
       console.log('Verification email sent successfully')
 
       // Rediriger vers la page SeConnecter
-      router.push('/SeConnecter')
+      router.push('/inscription/config')
     } catch (error) {
       console.error('Error creating user:', error)
     }

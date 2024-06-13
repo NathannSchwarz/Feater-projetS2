@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <RouterLink to="/">
+    <RouterLink to="/SeConnecter">
       <button class="p-2 mt-10 rounded-3xl w-3/4 m-auto flex justify-center bg-red-600 text-white font-bold" 
         @click="updateProfile(currentuser.value?.id, { sport: sports_choisis.value })">
         Envoyer
